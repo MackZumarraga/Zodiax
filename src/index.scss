@@ -1,0 +1,96 @@
+@import "./styles/reset.scss";
+    
+enemy {
+    border: 5px solid greenyellow;
+    position: fixed;
+    width: 100%;
+    height: 200px;
+    top: 0;
+    right: 0;
+    left: 0;
+    background-color: grey;
+}
+
+container {
+    border: 5px solid greenyellow;
+    position: fixed;
+    width: 100%;
+    height: 200px;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: grey;
+    // z-index: -1;
+}
+
+//Player
+.hp {
+    display: flex;
+    justify-content: center;
+}
+
+.zodiac {
+    display: flex;
+    justify-content: center;
+}
+
+
+.command {
+    display: flex;
+    flex-direction: column;
+    // justify-content: center;
+}
+
+//Enemy
+.enemy_hp {
+    display: flex;
+    justify-content: center;
+}
+
+.enemy_zodiac {
+    display: flex;
+    justify-content: center;
+}
+
+
+.enemy_command {
+    display: flex;
+    flex-direction: column;
+    // justify-content: center;
+}
+
+// .attack {
+//     font-size: large;
+//     position: fixed;
+//     // bottom: 100px;
+//     // left: 250px;
+//     display: flex;
+//     justify-content: space-between;
+//     // z-index: 1;
+// }
+
+// .magic {
+//     font-size: large;
+//     position: fixed;
+//     // bottom: 60px;
+//     // left: 250px;
+//     display: flex;
+//     justify-content: space-between;
+//     // z-index: 1;
+// }
+
+// .heal {
+//     font-size: large;
+//     position: fixed;
+//     // bottom: 60px;
+//     // left: 250px;
+//     display: flex;
+//     justify-content: space-between;
+//     // z-index: 1;
+// }
+
+// .hitenemy {
+//     z-index: 1;
+//     position: fixed;
+//     top: 300px;
+// }
