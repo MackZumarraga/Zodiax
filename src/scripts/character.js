@@ -1,6 +1,7 @@
 class Character {
     constructor(zodiac, attacktag, magictag, healtag, hptag, zodiactag) {
         this.zodiac = zodiac
+        this.zodiacName = zodiac.Zodiac
         this.hp = zodiac.HP
         this.MagicDamage = zodiac.MagicDamage
 
@@ -25,10 +26,17 @@ class Character {
         // this.attacked = this.attacked.bind(this); --used if attacked, magicked, healed are written ES5 version aka these functions' context is the element unless bounded specifically to this or whatever instance of character the function is being called on
     }
 
+    // constructor(zodiac) {
+    //     this.zodiac = zodiac
+    //     this.zodiacName = zodiac.Zodiac
+    //     this.hp = zodiac.HP
+    // }
+
     attacked = () => {
         if (this.hp - 20 <= 0) {
             this.hp = 0
-            alert("You're dead")
+            this.hptag.innerHTML = `HP: ${this.hp}`
+            alert ("you're dead")
         } else {
             this.hp -= 20
             console.log(this.hp)
@@ -41,7 +49,8 @@ class Character {
     magicked = () => {
         if (this.hp - this.MagicDamage <= 0) {
             this.hp = 0
-            alert("You're dead")
+            this.hptag.innerHTML = `HP: ${this.hp}`
+            alert ("you're dead")
         } else {
             this.hp -= this.MagicDamage
             console.log(this.hp)
@@ -65,3 +74,4 @@ class Character {
 }
 
 export default Character;
+// module.exports = Character;

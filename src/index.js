@@ -1,19 +1,10 @@
 // import Test from "./scripts/test";
 import Character from "./scripts/character";
+// const Game = require("./scripts/game");
+import Game from "./scripts/game";
 
 document.addEventListener("DOMContentLoaded", () => {
-    // const h1 = document.querySelector("h1")
-    // const test = new Test(h1)
-    const scorpio = {
-        "Zodiac": "Scorpio",
-        "HP": 100,
-        "MP": 50,
-        "Magic": "Shadow Rage",
-        "MagicDamage": 50,
-        "Vulnerability": "Leo",
-        "Element": "Water"
-      }
-
+    
     const gemini = {
         "Zodiac": "Gemini",
         "HP": 100,
@@ -22,48 +13,26 @@ document.addEventListener("DOMContentLoaded", () => {
         "MagicDamage": 50,
         "Vulnerability": "Pisces",
         "Element": "Air"
-      }
+        }
 
-    //PLAYER  
-    // const attack = document.querySelector(".enemy_attack")
-    // const magic = document.querySelector(".magic")
-    // const heal = document.querySelector(".heal")
-    const attack = document.querySelector(".attack")
-    const magick = document.querySelector(".magic")  
-    const heal = document.querySelector(".heal")
-
-    const hp = document.querySelector(".hp")
-    const zodiactag = document.querySelector(".zodiac")
-    const player = new Character(gemini, attack, magick, heal, hp, zodiactag)
+    //INITIALIZE GAME//
+    const game = new Game(gemini);
+    game.startGame(); //supposed to start battle with chosen characters
+   
     
-    //ENEMY
-    // const e_attack = document.querySelector(".attack")
-    // const e_magic = document.querySelector(".enemy_magic")
-    // const e_heal = document.querySelector(".enemy_heal")
-    const e_attack = document.querySelector(".enemy_attack")
-    const e_magick = document.querySelector(".enemy_magic")
-    const e_heal = document.querySelector(".enemy_heal")
 
-    const e_hp = document.querySelector(".enemy_hp")
-    const e_zodiactag = document.querySelector(".enemy_zodiac")
-    const enemy = new Character(scorpio, e_attack, e_magick, e_heal, e_hp, e_zodiactag)
-    
- 
-    //EVENT LISTENERS
-    attack.addEventListener("click", enemy.attacked)
-    magick.addEventListener("click", enemy.magicked)
-    heal.addEventListener("click", player.healed)
+    //GAMELOOP//
 
-    e_attack.addEventListener("click", player.attacked)
-    e_magick.addEventListener("click", player.magicked)
-    e_heal.addEventListener("click", enemy.healed)
+    // alert("The game has begun")
+    // let currentPlayer = player
+    // alert(`choose an action ${currentPlayer.zodiacName}!`)
+    // while (currentPlayer.hp >= 0) {
+    //     currentPlayer === player ? currentPlayer = enemy : currentPlayer = player
+    // if (currentPlayer.hp <= 0) {
+    //     alert(`game over!`)
+    // }
+    //AI//
 
-    //MAGIC (player to enemy)
-    // const hitenemy = document.querySelector(".hitenemy")
-    // hitenemy.addEventListener("click", enemy.attacked)
-    
-    
- 
 
 
 
@@ -86,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log("reached me")
     console.log(canvas)
     console.log(c)
-    
+
 
 });
 
