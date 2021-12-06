@@ -36,7 +36,7 @@ class Character {
         if (this.hp - 20 <= 0) {
             this.hp = 0
             this.hptag.innerHTML = `HP: ${this.hp}`
-            alert ("you're dead")
+            alert (`${this.zodiacName} is dead`)
         } else {
             this.hp -= 20
             console.log(this.hp)
@@ -50,7 +50,7 @@ class Character {
         if (this.hp - this.MagicDamage <= 0) {
             this.hp = 0
             this.hptag.innerHTML = `HP: ${this.hp}`
-            alert ("you're dead")
+            alert (`${this.zodiacName} is dead`)
         } else {
             this.hp -= this.MagicDamage
             console.log(this.hp)

@@ -1,25 +1,30 @@
 @import "./styles/reset.scss";
+
     
 enemy {
-    border: 5px solid greenyellow;
+    // border: 5px solid rgba(255,255,255,0.5);
     position: fixed;
     width: 100%;
     height: 200px;
     top: 0;
     right: 0;
     left: 0;
-    background-color: grey;
+    // background-color: grey;
+    background: rgb(60, 60, 60);
+    background: rgba(60, 60, 60, 0.4);
 }
 
 container {
-    border: 5px solid greenyellow;
+    // border: 5px solid rgba(255,255,255,0.5);
     position: fixed;
     width: 100%;
     height: 200px;
     bottom: 0;
     right: 0;
     left: 0;
-    background-color: grey;
+    // background-color: grey;
+    background: rgb(60, 60, 60);
+    background: rgba(60, 60, 60, 0.4);
     // z-index: -1;
 }
 
@@ -27,70 +32,98 @@ container {
 .hp {
     display: flex;
     justify-content: center;
+    color: gold;
+    text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 42px #0fa,
+      0 0 82px #0fa,
+      0 0 92px #0fa,
+      0 0 102px #0fa,
+      0 0 151px #0fa;
+    
 }
 
 .zodiac {
     display: flex;
     justify-content: center;
+    color: gold;
+    text-shadow:
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 42px #0fa,
+      0 0 82px #0fa,
+      0 0 92px #0fa,
+      0 0 102px #0fa,
+      0 0 151px #0fa;
+    font-size: large;
+    
 }
 
 
 .command {
     display: flex;
     flex-direction: column;
-    // justify-content: center;
+    color: gold;
+    text-shadow:
+      0 0 21px #fff,
+      0 0 82px #0fa,
+      0 0 92px #0fa,
+      0 0 102px #0fa,
+      0 0 151px #0fa;
+      justify-content: center;
+}
+
+.command > div {
+    margin-left: 70px;
 }
 
 //Enemy
 .enemy_hp {
     display: flex;
     justify-content: center;
+    color: gold;
+    text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 42px #0fa,
+      0 0 82px #0fa,
+      0 0 92px #0fa,
+      0 0 102px #0fa,
+      0 0 151px #0fa;
 }
 
 .enemy_zodiac {
     display: flex;
     justify-content: center;
+    color: gold;
+    text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 42px #0fa,
+      0 0 82px #0fa,
+      0 0 92px #0fa,
+      0 0 102px #0fa,
+      0 0 151px #0fa;
+    font-size: large;
 }
 
 
 .enemy_command {
     display: flex;
     flex-direction: column;
-    // justify-content: center;
+    color: gold;
+    text-shadow:
+      0 0 21px #fff,
+      0 0 82px #0fa,
+      0 0 92px #0fa,
+      0 0 102px #0fa,
+      0 0 151px #0fa;
 }
 
-// .attack {
-//     font-size: large;
-//     position: fixed;
-//     // bottom: 100px;
-//     // left: 250px;
-//     display: flex;
-//     justify-content: space-between;
-//     // z-index: 1;
-// }
-
-// .magic {
-//     font-size: large;
-//     position: fixed;
-//     // bottom: 60px;
-//     // left: 250px;
-//     display: flex;
-//     justify-content: space-between;
-//     // z-index: 1;
-// }
-
-// .heal {
-//     font-size: large;
-//     position: fixed;
-//     // bottom: 60px;
-//     // left: 250px;
-//     display: flex;
-//     justify-content: space-between;
-//     // z-index: 1;
-// }
-
-// .hitenemy {
-//     z-index: 1;
-//     position: fixed;
-//     top: 300px;
-// }
+.enemy_command > div {
+    margin-left: 70px;
+}
