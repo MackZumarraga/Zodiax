@@ -18,10 +18,13 @@ document.addEventListener("DOMContentLoaded", () => {
     ////CANVAS////
     const canvas = document.querySelector("canvas");
 
-    // addEventListener('resize', () => { ---->buggy when implemented
+    canvas.width = innerWidth;
+    canvas.height = innerHeight; 
+
+    addEventListener('resize', () => { //---->buggy when implemented
         canvas.width = innerWidth;
         canvas.height = innerHeight;   
-    // })
+    })
     
     let ctx = canvas.getContext('2d');
     
@@ -33,26 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-    // new GameView(game, ctx).start(); //have a callback that shows restart game?
-   
-    
-
-    //GAMELOOP//
-
-    // alert("The game has begun")
-    // let currentPlayer = player
-    // alert(`choose an action ${currentPlayer.zodiacName}!`)
-    // while (currentPlayer.hp >= 0) {
-    //     currentPlayer === player ? currentPlayer = enemy : currentPlayer = player
-    // if (currentPlayer.hp <= 0) {
-    //     alert(`game over!`)
-    // }
-    //AI//
-
-
-
-
-
+  
 
 
 

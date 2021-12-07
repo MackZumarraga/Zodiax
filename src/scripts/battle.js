@@ -18,20 +18,23 @@ class Battle {
       
         const player = zodiacs[character]
         const generated = zodiacs[Math.floor(Math.random() * 13)]
-        console.log("hello this is battle")
+        // console.log("hello this is battle")
 
 
         this.player = new Character(player)
         this.opponent = new Character(generated)
+        // this.player.hp = 100
+        // this.opponent.hp = 100
         this.ZodiacHPTag = null;
         this.OpponentHPTag = null;
 
         console.log(this.player)
         console.log(this.opponent)
-        console.log(`this is ${this.player.name}`)
-        console.log(`this is ${this.opponent.name}`)
-        console.log(`the hp of current player is ${this.player.hp}`)
-        console.log(`the hp after attacked is ${this.player.hp - 33}`)
+        console.log(`player is ${this.player.name}`)
+        console.log(`opponent is ${this.opponent.name}`)
+        console.log(`the hp of ${this.player.name} is ${this.player.hp}`)
+        console.log(`the hp of ${this.opponent.name} is ${this.player.hp}`)
+        
         
         this.init()
     }
@@ -74,17 +77,17 @@ class Battle {
                 this.ZodiacHPTag.innerHTML = this.player.hp
                 waiting.style = "display: none"
             }
-            console.log(`the current state is ${this.gameState}`)
+            // console.log(`the current state is ${this.gameState}`)
 
             if (this.player.hp === 0) {
                 this.gameOver();
-                console.log(`state after game over is ${this.gameState}`)
+                // console.log(`state after game over is ${this.gameState}`)
             } else if (this.opponent.hp === 0) {
                 this.gameWon();
-                console.log(`state after game won is ${this.gameState}`)
+                // console.log(`state after game won is ${this.gameState}`)
             }
     
-            console.log(`state outside ${this.gameState}`)
+            // console.log(`state outside ${this.gameState}`)
             
         }, 1000);
 
@@ -110,17 +113,17 @@ class Battle {
                 waiting.style = "display: none"
             }
 
-            console.log(`the current state is ${this.gameState}`)
+            // console.log(`the current state is ${this.gameState}`)
 
             if (this.player.hp === 0) {
                 this.gameOver();
-                console.log(`state after game over is ${this.gameState}`)
+                // console.log(`state after game over is ${this.gameState}`)
             } else if (this.opponent.hp === 0) {
                 this.gameWon();
-                console.log(`state after game won is ${this.gameState}`)
+                // console.log(`state after game won is ${this.gameState}`)
             }
     
-            console.log(`state outside ${this.gameState}`)
+            // console.log(`state outside ${this.gameState}`)
 
         }, 1000);
 
@@ -146,17 +149,17 @@ class Battle {
             }
 
 
-            console.log(`the current state is ${this.gameState}`)
+            // console.log(`the current state is ${this.gameState}`)
 
             if (this.player.hp === 0) {
                 this.gameOver();
-                console.log(`state after game over is ${this.gameState}`)
+                // console.log(`state after game over is ${this.gameState}`)
             } else if (this.opponent.hp === 0) {
                 this.gameWon();
-                console.log(`state after game won is ${this.gameState}`)
+                // console.log(`state after game won is ${this.gameState}`)
             }
     
-            console.log(`state outside ${this.gameState}`)
+            // console.log(`state outside ${this.gameState}`)
         }, 1000);
 
     }
@@ -195,18 +198,3 @@ export default Battle;
     
 
 
-//     createArena() {
-//         //pseudo code that creates the battle arena
-//         //displays parties
-//     }
-
-//     inject() {
-//         //inject the dom created to some container
-//     }
-
-
-//
-// }   
-
-// export default Battle;
-// module.exports = Battle;

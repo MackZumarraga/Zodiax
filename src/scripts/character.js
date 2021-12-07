@@ -37,16 +37,17 @@ class Character {
         this.name = zodiac.Zodiac
         this.hp = zodiac.HP
         this.MagicDamage = zodiac.MagicDamage
-        console.log("hello this is character")
+        this.attackDamage = 20
+        // this.randomizer = Math.floor(Math.random() * (max - min) + min)
     }
 
     attacked = () => {
-        if (this.hp - (Math.random() * (20 - 10) + 10) <= 0) {
+        if (this.hp - this.attackDamage <= 0) {
             this.hp = 0
             // this.hptag.innerHTML = `HP: ${this.hp}`
             // alert (`${this.zodiacName} is dead`)
         } else {
-            this.hp -= (Math.random() * (20 - 10) + 10)
+            this.hp -= this.attackDamage
             console.log(this.hp)
             console.log(this)
             // this.hptag.innerHTML = `HP: ${this.hp}`

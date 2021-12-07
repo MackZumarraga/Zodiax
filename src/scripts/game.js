@@ -3,6 +3,7 @@ import Battle from "./battle"
 
 class Game {
     constructor() {
+        this.init = this.init.bind(this)
  
         this.init();
 
@@ -12,20 +13,57 @@ class Game {
     startGame(character = 0) {
         this.battle = new Battle(character);
 
+        let container = document.querySelector("container")
+        let enemyContainer = document.querySelector("enemy")
+        container.style = "display: block"
+        enemyContainer.style = "display: block"
+
+        let command = document.querySelector(".command")
+        command.style = "display: flex"
+
         let selector = document.querySelector(".main")
         selector.style = "display: none"
+        let won = document.querySelector(".won")
+        let lost = document.querySelector(".lost")
+
+        let playerHP = document.querySelector(".hp")
+        let enemyHP = document.querySelector(".enemy_hp")
+        let playerName = document.querySelector(".zodiac")
+        let enemyName = document.querySelector(".enemy_zodiac")
+        playerHP.style = "display: flex"
+        enemyHP.style = "display: flex"
+        playerName.style = "display: flex"
+        enemyName.style = "display: flex"
 
         
         if (this.battle.gameState === 0 || this.battle.gameState === 0) {
-            console.log("game over or won")
-            const restartWon = document.querySelector("won")
-            const restartLost = document.querySelector("lost")
+            
+            const restartWon = document.querySelector(".restart_won")
+            const restartLost = document.querySelector(".restart_lost")
 
             restartWon.addEventListener("click", () => {
+                container.style = "display: none"
+                enemyContainer.style = "display: none"
+                playerHP.style = "display: none"
+                enemyHP.style = "display: none"
+                playerName.style = "display: none"
+                enemyName.style = "display: none"
+                command.style = "display: none"
+                won.style = "display: none"
+                selector.style = "display: block"
                 this.init();
             })
 
             restartLost.addEventListener("click", () => {
+                container.style = "display: none"
+                enemyContainer.style = "display: none"
+                playerHP.style = "display: none"
+                enemyHP.style = "display: none"
+                playerName.style = "display: none"
+                enemyName.style = "display: none"
+                command.style = "display: none"
+                lost.style = "display: none"
+                selector.style = "display: block"
                 this.init();
             })
         }

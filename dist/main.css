@@ -56,6 +56,7 @@ table {
 }
 
 enemy {
+  display: none;
   position: fixed;
   width: 100%;
   height: 200px;
@@ -67,6 +68,7 @@ enemy {
 }
 
 container {
+  display: none;
   position: fixed;
   width: 100%;
   height: 200px;
@@ -78,6 +80,7 @@ container {
 }
 
 .hp {
+  display: none;
   display: flex;
   justify-content: center;
   color: gold;
@@ -85,6 +88,7 @@ container {
 }
 
 .zodiac {
+  display: none;
   display: flex;
   justify-content: center;
   color: gold;
@@ -93,7 +97,7 @@ container {
 }
 
 .command {
-  display: flex;
+  display: none;
   flex-direction: column;
   color: whitesmoke;
   text-shadow: 0 0 21px #fff, 0 0 82px #0fa, 0 0 92px #0fa, 0 0 102px #0fa, 0 0 151px #0fa;
@@ -105,6 +109,7 @@ container {
 }
 
 .enemy_hp {
+  display: none;
   display: flex;
   justify-content: center;
   color: gold;
@@ -112,6 +117,7 @@ container {
 }
 
 .enemy_zodiac {
+  display: none;
   display: flex;
   justify-content: center;
   color: gold;
@@ -150,7 +156,7 @@ container {
   text-shadow: 0 0 21px #fff;
 }
 
-.lost > .restart {
+.lost > .restart_lost {
   display: flex;
   margin-top: 10px;
   justify-content: center;
@@ -179,7 +185,7 @@ container {
   text-shadow: 0 0 21px #fff;
 }
 
-.won > .restart {
+.won > .restart_won {
   display: flex;
   margin-top: 10px;
   justify-content: center;
