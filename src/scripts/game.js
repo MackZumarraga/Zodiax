@@ -3,8 +3,9 @@ import Battle from "./battle"
 
 class Game {
     constructor() {
+        this.battle = null;
         this.init = this.init.bind(this)
- 
+        this.turnsCounter = 0;
         this.init();
 
     }
@@ -36,37 +37,43 @@ class Game {
         enemyName.style = "display: flex"
 
         
-        if (this.battle.gameState === 0 || this.battle.gameState === 0) {
+        // if (this.battle.gameState === 0 || this.battle.gameState === 0) {
             
-            const restartWon = document.querySelector(".restart_won")
-            const restartLost = document.querySelector(".restart_lost")
+        const restartWon = document.querySelector(".restart_won")
+        const restartLost = document.querySelector(".restart_lost")
 
-            restartWon.addEventListener("click", () => {
-                container.style = "display: none"
-                enemyContainer.style = "display: none"
-                playerHP.style = "display: none"
-                enemyHP.style = "display: none"
-                playerName.style = "display: none"
-                enemyName.style = "display: none"
-                command.style = "display: none"
-                won.style = "display: none"
-                selector.style = "display: block"
-                this.init();
-            })
+        restartWon.addEventListener("click", () => {
+            container.style = "display: none"
+            enemyContainer.style = "display: none"
+            playerHP.style = "display: none"
+            enemyHP.style = "display: none"
+            playerName.style = "display: none"
+            enemyName.style = "display: none"
+            command.style = "display: none"
+            won.style = "display: none"
+            selector.style = "display: block"
 
-            restartLost.addEventListener("click", () => {
-                container.style = "display: none"
-                enemyContainer.style = "display: none"
-                playerHP.style = "display: none"
-                enemyHP.style = "display: none"
-                playerName.style = "display: none"
-                enemyName.style = "display: none"
-                command.style = "display: none"
-                lost.style = "display: none"
-                selector.style = "display: block"
-                this.init();
-            })
-        }
+            this.turnsCounter += 1
+
+            this.battle.resetBattle();
+        })
+
+        restartLost.addEventListener("click", () => {
+            container.style = "display: none"
+            enemyContainer.style = "display: none"
+            playerHP.style = "display: none"
+            enemyHP.style = "display: none"
+            playerName.style = "display: none"
+            enemyName.style = "display: none"
+            command.style = "display: none"
+            lost.style = "display: none"
+            selector.style = "display: block"
+
+            this.turnsCounter += 1
+
+            this.battle.resetBattle();
+        })
+        // }
         
     }
 
@@ -74,73 +81,133 @@ class Game {
         const aries = document.getElementById('0')
         aries.addEventListener("click", () => {
             let ariesId = 0;
-            this.startGame(ariesId);
+            if (this.turnsCounter === 0) {
+                this.startGame(ariesId);
+            } else {
+                console.log(`this is battle ${this.turnsCounter + 1}`)
+                this.battle.resetBattle(ariesId);
+            }
         })
 
         const taurus = document.getElementById('1')
         taurus.addEventListener("click", () => {
             let taurusId = 1;
-            this.startGame(taurusId);
+            if (this.turnsCounter === 0) {
+                this.startGame(taurusId);
+            } else {
+                console.log(`this is battle ${this.turnsCounter + 1}`)
+                this.battle.resetBattle(taurusId);
+            }
         })
 
         const gemini = document.getElementById('2')
         gemini.addEventListener("click", () => {
             let geminiId = 2;
-            this.startGame(geminiId);
+            if (this.turnsCounter === 0) {
+                this.startGame(geminiId);
+            } else {
+                console.log(`this is battle ${this.turnsCounter + 1}`)
+                this.battle.resetBattle(geminiId);
+            }
         })
 
         const cancer = document.getElementById('3')
         cancer.addEventListener("click", () => {
             let cancerId = 3;
-            this.startGame(cancerId);
+            if (this.turnsCounter === 0) {
+                this.startGame(cancerId);
+            } else {
+                console.log(`this is battle ${this.turnsCounter + 1}`)
+                this.battle.resetBattle(cancerId);
+            }
         })
 
         const leo = document.getElementById('4')
         leo.addEventListener("click", () => {
             let leoId = 4;
-            this.startGame(leoId);
+            if (this.turnsCounter === 0) {
+                this.startGame(leoId);
+            } else {
+                console.log(`this is battle ${this.turnsCounter + 1}`)
+                this.battle.resetBattle(leoId);
+            }
         })
 
         const virgo = document.getElementById('5')
         virgo.addEventListener("click", () => {
             let virgoId = 5;
-            this.startGame(virgoId);
+            if (this.turnsCounter === 0) {
+                this.startGame(virgoId);
+            } else {
+                console.log(`this is battle ${this.turnsCounter + 1}`)
+                this.battle.resetBattle(virgoId);
+            }
         })
 
         const libra = document.getElementById('6')
         libra.addEventListener("click", () => {
             let libraId = 6;
-            this.startGame(libraId);
+            if (this.turnsCounter === 0) {
+                this.startGame(libraId);
+            } else {
+                console.log(`this is battle ${this.turnsCounter + 1}`)
+                this.battle.resetBattle(libraId);
+            }
         })
 
         const scorpio = document.getElementById('7')
         scorpio.addEventListener("click", () => {
             let scorpioId = 7;
-            this.startGame(scorpioId);
+            if (this.turnsCounter === 0) {
+                this.startGame(scorpioId);
+            } else {
+                console.log(`this is battle ${this.turnsCounter + 1}`)
+                this.battle.resetBattle(scorpioId);
+            }
         })
 
         const sagittarius = document.getElementById('8')
         sagittarius.addEventListener("click", () => {
             let sagittariusId = 8;
-            this.startGame(sagittariusId);
+            if (this.turnsCounter === 0) {
+                this.startGame(sagittariusId);
+            } else {
+                console.log(`this is battle ${this.turnsCounter + 1}`)
+                this.battle.resetBattle(sagittariusId);
+            }
         })
 
         const capricorn = document.getElementById('9')
         capricorn.addEventListener("click", () => {
             let capricornId = 9;
-            this.startGame(capricornId);
+            if (this.turnsCounter === 0) {
+                this.startGame(capricornId);
+            } else {
+                console.log(`this is battle ${this.turnsCounter + 1}`)
+                this.battle.resetBattle(capricornId);
+            }
         })
         
         const aquarius = document.getElementById('10')
         aquarius.addEventListener("click", () => {
             let aquariusId = 10;
-            this.startGame(aquariusId);
+            if (this.turnsCounter === 0) {
+                this.startGame(aquariusId);
+            } else {
+                console.log(`this is battle ${this.turnsCounter + 1}`)
+                this.battle.resetBattle(aquariusId);
+            }
         })
 
         const pisces = document.getElementById('11')
         pisces.addEventListener("click", () => {
             let piscesId = 11;
-            this.startGame(piscesId);
+            if (this.turnsCounter === 0) {
+                this.startGame(piscesId);
+            } else {
+                console.log(`this is battle ${this.turnsCounter + 1}`)
+                this.battle.resetBattle(piscesId);
+            }
         })
     }
 

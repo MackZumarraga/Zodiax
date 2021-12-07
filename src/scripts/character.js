@@ -35,13 +35,17 @@ class Character {
     constructor(zodiac) {
         this.zodiac = zodiac
         this.name = zodiac.Zodiac
-        this.hp = zodiac.HP
-        this.MagicDamage = zodiac.MagicDamage
+
+        // const zodiacHP = zodiac.HP
+        this.hp = 100
+        this.MagicDamage = 50
         this.attackDamage = 20
         // this.randomizer = Math.floor(Math.random() * (max - min) + min)
+        debugger
     }
 
     attacked = () => {
+        debugger
         if (this.hp - this.attackDamage <= 0) {
             this.hp = 0
             // this.hptag.innerHTML = `HP: ${this.hp}`
@@ -56,6 +60,7 @@ class Character {
 
 
     magicked = () => {
+        debugger
         if (this.hp - this.MagicDamage <= 0) {
             this.hp = 0
             // this.hptag.innerHTML = `HP: ${this.hp}`
@@ -70,6 +75,7 @@ class Character {
 
 
     healed = () => {
+        debugger
         if (this.hp + 20 > 100) {
             this.hp = 100
         } else {
