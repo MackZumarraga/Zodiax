@@ -1,61 +1,35 @@
-/* 
- //initialize game
- //use sync await?
- //use on complete and resolve?
- //use that resolve?
-*/
-// const Battle = require("./battle");
 import Battle from "./battle"
-// const Character = require("./character.js");
-// import Character from "./character";
 
-// let zodiacs = require('./zodiacs').zodiacs
-// console.log(zodiacs)
-// console.log(zodiacs[0])
-
-// const gemini = {
-//     "Zodiac": "Gemini",
-//     "HP": 100,
-//     "MP": 50,
-//     "Magic": "Nether Storm",
-//     "MagicDamage": 50,
-//     "Vulnerability": "Pisces",
-//     "Element": "Air"
-//     }
-
-// const scorpio = {
-//     "Zodiac": "Scorpio",
-//     "HP": 100,
-//     "MP": 50,
-//     "Magic": "Shadow Rage",
-//     "MagicDamage": 50,
-//     "Vulnerability": "Leo",
-//     "Element": "Water"
-//     }
-// const chosen = zodiacs[Math.floor(Math.random() * 13)]
-// const generated = zodiacs[Math.floor(Math.random() * 13)]
 
 class Game {
     constructor() {
-        // this.currentPlayer = chosen
-        // console.log(`the current player is ${this.currentPlayer.Zodiac}`)
-
-        // this.opponent = generated
-        // console.log(`the enemy is ${this.opponent.Zodiac}`)
-        // this.battle = new Battle()
-        // console.log("hello this is game")
+ 
         this.init();
+
     }
 
-    gameOver() {
-        
-    }
 
     startGame(character = 0) {
         this.battle = new Battle(character);
 
         let selector = document.querySelector(".main")
         selector.style = "display: none"
+
+        
+        if (this.battle.gameState === 0 || this.battle.gameState === 0) {
+            console.log("game over or won")
+            const restartWon = document.querySelector("won")
+            const restartLost = document.querySelector("lost")
+
+            restartWon.addEventListener("click", () => {
+                this.init();
+            })
+
+            restartLost.addEventListener("click", () => {
+                this.init();
+            })
+        }
+        
     }
 
     init() {
@@ -133,6 +107,7 @@ class Game {
     }
 
 }
+    
 
 // module.exports = Game;
 export default Game;

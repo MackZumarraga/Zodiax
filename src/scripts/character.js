@@ -41,12 +41,12 @@ class Character {
     }
 
     attacked = () => {
-        if (this.hp - 20 <= 0) {
+        if (this.hp - (Math.random() * (20 - 10) + 10) <= 0) {
             this.hp = 0
             // this.hptag.innerHTML = `HP: ${this.hp}`
             // alert (`${this.zodiacName} is dead`)
         } else {
-            this.hp -= 20
+            this.hp -= (Math.random() * (20 - 10) + 10)
             console.log(this.hp)
             console.log(this)
             // this.hptag.innerHTML = `HP: ${this.hp}`

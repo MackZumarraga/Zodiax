@@ -15,15 +15,7 @@ class Battle {
             })
         }
 
-        // const aries = document.getElementById("0")
-        // let selectedZodiac;
-
-        // aries.addEventListener("click", () => {
-        //     selectedZodiac = 0
-        // })
-        
-
-        // const player = zodiacs[selectedZodiac]
+      
         const player = zodiacs[character]
         const generated = zodiacs[Math.floor(Math.random() * 13)]
         console.log("hello this is battle")
@@ -174,12 +166,16 @@ class Battle {
         this.gameState += 1;
         const lost = document.querySelector(".lost")
         lost.style = "display: block"
+
+        return true;
     }
 
     gameWon() {
-        this.gameState = 0;
+        this.gameState += 1;
         const won = document.querySelector(".won")
         won.style = "display: block"
+
+       return true;
     }
     // whoIsCurrentPlayer() {
     //     let current = this.currentPlayer

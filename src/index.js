@@ -25,18 +25,14 @@ document.addEventListener("DOMContentLoaded", () => {
     
     let ctx = canvas.getContext('2d');
     
-    // const gemini = {
-    //     "Zodiac": "Gemini",
-    //     "HP": 100,
-    //     "MP": 50,
-    //     "Magic": "Nether Storm",
-    //     "MagicDamage": 50,
-    //     "Vulnerability": "Pisces",
-    //     "Element": "Air"
-    //     }
 
     //INITIALIZE GAME//
     const game = new Game();
+
+
+
+
+
     // new GameView(game, ctx).start(); //have a callback that shows restart game?
    
     
