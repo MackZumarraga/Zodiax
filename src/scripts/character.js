@@ -1,30 +1,30 @@
 class Character {
-    constructor(zodiac, attacktag, magictag, healtag, hptag, zodiactag) {
-        this.zodiac = zodiac
-        this.zodiacName = zodiac.Zodiac
-        this.hp = zodiac.HP
-        this.MagicDamage = zodiac.MagicDamage
+    // constructor(zodiac, attacktag, magictag, healtag, hptag, zodiactag) {
+    //     this.zodiac = zodiac
+    //     this.zodiacName = zodiac.Zodiac
+    //     this.hp = zodiac.HP
+    //     this.MagicDamage = zodiac.MagicDamage
 
-        this.attacktag = attacktag
-        this.attacktag.innerHTML = "Attack"
-        // this.attacktag.addEventListener("click", this.attacked.bind(this))
+    //     this.attacktag = attacktag
+    //     this.attacktag.innerHTML = "Attack"
+    //     // this.attacktag.addEventListener("click", this.attacked.bind(this))
 
-        this.magictag = magictag
-        this.magictag.innerHTML = zodiac.Magic
-        // this.magictag.addEventListener("click", this.magicked.bind(this))
+    //     this.magictag = magictag
+    //     this.magictag.innerHTML = zodiac.Magic
+    //     // this.magictag.addEventListener("click", this.magicked.bind(this))
 
-        this.healtag = healtag
-        this.healtag.innerHTML = "Heal"
-        // this.healtag.addEventListener("click", this.healed.bind(this))
+    //     this.healtag = healtag
+    //     this.healtag.innerHTML = "Heal"
+    //     // this.healtag.addEventListener("click", this.healed.bind(this))
 
-        this.hptag = hptag
-        this.hptag.innerHTML = `HP: ${this.hp}`
+    //     this.hptag = hptag
+    //     this.hptag.innerHTML = `HP: ${this.hp}`
 
-        this.zodiactag = zodiactag
-        this.zodiactag.innerHTML = `Zodiac: ${zodiac.Zodiac}`
+    //     this.zodiactag = zodiactag
+    //     this.zodiactag.innerHTML = `Zodiac: ${zodiac.Zodiac}`
 
-        // this.attacked = this.attacked.bind(this); --used if attacked, magicked, healed are written ES5 version aka these functions' context is the element unless bounded specifically to this or whatever instance of character the function is being called on
-    }
+    //     // this.attacked = this.attacked.bind(this); --used if attacked, magicked, healed are written ES5 version aka these functions' context is the element unless bounded specifically to this or whatever instance of character the function is being called on
+    // }
 
     // constructor(zodiac) {
     //     this.zodiac = zodiac
@@ -32,16 +32,24 @@ class Character {
     //     this.hp = zodiac.HP
     // }
 
+    constructor(zodiac) {
+        this.zodiac = zodiac
+        this.name = zodiac.Zodiac
+        this.hp = zodiac.HP
+        this.MagicDamage = zodiac.MagicDamage
+        console.log("hello this is character")
+    }
+
     attacked = () => {
         if (this.hp - 20 <= 0) {
             this.hp = 0
-            this.hptag.innerHTML = `HP: ${this.hp}`
-            alert (`${this.zodiacName} is dead`)
+            // this.hptag.innerHTML = `HP: ${this.hp}`
+            // alert (`${this.zodiacName} is dead`)
         } else {
             this.hp -= 20
             console.log(this.hp)
             console.log(this)
-            this.hptag.innerHTML = `HP: ${this.hp}`
+            // this.hptag.innerHTML = `HP: ${this.hp}`
         }
     }
 
@@ -49,13 +57,13 @@ class Character {
     magicked = () => {
         if (this.hp - this.MagicDamage <= 0) {
             this.hp = 0
-            this.hptag.innerHTML = `HP: ${this.hp}`
-            alert (`${this.zodiacName} is dead`)
+            // this.hptag.innerHTML = `HP: ${this.hp}`
+            // alert (`${this.zodiacName} is dead`)
         } else {
             this.hp -= this.MagicDamage
             console.log(this.hp)
             console.log(this)
-            this.hptag.innerHTML = `HP: ${this.hp}`
+            // this.hptag.innerHTML = `HP: ${this.hp}`
         }
     }
 
@@ -68,7 +76,7 @@ class Character {
         }
         console.log(this.hp)
         console.log(this)
-        this.hptag.innerHTML = `HP: ${this.hp}`
+        // this.hptag.innerHTML = `HP: ${this.hp}`
     }
 
 }

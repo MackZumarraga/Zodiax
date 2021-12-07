@@ -1,23 +1,43 @@
 // import Test from "./scripts/test";
-import Character from "./scripts/character";
+// import Character from "./scripts/character";
 // const Game = require("./scripts/game");
 import Game from "./scripts/game";
+import GameView from "./scripts/gameView";
 
 document.addEventListener("DOMContentLoaded", () => {
+    // disappear = () => {
+    //     menu.style = "display: none"
+    // }
+
+    // const menu = document.querySelector(".menu")
+    // menu.addEventListener("click", this.disappear)
+
+
     
-    const gemini = {
-        "Zodiac": "Gemini",
-        "HP": 100,
-        "MP": 50,
-        "Magic": "Nether Storm",
-        "MagicDamage": 50,
-        "Vulnerability": "Pisces",
-        "Element": "Air"
-        }
+
+    ////CANVAS////
+    const canvas = document.querySelector("canvas");
+
+    // addEventListener('resize', () => { ---->buggy when implemented
+        canvas.width = innerWidth;
+        canvas.height = innerHeight;   
+    // })
+    
+    let ctx = canvas.getContext('2d');
+    
+    // const gemini = {
+    //     "Zodiac": "Gemini",
+    //     "HP": 100,
+    //     "MP": 50,
+    //     "Magic": "Nether Storm",
+    //     "MagicDamage": 50,
+    //     "Vulnerability": "Pisces",
+    //     "Element": "Air"
+    //     }
 
     //INITIALIZE GAME//
-    const game = new Game(gemini);
-    game.startGame(); //supposed to start battle with chosen characters
+    const game = new Game();
+    // new GameView(game, ctx).start(); //have a callback that shows restart game?
    
     
 
@@ -37,15 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-    ////CANVAS////
-    const canvas = document.querySelector("canvas");
 
-    // addEventListener('resize', () => { ---->buggy when implemented
-        canvas.width = innerWidth;
-        canvas.height = innerHeight;   
-    // })
-    
-    let ctx = canvas.getContext('2d');
 
 
     //Canvas-Players (for player and enemy)//

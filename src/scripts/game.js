@@ -7,213 +7,130 @@
 // const Battle = require("./battle");
 import Battle from "./battle"
 // const Character = require("./character.js");
-import Character from "./character";
+// import Character from "./character";
 
+// let zodiacs = require('./zodiacs').zodiacs
+// console.log(zodiacs)
+// console.log(zodiacs[0])
 
-const gemini = {
-    "Zodiac": "Gemini",
-    "HP": 100,
-    "MP": 50,
-    "Magic": "Nether Storm",
-    "MagicDamage": 50,
-    "Vulnerability": "Pisces",
-    "Element": "Air"
-    }
+// const gemini = {
+//     "Zodiac": "Gemini",
+//     "HP": 100,
+//     "MP": 50,
+//     "Magic": "Nether Storm",
+//     "MagicDamage": 50,
+//     "Vulnerability": "Pisces",
+//     "Element": "Air"
+//     }
 
-const scorpio = {
-    "Zodiac": "Scorpio",
-    "HP": 100,
-    "MP": 50,
-    "Magic": "Shadow Rage",
-    "MagicDamage": 50,
-    "Vulnerability": "Leo",
-    "Element": "Water"
-    }
+// const scorpio = {
+//     "Zodiac": "Scorpio",
+//     "HP": 100,
+//     "MP": 50,
+//     "Magic": "Shadow Rage",
+//     "MagicDamage": 50,
+//     "Vulnerability": "Leo",
+//     "Element": "Water"
+//     }
+// const chosen = zodiacs[Math.floor(Math.random() * 13)]
+// const generated = zodiacs[Math.floor(Math.random() * 13)]
 
 class Game {
     constructor() {
-        this.currentPlayer = gemini
-        console.log(`the current player is ${this.currentPlayer.Zodiac}`)
+        // this.currentPlayer = chosen
+        // console.log(`the current player is ${this.currentPlayer.Zodiac}`)
 
-        this.opponent = scorpio
-        console.log(`the enemy is ${this.opponent.Zodiac}`)
+        // this.opponent = generated
+        // console.log(`the enemy is ${this.opponent.Zodiac}`)
+        // this.battle = new Battle()
+        // console.log("hello this is game")
+        this.init();
     }
 
-    startGame(currentPlayer, opponent) {
-        //starts battle and calls gameLoop
-        alert('this game has begun')
-
-     
-        //PLAYER      
-        const attack = document.querySelector(".attack")
-        const magick = document.querySelector(".magic")  
-        const heal = document.querySelector(".heal")
-
-        const hp = document.querySelector(".hp")
-        const zodiactag = document.querySelector(".zodiac")
-        const player = new Character(gemini, attack, magick, heal, hp, zodiactag)
-        this.player = player;
-        //ENEMY -- delete once AI is done
-        const eAttack = document.querySelector(".enemy_attack")
-        const eMagick = document.querySelector(".enemy_magic")
-        const eHeal = document.querySelector(".enemy_heal")
-
-        const eHp = document.querySelector(".enemy_hp")
-        const eZodiacTag = document.querySelector(".enemy_zodiac")
-        const enemy = new Character(scorpio, eAttack, eMagick, eHeal, eHp, eZodiacTag)
-        this.enemy = enemy;
-
-
-        this.gameLoop(player, enemy);
-    }
-
-    gameLoop(player, enemy) {
-        //selectAction is called and current player makes the move
-        //action is executed
-        //calls gameOver on battle instance
-        //if not over, switchTurn which resets current player and recall start, otherwise end game       
-
- 
-        // player.attacktag.addEventListener("click", enemy.attacked)
-        player.attacktag.addEventListener("click", this.aiResponseAttack)
-        player.magictag.addEventListener("click", this.aiResponseMagick)
-        player.healtag.addEventListener("click", this.aiResponseHeal)
-
-        // player.attacktag.addEventListener("click", this.enemyAttacks(player, enemy))
-        // endTurn.addEventListener("click", this.switchTurn())
-
-        enemy.attacktag.addEventListener("click", player.attacked)
-        enemy.magictag.addEventListener("click", player.magicked)
-        enemy.healtag.addEventListener("click", enemy.healed)
-
-    }
-
-
-    aiResponseAttack = () => {
-        this.enemy.attacked();
-        let waiting = document.createElement("div");
-        waiting.innerHTML = " Waiting..."
-        const zodiactag = document.querySelector(".zodiac")
-        zodiactag.append(waiting)
-        setTimeout(() => {
-            if (this.enemy.hp < 30) {
-                this.player.magicked();
-                waiting.style = "display: none"
-            } else {
-                this.player.attacked();
-                waiting.style = "display: none"
-            }
-        }, 2000);
-
-        if (this.player.hp === 0 || this.enemy.hp === 0) {
-            this.stopGame();
-        }
-    }
-
-    aiResponseMagick = () => {
-        this.enemy.magicked();
-        let waiting = document.createElement("div");
-        waiting.innerHTML = " Waiting..."
-        const zodiactag = document.querySelector(".zodiac")
-        zodiactag.append(waiting)
-        setTimeout(() => {
-            if (this.enemy.hp < 30) {
-                this.player.magicked();
-                waiting.style = "display: none"
-            } else {
-                this.player.attacked();
-                waiting.style = "display: none"
-            }
-        }, 2000);
-    }
-
-    aiResponseHeal = () => {
-        this.player.healed();
-        let waiting = document.createElement("div");
-        waiting.innerHTML = " Waiting..."
-        const zodiactag = document.querySelector(".zodiac")
-        zodiactag.append(waiting)
-        setTimeout(() => {
-            if (this.enemy.hp < 20) {
-                this.player.magicked();
-                waiting.style = "display: none"
-            } else {
-                this.player.attacked();
-                waiting.style = "display: none"
-            }
-        }, 2000);
-    }
-
-    selectAction(player, enemy) {
-        //prompts character to select an action
-        //where queryselectors and event listeners may live?
-        alert(`please select an action`)
-        // //EVENT LISTENERS
-        // player.attacktag.addEventListener("click", enemy.attacked)
-        // player.magictag.addEventListener("click", enemy.magicked)
-        // player.healtag.addEventListener("click", player.healed)
-
-        // enemy.attacktag.addEventListener("click", player.attacked)
-        // enemy.magictag.addEventListener("click", player.magicked)
-        // enemy.healtag.addEventListener("click", enemy.healed)
-
-        // player.hp = 0;
-        
-
-    }
-
-
-
-    switchTurn() {
-        //switches current player after each execution of action
-        // currentPlayer = Battle.player ? Battle.enemy : Battle.player;
-        //needs a catalyst action which will acknowledge which action you want to use and who to use it on
-        console.log('the current players turn is over')
-    }
-
-
-    stopGame() {
-        //called when it's game over
-        alert('This game has been stopped')
+    gameOver() {
         
     }
 
-    //////TESTING////
+    startGame(character = 0) {
+        this.battle = new Battle(character);
 
-    // showPlayerButtons() {
-    //     attack.disabled = false;
-    //     magick.disabled = false;
-    //     heal.disabled = false;
+        let selector = document.querySelector(".main")
+        selector.style = "display: none"
+    }
 
-    // }
+    init() {
+        const aries = document.getElementById('0')
+        aries.addEventListener("click", () => {
+            let ariesId = 0;
+            this.startGame(ariesId);
+        })
 
-    // fight() {
-    //     this.enemyAttacks();
-    //     this.hpChange();
-    //     this.gameOver();
-    // }
+        const taurus = document.getElementById('1')
+        taurus.addEventListener("click", () => {
+            let taurusId = 1;
+            this.startGame(taurusId);
+        })
 
-    // enemyAttacks() {
-    //     console.log(`${enemy.zodiacName} is now attacking you`)
-    //     setTimeout(() => {player.magicked()}, 5000);
-    // }
+        const gemini = document.getElementById('2')
+        gemini.addEventListener("click", () => {
+            let geminiId = 2;
+            this.startGame(geminiId);
+        })
 
-    // hpChange() {
-    //     player.hptag.innerHTML = `HP: ${player.hp}`
-    //     enemy.hptag.innerHTML = `HP: ${enemy.hp}`
-    // }
+        const cancer = document.getElementById('3')
+        cancer.addEventListener("click", () => {
+            let cancerId = 3;
+            this.startGame(cancerId);
+        })
 
-    // gameOver(player) {
-    //     console.log("player", player)
+        const leo = document.getElementById('4')
+        leo.addEventListener("click", () => {
+            let leoId = 4;
+            this.startGame(leoId);
+        })
 
-    //     if (player.hp <= 0) {
-    //         alert('Game Over')
-    //         return true
-    //     } else {
-    //         return false
-    //     }
-    //     // alert('reached game over')
-    // }
+        const virgo = document.getElementById('5')
+        virgo.addEventListener("click", () => {
+            let virgoId = 5;
+            this.startGame(virgoId);
+        })
+
+        const libra = document.getElementById('6')
+        libra.addEventListener("click", () => {
+            let libraId = 6;
+            this.startGame(libraId);
+        })
+
+        const scorpio = document.getElementById('7')
+        scorpio.addEventListener("click", () => {
+            let scorpioId = 7;
+            this.startGame(scorpioId);
+        })
+
+        const sagittarius = document.getElementById('8')
+        sagittarius.addEventListener("click", () => {
+            let sagittariusId = 8;
+            this.startGame(sagittariusId);
+        })
+
+        const capricorn = document.getElementById('9')
+        capricorn.addEventListener("click", () => {
+            let capricornId = 9;
+            this.startGame(capricornId);
+        })
+        
+        const aquarius = document.getElementById('10')
+        aquarius.addEventListener("click", () => {
+            let aquariusId = 10;
+            this.startGame(aquariusId);
+        })
+
+        const pisces = document.getElementById('11')
+        pisces.addEventListener("click", () => {
+            let piscesId = 11;
+            this.startGame(piscesId);
+        })
+    }
 
 }
 
