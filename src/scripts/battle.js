@@ -61,9 +61,10 @@ class Battle {
         this.OpponentHPTag.innerHTML = this.opponent.hp
     }
 
-    resetBattle = () => {
-        // this.player = new Character(zodiacs[zodiacId])
+    resetBattle = (zodiacId = this.character) => {
+        this.character = zodiacId
         this.player = new Character(zodiacs[this.character])
+        // this.player = new Character(zodiacs[this.character])
         this.opponent = new Character(zodiacs[Math.floor(Math.random() * 12)])
         
 

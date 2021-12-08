@@ -31,8 +31,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
     //INITIALIZE GAME//
     const game = new Game();
+    new GameView(game, ctx);
 
+    /*DESIRED LAYOUT
+    const Battle = require("./scripts/battle");
+    const Animation = require("./scripts/animation");
 
+    document.addEventListener("DOMContentLoaded", () => {
+        const canvas = document.querySelector("canvas")
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const c = canvas.getContext('2d');
+        const game = new Battle();
+        new Animation(game, c).start();
+    })
+    */
 
 
 
@@ -225,8 +239,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const y = canvas.height / 1.5
     const player = new Player(x, y, 60, 'green')
     const enemy = new Player(x, (y / 2), 60, 'orange')
+    const random = new Player((x/2), (y /2), 60, 'blue')
 
-
+    
     //Background Animate//
     let radians = 0;
     function animate() {
@@ -246,8 +261,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
         radians += 0.001
 
-        enemy.draw();
-        player.draw();
+        // enemy.draw();
+        // player.draw();
+        // random.draw();
     }
 
     
@@ -261,17 +277,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
- /*DESIRED LAYOUT
- const Battle = require("./scripts/battle");
- const Animation = require("./scripts/animation");
 
- document.addEventListener("DOMContentLoaded", () => {
-    const canvas = document.querySelector("canvas")
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-
-    const c = canvas.getContext('2d');
-    const game = new Battle();
-    new Animation(game, c).start();
- })
- */

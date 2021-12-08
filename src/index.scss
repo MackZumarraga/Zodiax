@@ -1,6 +1,6 @@
 @import "./styles/reset.scss";
 
-    
+
 enemy {
     // border: 5px solid rgba(255,255,255,0.5);
     display: none;
@@ -237,15 +237,14 @@ container {
 .scroll {
     // width: 200px;
     // height: 150px;
+    text-align: center;
     width: 100%;
     height: 100%;
     overflow-y: scroll;
     display: block;
 }
 
-select {
-    -webkit-appearance: none;
-}
+
 
 .scroll::-webkit-scrollbar {
     display: none;
@@ -265,4 +264,7 @@ select {
 }
 
 
-//Canvas//
+.player {
+    color: red;
+    font-size: xx-large;
+}

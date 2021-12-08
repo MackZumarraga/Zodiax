@@ -41,6 +41,7 @@ class Game {
             
         const restartWon = document.querySelector(".restart_won")
         const restartLost = document.querySelector(".restart_lost")
+        const round = document.querySelector(".round")
 
         restartWon.addEventListener("click", () => {
             container.style = "display: none"
@@ -70,12 +71,14 @@ class Game {
             selector.style = "display: block"
             debugger
             this.turnsCounter = 1
+            
+            this.init();
 
-            if (this.turnsCounter === 1) {
-                this.init();
-            } else {
-                this.battle.resetBattle();
-            }
+            // if (this.turnsCounter >= 1) {
+            //     this.init();
+            // } else {
+            //     this.battle.resetBattle();
+            // }
 
         })
         // }
