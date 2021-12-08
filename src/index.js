@@ -261,6 +261,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
         radians += 0.001
 
+        if (game.animation === 1) {
+            enemy.draw();
+            player.draw();
+            
+        } else if (game.animation === 2) {
+            random.draw();
+        }
         // enemy.draw();
         // player.draw();
         // random.draw();

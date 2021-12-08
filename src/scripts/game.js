@@ -7,12 +7,14 @@ class Game {
         this.init = this.init.bind(this)
         this.turnsCounter = 0;
         this.init();
+        this.animation = 0
 
     }
 
 
     startGame(character = 0) {
         this.battle = new Battle(character);
+        this.animation += 1
 
         let container = document.querySelector("container")
         let enemyContainer = document.querySelector("enemy")
@@ -37,7 +39,6 @@ class Game {
         enemyName.style = "display: flex"
 
         
-        // if (this.battle.gameState === 0 || this.battle.gameState === 0) {
             
         const restartWon = document.querySelector(".restart_won")
         const restartLost = document.querySelector(".restart_lost")
@@ -56,6 +57,8 @@ class Game {
 
             this.turnsCounter += 1
 
+            this.animation = 1
+
             this.battle.resetBattle();
         })
 
@@ -72,16 +75,14 @@ class Game {
             debugger
             this.turnsCounter = 1
             
+            this.animation = 0
+
             this.init();
 
-            // if (this.turnsCounter >= 1) {
-            //     this.init();
-            // } else {
-            //     this.battle.resetBattle();
-            // }
+  
 
         })
-        // }
+      
         
     }
 
@@ -95,6 +96,8 @@ class Game {
             } else {
                 console.log(`this is battle ${this.turnsCounter + 1}`)
                 this.battle.resetBattle(ariesId);
+
+                this.animation = 1
             }
         })
 
@@ -106,6 +109,8 @@ class Game {
             } else {
                 console.log(`this is battle ${this.turnsCounter + 1}`)
                 this.battle.resetBattle(taurusId);
+
+                this.animation = 1
             }
         })
 
@@ -117,6 +122,8 @@ class Game {
             } else {
                 console.log(`this is battle ${this.turnsCounter + 1}`)
                 this.battle.resetBattle(geminiId);
+
+                this.animation = 1
             }
         })
 
@@ -128,6 +135,8 @@ class Game {
             } else {
                 console.log(`this is battle ${this.turnsCounter + 1}`)
                 this.battle.resetBattle(cancerId);
+
+                this.animation = 1
             }
         })
 
@@ -139,6 +148,8 @@ class Game {
             } else {
                 console.log(`this is battle ${this.turnsCounter + 1}`)
                 this.battle.resetBattle(leoId);
+
+                this.animation = 1
             }
         })
 
@@ -150,6 +161,8 @@ class Game {
             } else {
                 console.log(`this is battle ${this.turnsCounter + 1}`)
                 this.battle.resetBattle(virgoId);
+
+                this.animation = 1
             }
         })
 
@@ -161,6 +174,8 @@ class Game {
             } else {
                 console.log(`this is battle ${this.turnsCounter + 1}`)
                 this.battle.resetBattle(libraId);
+
+                this.animation = 1
             }
         })
 
@@ -172,6 +187,8 @@ class Game {
             } else {
                 console.log(`this is battle ${this.turnsCounter + 1}`)
                 this.battle.resetBattle(scorpioId);
+
+                this.animation = 1
             }
         })
 
@@ -183,6 +200,8 @@ class Game {
             } else {
                 console.log(`this is battle ${this.turnsCounter + 1}`)
                 this.battle.resetBattle(sagittariusId);
+
+                this.animation = 1
             }
         })
 
@@ -194,6 +213,8 @@ class Game {
             } else {
                 console.log(`this is battle ${this.turnsCounter + 1}`)
                 this.battle.resetBattle(capricornId);
+
+                this.animation = 1
             }
         })
         
@@ -205,6 +226,8 @@ class Game {
             } else {
                 console.log(`this is battle ${this.turnsCounter + 1}`)
                 this.battle.resetBattle(aquariusId);
+
+                this.animation = 1
             }
         })
 
@@ -216,6 +239,8 @@ class Game {
             } else {
                 console.log(`this is battle ${this.turnsCounter + 1}`)
                 this.battle.resetBattle(piscesId);
+
+                this.animation = 1
             }
         })
     }
