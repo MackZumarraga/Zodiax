@@ -68,10 +68,15 @@ class Game {
             command.style = "display: none"
             lost.style = "display: none"
             selector.style = "display: block"
+            debugger
+            this.turnsCounter = 1
 
-            this.turnsCounter += 1
+            if (this.turnsCounter === 1) {
+                this.init();
+            } else {
+                this.battle.resetBattle();
+            }
 
-            this.battle.resetBattle();
         })
         // }
         
@@ -81,6 +86,7 @@ class Game {
         const aries = document.getElementById('0')
         aries.addEventListener("click", () => {
             let ariesId = 0;
+            debugger
             if (this.turnsCounter === 0) {
                 this.startGame(ariesId);
             } else {

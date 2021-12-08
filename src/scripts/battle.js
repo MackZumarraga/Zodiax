@@ -15,7 +15,8 @@ class Battle {
             })
         }
 
-      
+        this.character = character
+
         let player = zodiacs[character]
         let generated = zodiacs[Math.floor(Math.random() * 12)]
         // console.log("hello this is battle")
@@ -62,6 +63,7 @@ class Battle {
 
     resetBattle = () => {
         // this.player = new Character(zodiacs[zodiacId])
+        this.player = new Character(zodiacs[this.character])
         this.opponent = new Character(zodiacs[Math.floor(Math.random() * 12)])
         
 
