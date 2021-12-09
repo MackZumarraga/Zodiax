@@ -56,8 +56,8 @@ class Character {
             // alert (`${this.zodiacName} is dead`)
         } else {
             this.hp -= this.attackDamage
-            console.log(this.hp)
-            console.log(this)
+            // console.log(this.hp)
+            // console.log(this)
             // this.hptag.innerHTML = `HP: ${this.hp}`
         }
     }
@@ -71,8 +71,8 @@ class Character {
             // alert (`${this.zodiacName} is dead`)
         } else {
             this.hp -= this.MagicDamage
-            console.log(this.hp)
-            console.log(this)
+            // console.log(this.hp)
+            // console.log(this)
             // this.hptag.innerHTML = `HP: ${this.hp}`
         }
     }
@@ -85,8 +85,8 @@ class Character {
         } else {
             this.hp += this.healAmount
         }
-        console.log(this.hp)
-        console.log(this)
+        // console.log(this.hp)
+        // console.log(this)
         // this.hptag.innerHTML = `HP: ${this.hp}`
     }
 

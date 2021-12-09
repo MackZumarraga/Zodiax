@@ -29,12 +29,12 @@ class Battle {
         this.ZodiacHPTag = null;
         this.OpponentHPTag = null;
 
-        console.log(this.player)
-        console.log(this.opponent)
-        console.log(`player is ${this.player.name}`)
-        console.log(`opponent is ${this.opponent.name}`)
-        console.log(`the hp of ${this.player.name} is ${this.player.hp}`)
-        console.log(`the hp of ${this.opponent.name} is ${this.player.hp}`)
+        // console.log(this.player)
+        // console.log(this.opponent)
+        // console.log(`player is ${this.player.name}`)
+        // console.log(`opponent is ${this.opponent.name}`)
+        // console.log(`the hp of ${this.player.name} is ${this.player.hp}`)
+        // console.log(`the hp of ${this.opponent.name} is ${this.player.hp}`)
         
         
         this.init()
@@ -134,7 +134,7 @@ class Battle {
 
     aiResponseMagick = () => {
         
-        console.log(this.opponent.hp, this.player.hp)
+        // console.log(this.opponent.hp, this.player.hp)
         this.opponent.magicked();
         this.OpponentHPTag.innerHTML = this.opponent.hp
         let waiting = document.createElement("div");

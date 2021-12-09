@@ -16,7 +16,7 @@ class Player {
         this.zodiacImg = new Image();
         // this.zodiacImgSrc = 'https://cdn.crello.com/api/media/medium/8959251/stock-photo-diamond-aries?token='
         this.zodiacImgSrc = currentPath
-        console.log(`current from player is ${this.zodiacImgSrc}`)
+        // console.log(`current from player is ${this.zodiacImgSrc}`)
     }
 
     draw = (path = this.zodiacImgSrc) => {

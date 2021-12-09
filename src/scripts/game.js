@@ -109,7 +109,7 @@ class Game {
             if (this.turnsCounter === 0) {
                 this.startGame(taurusId);
             } else {
-                console.log(`this is battle ${this.turnsCounter + 1}`)
+                // console.log(`this is battle ${this.turnsCounter + 1}`)
                 this.battle.resetBattle(taurusId);
 
                 this.animation = 1
@@ -122,7 +122,7 @@ class Game {
             if (this.turnsCounter === 0) {
                 this.startGame(geminiId);
             } else {
-                console.log(`this is battle ${this.turnsCounter + 1}`)
+                // console.log(`this is battle ${this.turnsCounter + 1}`)
                 this.battle.resetBattle(geminiId);
 
                 this.animation = 1
@@ -135,7 +135,7 @@ class Game {
             if (this.turnsCounter === 0) {
                 this.startGame(cancerId);
             } else {
-                console.log(`this is battle ${this.turnsCounter + 1}`)
+                // console.log(`this is battle ${this.turnsCounter + 1}`)
                 this.battle.resetBattle(cancerId);
 
                 this.animation = 1
@@ -148,7 +148,7 @@ class Game {
             if (this.turnsCounter === 0) {
                 this.startGame(leoId);
             } else {
-                console.log(`this is battle ${this.turnsCounter + 1}`)
+                // console.log(`this is battle ${this.turnsCounter + 1}`)
                 this.battle.resetBattle(leoId);
 
                 this.animation = 1
@@ -161,7 +161,7 @@ class Game {
             if (this.turnsCounter === 0) {
                 this.startGame(virgoId);
             } else {
-                console.log(`this is battle ${this.turnsCounter + 1}`)
+                // console.log(`this is battle ${this.turnsCounter + 1}`)
                 this.battle.resetBattle(virgoId);
 
                 this.animation = 1
@@ -174,7 +174,7 @@ class Game {
             if (this.turnsCounter === 0) {
                 this.startGame(libraId);
             } else {
-                console.log(`this is battle ${this.turnsCounter + 1}`)
+                // console.log(`this is battle ${this.turnsCounter + 1}`)
                 this.battle.resetBattle(libraId);
 
                 this.animation = 1
@@ -187,7 +187,7 @@ class Game {
             if (this.turnsCounter === 0) {
                 this.startGame(scorpioId);
             } else {
-                console.log(`this is battle ${this.turnsCounter + 1}`)
+                // console.log(`this is battle ${this.turnsCounter + 1}`)
                 this.battle.resetBattle(scorpioId);
 
                 this.animation = 1
@@ -200,7 +200,7 @@ class Game {
             if (this.turnsCounter === 0) {
                 this.startGame(sagittariusId);
             } else {
-                console.log(`this is battle ${this.turnsCounter + 1}`)
+                // console.log(`this is battle ${this.turnsCounter + 1}`)
                 this.battle.resetBattle(sagittariusId);
 
                 this.animation = 1
@@ -213,7 +213,7 @@ class Game {
             if (this.turnsCounter === 0) {
                 this.startGame(capricornId);
             } else {
-                console.log(`this is battle ${this.turnsCounter + 1}`)
+                // console.log(`this is battle ${this.turnsCounter + 1}`)
                 this.battle.resetBattle(capricornId);
 
                 this.animation = 1
@@ -226,7 +226,7 @@ class Game {
             if (this.turnsCounter === 0) {
                 this.startGame(aquariusId);
             } else {
-                console.log(`this is battle ${this.turnsCounter + 1}`)
+                // console.log(`this is battle ${this.turnsCounter + 1}`)
                 this.battle.resetBattle(aquariusId);
 
                 this.animation = 1
@@ -239,7 +239,7 @@ class Game {
             if (this.turnsCounter === 0) {
                 this.startGame(piscesId);
             } else {
-                console.log(`this is battle ${this.turnsCounter + 1}`)
+                // console.log(`this is battle ${this.turnsCounter + 1}`)
                 this.battle.resetBattle(piscesId);
 
                 this.animation = 1

@@ -119,7 +119,7 @@ class GameView {
             this.particles.push(new Particle(x, y, radius, color, this.ctx))
         }
 
-        console.log(this.particles)
+        // console.log(this.particles)
     }
 
  
