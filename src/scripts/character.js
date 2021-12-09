@@ -42,14 +42,14 @@ class Character {
         this.attackDamage = Math.floor(Math.random() * (20 - 5) + 5)
         this.healAmount = Math.floor(Math.random() * (20 - 10) + 10)
         // this.randomizer = Math.floor(Math.random() * (max - min) + min)
-        debugger
+        
 
         //Image
         this.zodiacPath = zodiac.Image
     }
 
     attacked = () => {
-        debugger
+        
         if (this.hp - this.attackDamage <= 0) {
             this.hp = 0
             // this.hptag.innerHTML = `HP: ${this.hp}`
@@ -64,7 +64,7 @@ class Character {
 
 
     magicked = () => {
-        debugger
+        
         if (this.hp - this.MagicDamage <= 0) {
             this.hp = 0
             // this.hptag.innerHTML = `HP: ${this.hp}`
@@ -79,7 +79,7 @@ class Character {
 
 
     healed = () => {
-        debugger
+        
         if (this.hp + this.healAmount > 100) {
             this.hp = 100
         } else {

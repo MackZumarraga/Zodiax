@@ -36,7 +36,7 @@ class Battle {
         console.log(`the hp of ${this.player.name} is ${this.player.hp}`)
         console.log(`the hp of ${this.opponent.name} is ${this.player.hp}`)
         
-        debugger
+        
         this.init()
     }
 
@@ -104,7 +104,7 @@ class Battle {
         const zodiactag = document.querySelector(".zodiac")
         zodiactag.append(waiting)
         // setTimeout(() => {
-            debugger
+            
             if (this.opponent.hp < 30) {
                 this.player.magicked();
                 this.ZodiacHPTag.innerHTML = this.player.hp
@@ -115,7 +115,7 @@ class Battle {
                 waiting.style = "display: none"
             }
             // console.log(`the current state is ${this.gameState}`)
-            debugger
+            
             if (this.player.hp === 0) {
                 this.gameOver();
                 // console.log(`state after game over is ${this.gameState}`)
@@ -133,7 +133,7 @@ class Battle {
 
 
     aiResponseMagick = () => {
-        debugger
+        
         console.log(this.opponent.hp, this.player.hp)
         this.opponent.magicked();
         this.OpponentHPTag.innerHTML = this.opponent.hp
@@ -170,9 +170,9 @@ class Battle {
     }
 
     aiResponseHeal = () => {
-        debugger
+        
         this.player.healed();
-        debugger
+        
         this.ZodiacHPTag.innerHTML = this.player.hp
         let waiting = document.createElement("div");
         waiting.innerHTML = " Waiting..."
@@ -189,7 +189,7 @@ class Battle {
                 waiting.style = "display: none"
             }
 
-            debugger
+            
             // console.log(`the current state is ${this.gameState}`)
 
             if (this.player.hp === 0) {
@@ -209,7 +209,7 @@ class Battle {
     gameOver() {
         this.gameState += 1;
         const lost = document.querySelector(".lost")
-        debugger
+        
         lost.style = "display: block"
 
         return true;

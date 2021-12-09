@@ -73,7 +73,7 @@ class Game {
             command.style = "display: none"
             lost.style = "display: none"
             selector.style = "display: block"
-            debugger
+            
             this.turnsCounter = 1
             
             this.animation = 0
@@ -91,7 +91,7 @@ class Game {
         const aries = document.getElementById('0')
         aries.addEventListener("click", () => {
             let ariesId = 0;
-            debugger
+            
             if (this.turnsCounter === 0) {
                 this.startGame(ariesId);
                 this.animation = 1
