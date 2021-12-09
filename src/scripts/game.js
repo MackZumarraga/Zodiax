@@ -8,6 +8,7 @@ class Game {
         this.turnsCounter = 0;
         this.init();
         this.animation = 0
+        
 
     }
 
@@ -93,6 +94,7 @@ class Game {
             debugger
             if (this.turnsCounter === 0) {
                 this.startGame(ariesId);
+                this.animation = 1
             } else {
                 console.log(`this is battle ${this.turnsCounter + 1}`)
                 this.battle.resetBattle(ariesId);

@@ -1,6 +1,9 @@
 import Particle from "../canvas/particle";
 import Player from "../canvas/player";
 
+let zodiacs = require('./zodiacs').zodiacs
+let zodiacsArr = ["Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo", "Libra", "Scorpio", "Sagittarius", "Capricorn", "Aquarius", "Pisces"]
+
 class GameView {
     constructor(game, canvas, ctx) {
         this.ctx = ctx
@@ -21,8 +24,15 @@ class GameView {
         this.xsize = 500
         this.ysize = 500
 
-        this.player = new Player(this.xplayer, this.yplayer, this.xsize, this.ysize, this.ctx)
-        this.enemy = new Player(this.xenemy, this.yenemy, this.xsize, this.ysize, this.ctx)
+        this.playerPath = null;
+        this.enemyPath = null;
+        
+        this.player = new Player(this.playerPath, this.xplayer, this.yplayer, this.xsize, this.ysize, this.ctx)
+        this.enemy = new Player(this.enemyPath, this.xenemy, this.yenemy, this.xsize, this.ysize, this.ctx)
+        
+        console.log(`player from gameView ${this.player}`)
+        console.log(`enemy from gameView ${this.enemy}`)
+
 
         this.animate = this.animate.bind(this)
     }
@@ -58,9 +68,29 @@ class GameView {
         // const player = new Player(this.x, this.y, this.xsize, this.ysize, this.ctx)
         // const enemy = new Player(this.x, (this.y / 2), this.xsize, this.ysize, this.ctx)
             // debugger
-            console.log(this.player)
-            this.player.draw();
-            this.enemy.draw();            
+
+            // this.player = new Player(this.game.battle.player, this.xplayer, this.yplayer, this.xsize, this.ysize, this.ctx)
+            // this.enemy = new Player(this.game.battle.opponent, this.xenemy, this.yenemy, this.xsize, this.ysize, this.ctx)
+            
+            // let playerPath = this.game.battle.player.zodiacPath
+            // let enemyPath = this.game.battle.opponent.zodiacPath
+
+            // let drawPlayer;
+            // let drawEnemy;
+
+            // drawPlayer = new Player(playerPath, this.xplayer, this.yplayer, this.xsize, this.ysize, this.ctx)
+            // drawEnemy = new Player(enemyPath, this.xenemy, this.yenemy, this.xsize, this.ysize, this.ctx)
+            
+            // this.player = drawPlayer
+            // this.enemy = drawEnemy
+
+            // console.log(drawPlayer)
+            // console.log(drawEnemy)
+            // this.player.update(playerPath);
+            // this.enemy.update(enemyPath);
+            
+            this.player.play();
+            this.enemy.play();
         } 
 
        
@@ -91,6 +121,10 @@ class GameView {
 
         console.log(this.particles)
     }
+
+ 
+
+
 
 }
 

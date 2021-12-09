@@ -43,6 +43,9 @@ class Character {
         this.healAmount = Math.floor(Math.random() * (20 - 10) + 10)
         // this.randomizer = Math.floor(Math.random() * (max - min) + min)
         debugger
+
+        //Image
+        this.zodiacPath = zodiac.Image
     }
 
     attacked = () => {

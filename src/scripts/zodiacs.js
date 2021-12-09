@@ -7,7 +7,7 @@ let zodiacs = [
     "MagicDamage": 50,
     "Vulnerability": "Virgo",
     "Element": "Fire",
-    "Image": "SomeLink"
+    "Image": "src/canvas/zodiac/zodiac-signs-3231771_640.png"
   },
   {
     "Zodiac": "Taurus",
@@ -17,7 +17,7 @@ let zodiacs = [
     "MagicDamage": 50,
     "Vulnerability": "Aries",
     "Element": "Earth",
-    "Image": "SomeLink"
+    "Image": "src/canvas/zodiac/zodiac-signs-3231766_640.png"
   },
   {
     "Zodiac": "Gemini",
@@ -27,7 +27,7 @@ let zodiacs = [
     "MagicDamage": 50,
     "Vulnerability": "Pisces",
     "Element": "Air",
-    "Image": "SomeLink"
+    "Image": "src/canvas/zodiac/zodiac-signs-3231780_640.png"
   },
   {
     "Zodiac": "Cancer",
@@ -37,7 +37,7 @@ let zodiacs = [
     "MagicDamage": 50,
     "Vulnerability": "Aquarius",
     "Element": "Water",
-    "Image": "SomeLink"
+    "Image": "src/canvas/zodiac/zodiac-signs-3231776_640.png"
   },
   {
     "Zodiac": "Leo",
@@ -47,7 +47,7 @@ let zodiacs = [
     "MagicDamage": 50,
     "Vulnerability": "Capricorn",
     "Element": "Fire",
-    "Image": "SomeLink"
+    "Image": "src/canvas/zodiac/zodiac-signs-3231765_640.png"
   },
   {
     "Zodiac": "Virgo",
@@ -57,7 +57,7 @@ let zodiacs = [
     "MagicDamage": 50,
     "Vulnerability": "Gemini",
     "Element": "Earth",
-    "Image": "SomeLink"
+    "Image": "src/canvas/zodiac/zodiac-signs-3231770_640.png"
   },
   {
     "Zodiac": "Libra",
@@ -67,7 +67,7 @@ let zodiacs = [
     "MagicDamage": 50,
     "Vulnerability": "Cancer",
     "Element": "Air",
-    "Image": "SomeLink"
+    "Image": "src/canvas/zodiac/zodiac-signs-3231761_640.png"
   },
   {
     "Zodiac": "Scorpio",
@@ -77,7 +77,7 @@ let zodiacs = [
     "MagicDamage": 50,
     "Vulnerability": "Leo",
     "Element": "Water",
-    "Image": "SomeLink"
+    "Image": "src/canvas/zodiac/zodiac-signs-3231779_640.png"
   },
   {
     "Zodiac": "Sagittarius",
@@ -87,7 +87,7 @@ let zodiacs = [
     "MagicDamage": 50,
     "Vulnerability": "Taurus",
     "Element": "Fire",
-    "Image": "SomeLink"
+    "Image": "src/canvas/zodiac/zodiac-signs-3231754_640.png"
   },
   {
     "Zodiac": "Capricorn",
@@ -97,7 +97,7 @@ let zodiacs = [
     "MagicDamage": 50,
     "Vulnerability": "Sagittarius",
     "Element": "Earth",
-    "Image": "SomeLink"
+    "Image": "src/canvas/zodiac/zodiac-signs-3231763_640.png"
   },
   {
     "Zodiac": "Aquarius",
@@ -107,7 +107,7 @@ let zodiacs = [
     "MagicDamage": 50,
     "Vulnerability": "Scorpio",
     "Element": "Air",
-    "Image": "SomeLink"
+    "Image": "src/canvas/zodiac/zodiac-signs-3231753_640.png"
   },
   {
     "Zodiac": "Pisces",
@@ -117,7 +117,7 @@ let zodiacs = [
     "MagicDamage": 50,
     "Vulnerability": "Libra",
     "Element": "Water",
-    "Image": "SomeLink"
+    "Image": "src/canvas/zodiac/zodiac-signs-3231760_640.png"
   }
  ];
 

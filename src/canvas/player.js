@@ -6,7 +6,7 @@ class Player {
     //     this.color = color
     //     this.ctx = ctx
     // }
-    constructor(x, y, xsize, ysize, ctx) {
+    constructor(currentPath, x, y, xsize, ysize, ctx) {
         this.x = x
         this.y = y
         this.xsize = xsize
@@ -14,10 +14,12 @@ class Player {
         this.ctx = ctx
         this.draw = this.draw.bind(this)
         this.zodiacImg = new Image();
-        this.zodiacImgSrc = 'https://cdn.crello.com/api/media/medium/8959251/stock-photo-diamond-aries?token='
+        // this.zodiacImgSrc = 'https://cdn.crello.com/api/media/medium/8959251/stock-photo-diamond-aries?token='
+        this.zodiacImgSrc = currentPath
+        console.log(`current from player is ${this.zodiacImgSrc}`)
     }
 
-    draw = () => {
+    draw = (path = this.zodiacImgSrc) => {
         // this.ctx.beginPath()
         // this.ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false)
         // this.ctx.fillStyle = this.color
@@ -40,8 +42,12 @@ class Player {
             this.xsize, this.ysize
             );
 
-        this.zodiacImg.src = this.zodiacImgSrc
+        this.zodiacImg.src = path
 
+    }
+
+    update(path) {
+        this.draw(path);
     }
     
 }
