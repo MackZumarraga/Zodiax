@@ -89,8 +89,8 @@ class GameView {
             // this.player.update(playerPath);
             // this.enemy.update(enemyPath);
             
-            this.player.play();
-            this.enemy.play();
+            this.player.draw();
+            this.enemy.draw();
         } 
 
        
