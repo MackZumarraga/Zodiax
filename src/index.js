@@ -31,7 +31,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     //INITIALIZE GAME//
     const game = new Game();
-    new GameView(game, ctx);
+    const view = new GameView(game, canvas, ctx);
+    view.initParticles();
+    view.animate();
 
     /*DESIRED LAYOUT
     const Battle = require("./scripts/battle");
@@ -55,22 +57,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     //Canvas-Players (for player and enemy)//
-    class Player {
-        constructor(x, y, radius, color) {
-            this.x = x
-            this.y = y
-            this.radius = radius
-            this.color = color
-        }
+    // class Player {
+    //     constructor(x, y, radius, color) {
+    //         this.x = x
+    //         this.y = y
+    //         this.radius = radius
+    //         this.color = color
+    //     }
 
-        draw() {
-            ctx.beginPath()
-            ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false)
-            ctx.fillStyle = this.color
-            ctx.fill()
-        }
+    //     draw() {
+    //         ctx.beginPath()
+    //         ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false)
+    //         ctx.fillStyle = this.color
+    //         ctx.fill()
+    //     }
         
-    }
+    // }
 
     // const player = new Player(x, y, 60, 'green')
     // player.draw();
@@ -191,92 +193,92 @@ document.addEventListener("DOMContentLoaded", () => {
     //CANVAS BACKGROUND//
 
     // Background Particle
-    class Particle {
-        constructor(x, y, radius, color) {
-            this.x = x
-            this.y = y
-            this.radius = radius
-            this.color = color
-        }
+    // class Particle {
+    //     constructor(x, y, radius, color) {
+    //         this.x = x
+    //         this.y = y
+    //         this.radius = radius
+    //         this.color = color
+    //     }
 
-        draw() {
-            ctx.beginPath()
-            ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false)
-            ctx.shadowColor = this.color
-            ctx.shadowBlur = 10
-            ctx.fillStyle = this.color
-            ctx.fill()
-            ctx.closePath()
-        }
+    //     draw() {
+    //         ctx.beginPath()
+    //         ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false)
+    //         ctx.shadowColor = this.color
+    //         ctx.shadowBlur = 10
+    //         ctx.fillStyle = this.color
+    //         ctx.fill()
+    //         ctx.closePath()
+    //     }
 
-        update() {
-            this.draw();
-        }
-    }
+    //     update() {
+    //         this.draw();
+    //     }
+    // }
 
-    let particles;
-    let colors = ['#FFFFFF', '#98FB98', '#FFEFD5', '#48D1CC']
+    // let particles;
+    // let colors = ['#FFFFFF', '#98FB98', '#FFEFD5', '#48D1CC']
 
-    function init() {
-        particles = []
+    // function init() {
+    //     particles = []
 
-        for (let i = 0; i < 200; i++) {
-            const canvasWidth = canvas.width + 300
-            const canvasHeight = canvas.height + 300
-            const x = Math.random() * canvasWidth - canvasWidth/2
-            const y = Math.random() * canvasHeight - canvasHeight/2
-            const radius = Math.random() * 2
-            const color = colors[Math.floor(Math.random() * colors.length)]
+    //     for (let i = 0; i < 200; i++) {
+    //         const canvasWidth = canvas.width + 300
+    //         const canvasHeight = canvas.height + 300
+    //         const x = Math.random() * canvasWidth - canvasWidth/2
+    //         const y = Math.random() * canvasHeight - canvasHeight/2
+    //         const radius = Math.random() * 2
+    //         const color = colors[Math.floor(Math.random() * colors.length)]
 
-            particles.push(new Particle(x, y, radius, color))
-        }
+    //         particles.push(new Particle(x, y, radius, color))
+    //     }
 
-        console.log(particles)
-    }
+    //     console.log(particles)
+    // }
 
-      //Canvas-Elements//
-    const x = canvas.width / 2
-    const y = canvas.height / 1.5
-    const player = new Player(x, y, 60, 'green')
-    const enemy = new Player(x, (y / 2), 60, 'orange')
-    const random = new Player((x/2), (y /2), 60, 'blue')
+    //   //Canvas-Elements//
+    // const x = canvas.width / 2
+    // const y = canvas.height / 1.5
+    // const player = new Player(x, y, 60, 'green')
+    // const enemy = new Player(x, (y / 2), 60, 'orange')
+    // const random = new Player((x/2), (y /2), 60, 'blue')
 
     
-    //Background Animate//
-    let radians = 0;
-    function animate() {
-        requestAnimationFrame(animate)
-        ctx.fillStyle = 'rgba(10, 10, 10, 1)'
-        ctx.fillRect(0, 0, canvas.width, canvas.height)
+    // //Background Animate//
+    // let radians = 0;
+    // function animate() {
+    //     requestAnimationFrame(animate)
+    //     ctx.fillStyle = 'rgba(10, 10, 10, 1)'
+    //     ctx.fillRect(0, 0, canvas.width, canvas.height)
 
-        ctx.save()
-        ctx.translate(canvas.width / 2, canvas.height / 2)
-        ctx.rotate(radians)
+    //     ctx.save()
+    //     ctx.translate(canvas.width / 2, canvas.height / 2)
+    //     ctx.rotate(radians)
 
-        particles.forEach(particle => {
-            particle.update();
-        })
+    //     particles.forEach(particle => {
+    //         particle.update();
+    //     })
 
-        ctx.restore()
+    //     ctx.restore()
 
-        radians += 0.001
+    //     radians += 0.001
 
-        if (game.animation === 1) {
-            enemy.draw();
-            player.draw();
+    //     if (game.animation === 1) {
+    //         enemy.draw();
+    //         player.draw();
             
-        } else if (game.animation === 2) {
-            random.draw();
-        }
-        // enemy.draw();
-        // player.draw();
-        // random.draw();
-    }
+    //     } else if (game.animation === 2) {
+    //         random.draw();
+    //     }
+    //     // enemy.draw();
+    //     // player.draw();
+    //     // random.draw();
+    // }
 
     
 
-    init();
-    animate();
+    // init();
+    // animate();
 
 
 

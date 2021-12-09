@@ -126,7 +126,7 @@ class Battle {
     
             // console.log(`state outside ${this.gameState}`)
             
-        // }, 1000);
+        // }, 5000);
 
 
     }

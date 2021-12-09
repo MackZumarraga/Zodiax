@@ -1,197 +1,97 @@
+import Particle from "../canvas/particle";
+import Player from "../canvas/player";
+
 class GameView {
-    constructor(game, ctx) {
-        this.ctx = ctx;
-        this.game = game;
+    constructor(game, canvas, ctx) {
+        this.ctx = ctx
+        this.game = game
+        this.canvas = canvas
+
+        //PARTICLES
+        this.radians = 0
+        this.particles = []
+
+        //PLAYERS
+        this.xplayer = this.canvas.width / 4
+        this.yplayer = this.canvas.height / 2.5
+
+        this.xenemy = this.canvas.width / 1.60
+        this.yenemy = this.canvas.height / 2.5
+
+        this.xsize = 500
+        this.ysize = 500
+
+        this.player = new Player(this.xplayer, this.yplayer, this.xsize, this.ysize, this.ctx)
+        this.enemy = new Player(this.xenemy, this.yenemy, this.xsize, this.ysize, this.ctx)
+
+        this.animate = this.animate.bind(this)
     }
 
-    //Canvas-Players (for player and enemy)//
-    
-
-    // const player = new Player(x, y, 60, 'green')
-    // player.draw();
-    // console.log(player)
-
-    // const enemy = new Player(x, (y / 2), 60, 'orange')
-    // enemy.draw();
-    // console.log(enemy)
-
-
-
-    // //Canvas-Magic Effects//
-    // class Particle {
-    //     constructor(x, y, radius, color, velocity) {
-    //         this.x = x
-    //         this.y = y
-    //         this.radius = radius
-    //         this.color = color
-    //         this.velocity = velocity
-    //     }
-
-    //     draw() {
-    //         ctx.beginPath()
-    //         ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false)
-    //         ctx.fillStyle = this.color
-    //         ctx.fill()
-    //         // ctx.closePath()
-    //     }
-
-    //     update() {
-    //         this.draw();
-    //         this.x = this.x - this.velocity.x
-    //         this.y = this.y - this.velocity.y
-    //     }
-    // }
-
-    // //Canvas-Elements//
-    // const x = canvas.width / 2
-    // const y = canvas.height / 1.5
-
-
-
-
-
-    // // const particle = new Particle(
-    // //     player.x,
-    // //     player.y,
-    // //     5,
-    // //     'black',
-    // //     {
-    // //         x: 1,
-    // //         y: 1
-    // //     }
-    // // )
-
-    // // const particle2 = new Particle(
-    // //     player.x,
-    // //     player.y,
-    // //     2,
-    // //     'gold',
-    // //     {
-    // //         x: 1,
-    // //         y: 1
-    // //     }
-    // // )
-
-
-    // const particles = []
-
-
-    // //Canvas-Animation//
-    // function animate() {
-    //     requestAnimationFrame(animate)
-    //     ctx.clearRect(0, 0, canvas.width, canvas.height)
-    //     player.draw();
-    //     enemy.draw();
-    //     particles.forEach(particle => {
-    //         particle.update();
-    //     });
-    //     // particle.draw();
-    //     // particle.update();
-    //     // ctx.clearRect(0, 0, canvas.width, canvas.height);
-    //     // particle.draw();
-    // }
-
-    // addEventListener('click', () => {
-    //     // const particle = new Particle(
-    //     //     player.x,
-    //     //     player.y,
-    //     //     5,
-    //     //     'black',
-    //     //     {
-    //     //         x: 1,
-    //     //         y: 1
-    //     //     }
-    //     // )
-
-    //     // particle.draw();
-    //     // particle.update();
-    //     particles.push(
-    //         new Particle(
-    //             player.x,
-    //             player.y,
-    //             50,
-    //             'black',
-    //             {
-    //                 x: 1,
-    //                 y: 5
-    //             }
-    //         )
-    //     )
+    animate = () => {
+        requestAnimationFrame(this.animate)
         
-    // })
+  
+        //STARRY BACKGROUND
+        this.ctx.fillStyle = 'rgba(10, 10, 10, 1)'
+        this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height)
 
-    // animate();
+        this.ctx.save()
+        this.ctx.translate(this.canvas.width / 2, this.canvas.height / 2)
+        this.ctx.rotate(this.radians)
 
-
-    //CANVAS BACKGROUND//
-
-    // Background Particle
-    
-    start = () => {
-
-        //CREATE STARRY BACKGROUND
-        let particles;
-        let colors = ['#FFFFFF', '#98FB98', '#FFEFD5', '#48D1CC']
-
-        function init() {
-            particles = []
-    
-            for (let i = 0; i < 200; i++) {
-                const canvasWidth = canvas.width + 300
-                const canvasHeight = canvas.height + 300
-                const x = Math.random() * canvasWidth - canvasWidth/2
-                const y = Math.random() * canvasHeight - canvasHeight/2
-                const radius = Math.random() * 2
-                const color = colors[Math.floor(Math.random() * colors.length)]
-    
-                particles.push(new Particle(x, y, radius, color))
-            }
-    
-            console.log(particles)
-
-            let radians = 0;
-    function animate() {
-        requestAnimationFrame(animate)
-        ctx.fillStyle = 'rgba(10, 10, 10, 1)'
-        ctx.fillRect(0, 0, canvas.width, canvas.height)
-
-        ctx.save()
-        ctx.translate(canvas.width / 2, canvas.height / 2)
-        ctx.rotate(radians)
-
-        particles.forEach(particle => {
+        this.particles.forEach(particle => {
             particle.update();
         })
 
-        ctx.restore()
+        this.ctx.restore()
 
-        radians += 0.001
+        this.radians += 0.001
 
-        // enemy.draw();
-        // player.draw();
+
+        
+        //PLAYER AND ENEMY
+        if (this.game.animation === 1) {
+
+        // const player = new Player(this.x, this.y, 60, 'green', this.ctx)
+        // const enemy = new Player(this.x, (this.y / 2), 60, 'orange', this.ctx)
+        
+        // const player = new Player(this.x, this.y, this.xsize, this.ysize, this.ctx)
+        // const enemy = new Player(this.x, (this.y / 2), this.xsize, this.ysize, this.ctx)
+            // debugger
+            console.log(this.player)
+            this.player.draw();
+            this.enemy.draw();            
+        } 
+
+       
+        
+        //ACTION EFFECTS
+
+
+        //COMMAND PANEL
+
     }
 
     
+    
+    initParticles = () => {
+        let colors = ['#FFFFFF', '#98FB98', '#FFEFD5', '#48D1CC']
 
-    init();
-    animate();
+
+        for (let i = 0; i < 200; i++) {
+            const canvasWidth = this.canvas.width + 300
+            const canvasHeight = this.canvas.height + 300
+            const x = Math.random() * canvasWidth - canvasWidth/2
+            const y = Math.random() * canvasHeight - canvasHeight/2
+            const radius = Math.random() * 2
+            const color = colors[Math.floor(Math.random() * colors.length)]
+
+            this.particles.push(new Particle(x, y, radius, color, this.ctx))
         }
+
+        console.log(this.particles)
     }
-    
 
-    
-    addCharacters = () => {
-        const x = canvas.width / 2
-        const y = canvas.height / 1.5
-        const player = new Player(x, y, 60, 'green')
-        const enemy = new Player(x, (y / 2), 60, 'orange')
-    }
-  
-    
-
-
-    //Background Animate//
-    
 }
 
 
