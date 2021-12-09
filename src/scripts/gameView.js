@@ -15,23 +15,23 @@ class GameView {
         this.particles = []
 
         //PLAYERS
-        this.xplayer = this.canvas.width / 4
-        this.yplayer = this.canvas.height / 2.5
+        // this.xplayer = this.canvas.width / 4
+        // this.yplayer = this.canvas.height / 2.5
 
-        this.xenemy = this.canvas.width / 1.60
-        this.yenemy = this.canvas.height / 2.5
+        // this.xenemy = this.canvas.width / 1.60
+        // this.yenemy = this.canvas.height / 2.5
 
-        this.xsize = 500
-        this.ysize = 500
+        // this.xsize = 500
+        // this.ysize = 500
 
-        this.playerPath = null;
-        this.enemyPath = null;
+        // this.playerPath = null;
+        // this.enemyPath = null;
         
-        this.player = new Player(this.playerPath, this.xplayer, this.yplayer, this.xsize, this.ysize, this.ctx)
-        this.enemy = new Player(this.enemyPath, this.xenemy, this.yenemy, this.xsize, this.ysize, this.ctx)
+        // this.player = new Player(this.playerPath, this.xplayer, this.yplayer, this.xsize, this.ysize, this.ctx)
+        // this.enemy = new Player(this.enemyPath, this.xenemy, this.yenemy, this.xsize, this.ysize, this.ctx)
         
-        console.log(`player from gameView ${this.player}`)
-        console.log(`enemy from gameView ${this.enemy}`)
+        // console.log(`player from gameView ${this.player}`)
+        // console.log(`enemy from gameView ${this.enemy}`)
 
 
         this.animate = this.animate.bind(this)
@@ -60,7 +60,7 @@ class GameView {
 
         
         //PLAYER AND ENEMY
-        if (this.game.animation === 1) {
+        // if (this.game.animation === 1) {
 
         // const player = new Player(this.x, this.y, 60, 'green', this.ctx)
         // const enemy = new Player(this.x, (this.y / 2), 60, 'orange', this.ctx)
@@ -89,9 +89,9 @@ class GameView {
             // this.player.update(playerPath);
             // this.enemy.update(enemyPath);
             
-            this.player.draw();
-            this.enemy.draw();
-        } 
+            // this.player.draw();
+            // this.enemy.draw();
+        // } 
 
        
         
