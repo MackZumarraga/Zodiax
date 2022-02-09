@@ -3,7 +3,7 @@
 ## BACKGROUND AND OVERVIEW
 Zodiax is a turn-based strategy game centered on the 12 zodiac signs. The player is able to take turns and fight an AI controlled zodiac opponent. Each zodiac character has its own unique set of attributes including skills, magic, and default actions. These actions will be displayed in a command panel which players can interact with. Their choices will determine whether their strategy benefits them in the upcoming turn. Once all characters of any party dies, the game ends and the winner is declared.
       
--link to live version
+[Link to live version](https://mackzumarraga.github.io/Zodiax/)
       
 
 ## TECHNOLOGIES
