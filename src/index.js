@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
     //INITIALIZE GAME//
     const game = new Game();
     const view = new GameView(game, canvas, ctx);
-    view.initParticles();
+    // view.initParticles();
     view.animate();
 
     /*DESIRED LAYOUT
