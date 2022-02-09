@@ -8,9 +8,9 @@ class Battle {
     constructor(character) {
         this.gameState = 0;
         if (this.gameState === 0) {
-            const main = document.querySelector(".main")
-            main.addEventListener("click", () =>{
-                main.style = "display: none"
+            const modal = document.querySelector(".modal-container")
+            modal.addEventListener("click", () =>{
+                modal.style = "display: none"
                 this.gameState += 1
             })
         }

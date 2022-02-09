@@ -1,0 +1,79 @@
+.modal {
+    position: fixed;
+    top: 33%;
+    left: 50%;
+    width: 25%;
+    height: 55.7%;
+    margin-top: -100px;
+    margin-left: -12.5%;
+
+    
+    font-family: monospace;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-title {
+    font-size: 30px;
+    color: palegoldenrod;
+    text-align: center;
+    margin-bottom: 30px;
+    margin-top: 10px;
+}
+
+//About
+.modal-about {
+    font-size: 14px;
+    text-indent: 40px;
+}
+
+.description {
+    color: palegoldenrod;
+    // text-align: center;
+    margin-bottom: 20px;
+}
+
+.instructions {
+    color: palegoldenrod;
+    // text-align: center;
+    margin-bottom: 50px;
+}
+
+
+
+
+//Character Select
+.select-zodiac {
+    color: palegoldenrod;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.scroll {
+    // width: 200px;
+    // height: 150px;
+    text-align: center;
+    width: 100%;
+    height: 50%;
+    overflow-y: scroll;
+    display: block;
+}
+
+
+
+.scroll::-webkit-scrollbar {
+    display: none;
+}
+
+.scroll a {
+    color: palegoldenrod;
+    display: block;
+    padding: 12px;
+    text-decoration: none;
+}
+
+.scroll a:hover {
+    // background-color: #ccc;
+    // background-color: rgba(226, 120, 33, 0.8);
+    background-color: rgba(234, 238, 18, 0.4);
+}
