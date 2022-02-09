@@ -8,7 +8,7 @@ class Battle {
     constructor(character) {
         this.gameState = 0;
         if (this.gameState === 0) {
-            const modal = document.querySelector(".modal-container")
+            const modal = document.querySelector(".modal")
             modal.addEventListener("click", () =>{
                 modal.style = "display: none"
                 this.gameState += 1
@@ -77,7 +77,7 @@ class Battle {
         let command = document.querySelector(".command")
         command.style = "display: flex"
 
-        let selector = document.querySelector(".main")
+        let selector = document.querySelector(".modal")
         selector.style = "display: none"
         let won = document.querySelector(".won")
         let lost = document.querySelector(".lost")

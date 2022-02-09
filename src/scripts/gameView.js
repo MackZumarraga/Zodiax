@@ -14,21 +14,21 @@ class GameView {
         this.radians = 0
         this.particles = []
 
-        //PLAYERS
-        // this.xplayer = this.canvas.width / 4
-        // this.yplayer = this.canvas.height / 2.5
+        // PLAYERS
+        this.xplayer = this.canvas.width * 0.10
+        this.yplayer = this.canvas.height * 0.15
 
-        // this.xenemy = this.canvas.width / 1.60
-        // this.yenemy = this.canvas.height / 2.5
+        this.xenemy = this.canvas.width * 0.60
+        this.yenemy = this.canvas.height * 0.15
 
-        // this.xsize = 500
-        // this.ysize = 500
+        this.xsize = 500
+        this.ysize = 500
 
-        // this.playerPath = null;
-        // this.enemyPath = null;
+        this.playerPath = null;
+        this.enemyPath = null;
         
-        // this.player = new Player(this.playerPath, this.xplayer, this.yplayer, this.xsize, this.ysize, this.ctx)
-        // this.enemy = new Player(this.enemyPath, this.xenemy, this.yenemy, this.xsize, this.ysize, this.ctx)
+        this.player = new Player(this.playerPath, this.xplayer, this.yplayer, this.xsize, this.ysize, this.ctx)
+        this.enemy = new Player(this.enemyPath, this.xenemy, this.yenemy, this.xsize, this.ysize, this.ctx)
         
         // console.log(`player from gameView ${this.player}`)
         // console.log(`enemy from gameView ${this.enemy}`)
@@ -57,41 +57,42 @@ class GameView {
 
         this.radians += 0.001
 
-
+        
         
         //PLAYER AND ENEMY
-        // if (this.game.animation === 1) {
+        
+        if (this.game.animation === 1) {
 
-        // const player = new Player(this.x, this.y, 60, 'green', this.ctx)
-        // const enemy = new Player(this.x, (this.y / 2), 60, 'orange', this.ctx)
+        // // const player = new Player(this.x, this.y, 60, 'green', this.ctx)
+        // // const enemy = new Player(this.x, (this.y / 2), 60, 'orange', this.ctx)
         
         // const player = new Player(this.x, this.y, this.xsize, this.ysize, this.ctx)
         // const enemy = new Player(this.x, (this.y / 2), this.xsize, this.ysize, this.ctx)
             // debugger
 
-            // this.player = new Player(this.game.battle.player, this.xplayer, this.yplayer, this.xsize, this.ysize, this.ctx)
-            // this.enemy = new Player(this.game.battle.opponent, this.xenemy, this.yenemy, this.xsize, this.ysize, this.ctx)
+            this.player = new Player(this.game.battle.player, this.xplayer, this.yplayer, this.xsize, this.ysize, this.ctx)
+            this.enemy = new Player(this.game.battle.opponent, this.xenemy, this.yenemy, this.xsize, this.ysize, this.ctx)
             
-            // let playerPath = this.game.battle.player.zodiacPath
-            // let enemyPath = this.game.battle.opponent.zodiacPath
+            let playerPath = this.game.battle.player.zodiacPath
+            let enemyPath = this.game.battle.opponent.zodiacPath
 
-            // let drawPlayer;
-            // let drawEnemy;
+            let drawPlayer;
+            let drawEnemy;
 
-            // drawPlayer = new Player(playerPath, this.xplayer, this.yplayer, this.xsize, this.ysize, this.ctx)
-            // drawEnemy = new Player(enemyPath, this.xenemy, this.yenemy, this.xsize, this.ysize, this.ctx)
+            drawPlayer = new Player(playerPath, this.xplayer, this.yplayer, this.xsize, this.ysize, this.ctx)
+            drawEnemy = new Player(enemyPath, this.xenemy, this.yenemy, this.xsize, this.ysize, this.ctx)
             
-            // this.player = drawPlayer
-            // this.enemy = drawEnemy
+            this.player = drawPlayer
+            this.enemy = drawEnemy
 
             // console.log(drawPlayer)
             // console.log(drawEnemy)
-            // this.player.update(playerPath);
-            // this.enemy.update(enemyPath);
+            this.player.update(playerPath);
+            this.enemy.update(enemyPath);
             
-            // this.player.draw();
-            // this.enemy.draw();
-        // } 
+            this.player.draw();
+            this.enemy.draw();
+        } 
 
        
         

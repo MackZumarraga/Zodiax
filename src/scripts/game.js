@@ -25,7 +25,7 @@ class Game {
         let command = document.querySelector(".command")
         command.style = "display: flex"
 
-        let selector = document.querySelector(".main")
+        let selector = document.querySelector(".modal")
         selector.style = "display: none"
         let won = document.querySelector(".won")
         let lost = document.querySelector(".lost")
