@@ -38,6 +38,7 @@ class Character {
 
         // const zodiacHP = zodiac.HP
         this.hp = 100
+        this.mp = 100
         this.MagicDamage = Math.floor(Math.random() * (50 - 35) + 35)
         this.attackDamage = Math.floor(Math.random() * (20 - 5) + 5)
         this.healAmount = Math.floor(Math.random() * (20 - 10) + 10)

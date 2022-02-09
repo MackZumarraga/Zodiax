@@ -33,6 +33,7 @@ class GameView {
         // console.log(`player from gameView ${this.player}`)
         // console.log(`enemy from gameView ${this.enemy}`)
 
+        //FUNCTIONS
 
         this.animate = this.animate.bind(this)
     }

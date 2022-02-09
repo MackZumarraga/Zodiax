@@ -27,6 +27,7 @@ class Battle {
         // this.player.hp = 100
         // this.opponent.hp = 100
         this.ZodiacHPTag = null;
+        this.ZodiacMPTag = null;
         this.OpponentHPTag = null;
 
         // console.log(this.player)
@@ -52,8 +53,10 @@ class Battle {
 
         const zodiacName = document.querySelector(".zodiac")
         zodiacName.innerHTML = this.player.name
-        this.ZodiacHPTag = document.querySelector(".hp")
+        this.ZodiacHPTag = document.querySelector(".hp-gauge-bar")
         this.ZodiacHPTag.innerHTML = this.player.hp
+        this.ZodiacMPTag = document.querySelector(".mp-gauge-bar")
+        this.ZodiacMPTag.innerHTML = this.player.mp
 
         const opponentName = document.querySelector(".enemy_zodiac")
         opponentName.innerHTML = this.opponent.name
@@ -69,7 +72,7 @@ class Battle {
         
 
         /*start battle rendering*/
-        let container = document.querySelector("container")
+        let container = document.querySelector(".command-panel")
         let enemyContainer = document.querySelector("enemy")
         container.style = "display: block"
         enemyContainer.style = "display: block"
@@ -82,7 +85,7 @@ class Battle {
         let won = document.querySelector(".won")
         let lost = document.querySelector(".lost")
 
-        let playerHP = document.querySelector(".hp")
+        let playerHP = document.querySelector(".hp-gauge-bar")
         let enemyHP = document.querySelector(".enemy_hp")
         let playerName = document.querySelector(".zodiac")
         let enemyName = document.querySelector(".enemy_zodiac")

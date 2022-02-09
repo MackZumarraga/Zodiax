@@ -17,7 +17,7 @@ class Game {
         this.battle = new Battle(character);
         this.animation += 1
 
-        let container = document.querySelector("container")
+        let container = document.querySelector(".command-panel")
         let enemyContainer = document.querySelector("enemy")
         container.style = "display: block"
         enemyContainer.style = "display: block"
@@ -30,7 +30,7 @@ class Game {
         let won = document.querySelector(".won")
         let lost = document.querySelector(".lost")
 
-        let playerHP = document.querySelector(".hp")
+        let playerHP = document.querySelector(".hp-gauge-bar")
         let enemyHP = document.querySelector(".enemy_hp")
         let playerName = document.querySelector(".zodiac")
         let enemyName = document.querySelector(".enemy_zodiac")
