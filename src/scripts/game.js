@@ -18,7 +18,7 @@ class Game {
         this.animation += 1
 
         let container = document.querySelector(".command-panel")
-        let enemyContainer = document.querySelector("enemy")
+        let enemyContainer = document.querySelector(".enemy")
         container.style = "display: block"
         enemyContainer.style = "display: block"
 

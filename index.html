@@ -11,97 +11,118 @@
 </head>
 
 <body>
-    <enemy>
-        <div class="enemy_zodiac"></div>
-        <br/>
-        <div class="enemy_hp"></div>
-        <br/>
-        <br/>
-        <round class="round">1</round>
-        <div class="enemy_command">
-            <div class="enemy_attack"></div>
-            <br/>
-            <div class="enemy_magic"></div>
-            <br/>
-            <div class="enemy_heal"></div>
-        </div>
-    </enemy>
-
-    <div class="command-panel">
-        <div class="zodiac"></div>
-   
-        <div class="command-details-container">
-            <div class="command">
-                <div class="attack">Attack</div>
-                <br/>
-                <div class="magic">Magic</div>
-                <br/>
-                <div class="heal">Heal</div>
-                <br/>
-                <div class="heal">Special</div>
-            </div>
-            <div class="gauges">
-                <div class="leveler">
-                    <div class="time-gauge">TG: </div>
-                    <div class="time-gauge-bar">SOME BAR</div>
+    
+    <div class="game-container">
+        
+        
+        
+        <div class="navbar">
+            <h1 class="game-title">Zodiax</h1>
+            <div class="sub-navbar">
+                <div class="left-nav">ROUND 
+                    <span class="round-number">1</span>
                 </div>
-                
-                <div class="leveler">
-                    <div class="hp">HP:</div>
-                    <div class="hp-gauge-bar"></div>
-                </div>
-
-                <div class="leveler">
-                    <div class="mp">MP:</div>
-                    <div class="mp-gauge-bar"></div>
+                <div class="right-nav">
+                    <div class="pause">pause</div>
+                    <div class="restart">restart</div>
+                    <div class="music">music</div>    
                 </div>
             </div>
         </div>
-    </div>
-   
-    
-    <div class="modal">
-        <h1 class="modal-title">ZODIAX</h1>
-        <div class="modal-about">
-            <div class="description">The zodiac lord Zodius has gone mad and turned most of the zodiacs evil potentially leading to an eternal Mercury Retrograde causing humans inaccurate astrological forecasts. As the remaining zodiac to turn, it is your duty to exorcise all 11 zodiax from their wickedness and defeat Zodius once and for all!</div>
-            <div class="instructions">Eliminate your opponent by getting their HP to 0. Damage will be done based on your chosen actions from the command panel.</div>
+        
+        <div class="enemy">
+            <div class="enemy_zodiac"></div>
+            <br/>
+            <div class="enemy_hp"></div>
+            <br/>
+            <br/>
+            
+            <!-- <div class="enemy_command">
+                <div class="enemy_attack"></div>
+                <br/>
+                <div class="enemy_magic"></div>
+                <br/>
+                <div class="enemy_heal"></div>
+            </div> -->
         </div>
-        <div class="select-zodiac">Select a Zodiac to Start</div>
-        <div class="scroll">
-            <!-- <a href="#" value="0" id="none"> Select a Zodiac </a> -->
-            <a href="#" value="0" id="0"> ♈︎ Aries </a>
-            <a href="#" value="1" id="1"> ♉︎ Taurus </a>
-            <a href="#" value="2" id="2"> ♊︎ Gemini </a>
-            <a href="#" value="3" id="3"> ♋︎ Cancer </a>
-            <a href="#" value="4" id="4"> ♌︎ Leo </a>
-            <a href="#" value="5" id="5"> ♍︎ Virgo </a>
-            <a href="#" value="6" id="6"> ♎︎ Libra </a>
-            <a href="#" value="7" id="7"> ♏︎ Scorpio </a>
-            <a href="#" value="8" id="8"> ♐︎ Sagittarius </a>
-            <a href="#" value="9" id="9"> ♑︎ Capricorn </a>
-            <a href="#" value="10" id="10"> ♒︎ Aquarius </a>
-            <a href="#" value="11" id="11"> ♓︎ Pisces </a>
+    
+        <div class="command-panel">
+            <div class="zodiac"></div>
+       
+            <div class="command-details-container">
+                <div class="command">
+                    <div class="attack">Attack</div>
+                    <br/>
+                    <div class="magic">Magic</div>
+                    <br/>
+                    <div class="heal">Heal</div>
+                    <br/>
+                    <div class="heal">Special</div>
+                </div>
+                <div class="gauges">
+                    <div class="leveler">
+                        <div class="time-gauge">TG: </div>
+                        <div class="time-gauge-bar">SOME BAR</div>
+                    </div>
+                    
+                    <div class="leveler">
+                        <div class="hp">HP:</div>
+                        <div class="hp-gauge-bar"></div>
+                    </div>
+    
+                    <div class="leveler">
+                        <div class="mp">MP:</div>
+                        <div class="mp-gauge-bar"></div>
+                    </div>
+                </div>
+            </div>
         </div>
+       
+        
+        <div class="modal">
+            <h1 class="modal-title">ZODIAX</h1>
+            <div class="modal-about">
+                <div class="description">The zodiac lord Zodius has gone mad and turned most of the zodiacs evil potentially leading to an eternal Mercury Retrograde causing humans inaccurate astrological forecasts. As the remaining zodiac to turn, it is your duty to exorcise all 11 zodiax from their wickedness and defeat Zodius once and for all!</div>
+                <div class="instructions">Eliminate your opponent by getting their HP to 0. Damage will be done based on your chosen actions from the command panel.</div>
+            </div>
+            <div class="select-zodiac">Select a Zodiac to Start</div>
+            <div class="scroll">
+                <!-- <a href="#" value="0" id="none"> Select a Zodiac </a> -->
+                <a href="#" value="0" id="0"> ♈︎ Aries </a>
+                <a href="#" value="1" id="1"> ♉︎ Taurus </a>
+                <a href="#" value="2" id="2"> ♊︎ Gemini </a>
+                <a href="#" value="3" id="3"> ♋︎ Cancer </a>
+                <a href="#" value="4" id="4"> ♌︎ Leo </a>
+                <a href="#" value="5" id="5"> ♍︎ Virgo </a>
+                <a href="#" value="6" id="6"> ♎︎ Libra </a>
+                <a href="#" value="7" id="7"> ♏︎ Scorpio </a>
+                <a href="#" value="8" id="8"> ♐︎ Sagittarius </a>
+                <a href="#" value="9" id="9"> ♑︎ Capricorn </a>
+                <a href="#" value="10" id="10"> ♒︎ Aquarius </a>
+                <a href="#" value="11" id="11"> ♓︎ Pisces </a>
+            </div>
+        </div>
+        
+        
+    
+        
+        <lost class="lost">
+            <div class="game_over">Game Over</div>
+            <br/>
+            <div class="restart_lost">Restart</div>
+        </lost>
+        <won class="won">
+            <div class="game_won">You Win</div>
+            <br/>
+            <div class="restart_won">Next Match</div>
+        </won>
+    <!-- 
+        <player class="player">Hello</player>
+        <opponent class="opponent">Hi</opponent> -->
+    
+        <canvas></canvas>
+
     </div>
-    
-    
-
-    
-    <lost class="lost">
-        <div class="game_over">Game Over</div>
-        <br/>
-        <div class="restart_lost">Restart</div>
-    </lost>
-    <won class="won">
-        <div class="game_won">You Win</div>
-        <br/>
-        <div class="restart_won">Next Match</div>
-    </won>
-<!-- 
-    <player class="player">Hello</player>
-    <opponent class="opponent">Hi</opponent> -->
-
-    <canvas></canvas>
         
     
     

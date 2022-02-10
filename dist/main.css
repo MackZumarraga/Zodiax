@@ -120,18 +120,6 @@ table {
   background-color: rgba(234, 238, 18, 0.4);
 }
 
-enemy {
-  display: none;
-  position: fixed;
-  width: 100%;
-  height: 100px;
-  top: 0;
-  right: 0;
-  left: 0;
-  background: #3c3c3c;
-  background: rgba(60, 60, 60, 0.4);
-}
-
 .command-panel {
   display: none;
   position: fixed;
@@ -219,6 +207,21 @@ enemy {
   margin-left: 70px;
 }
 
+.enemy {
+  display: none;
+  position: fixed;
+  width: 500px;
+  height: 250px;
+  bottom: 20px;
+  right: 0;
+  left: 60%;
+  background: #3c3c3c;
+  background: rgba(60, 60, 60, 0.4);
+  border-radius: 60px;
+  font-family: monospace;
+  font-size: 16px;
+}
+
 .enemy_hp {
   display: none;
   display: flex;
@@ -232,6 +235,7 @@ enemy {
   justify-content: center;
   color: gold;
   font-size: large;
+  margin-top: 30px;
 }
 
 .enemy_command {
@@ -244,12 +248,49 @@ enemy {
   margin-left: 70px;
 }
 
+.game-title {
+  position: fixed;
+  font-family: monospace;
+  font-size: 50px;
+  color: palegoldenrod;
+  margin-left: 10%;
+  margin-top: 50px;
+}
+
+.navbar {
+  display: flex;
+}
+
+.sub-navbar {
+  position: fixed;
+  font-family: monospace;
+  font-size: 14px;
+  color: palegoldenrod;
+  display: flex;
+  right: 14%;
+  top: 78px;
+}
+
+.left-nav {
+  margin-right: 50px;
+}
+
+.right-nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 222px;
+}
+
+canvas {
+  display: block;
+}
+
 .lost {
   position: fixed;
   width: 100%;
   height: 100%;
-  background: #ce3838;
-  background: rgba(206, 22, 22, 0.4);
+  background-color: black;
   display: none;
   font-size: xx-large;
   justify-content: center;
@@ -257,11 +298,14 @@ enemy {
 
 .lost > .game_over {
   display: flex;
-  margin-top: 400px;
+  margin-top: 265px;
   justify-content: center;
   align-items: center;
-  color: black;
+  color: #ff7300;
   text-shadow: 0 0 21px #fff;
+  font-family: monospace;
+  font-size: 133px;
+  text-transform: uppercase;
 }
 
 .lost > .restart_lost {
@@ -269,16 +313,18 @@ enemy {
   margin-top: 10px;
   justify-content: center;
   align-items: center;
-  color: black;
+  color: #ff7300;
   text-shadow: 0 0 21px #fff;
+  font-family: monospace;
+  cursor: pointer;
+  font-size: 50px;
 }
 
 .won {
   position: fixed;
   width: 100%;
   height: 100%;
-  background: #d3f70b;
-  background: rgba(12, 245, 225, 0.4);
+  background-color: black;
   display: none;
   font-size: xx-large;
   justify-content: center;
@@ -286,11 +332,14 @@ enemy {
 
 .won > .game_won {
   display: flex;
-  margin-top: 400px;
+  margin-top: 265px;
   justify-content: center;
   align-items: center;
-  color: black;
+  color: gold;
   text-shadow: 0 0 21px #fff;
+  font-family: monospace;
+  font-size: 133px;
+  text-transform: uppercase;
 }
 
 .won > .restart_won {
@@ -298,8 +347,11 @@ enemy {
   margin-top: 10px;
   justify-content: center;
   align-items: center;
-  color: black;
+  color: palegoldenrod;
   text-shadow: 0 0 21px #fff;
+  font-family: monospace;
+  cursor: pointer;
+  font-size: 50px;
 }
 
 .player {

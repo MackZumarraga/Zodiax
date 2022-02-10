@@ -1,17 +1,3 @@
-enemy {
-    // border: 5px solid rgba(255,255,255,0.5);
-    display: none;
-    position: fixed;
-    width: 100%;
-    height: 100px;
-    top: 0;
-    right: 0;
-    left: 0;
-    // background-color: grey;
-    background: rgb(60, 60, 60);
-    background: rgba(60, 60, 60, 0.4);
-}
-
 .command-panel {
     display: none;
     position: fixed;
@@ -104,29 +90,3 @@ enemy {
     margin-left: 70px;
 }
 
-//Enemy
-.enemy_hp {
-    display: none;
-    display: flex;
-    justify-content: center;
-    color: gold;
-}
-
-.enemy_zodiac {
-    display: none;
-    display: flex;
-    justify-content: center;
-    color: gold;
-    font-size: large;
-}
-
-
-.enemy_command {
-    display: flex;
-    flex-direction: column;
-    color: gold;
-}
-
-.enemy_command > div {
-    margin-left: 70px;
-}
