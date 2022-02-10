@@ -38,7 +38,7 @@ class Game {
         enemyHP.style = "display: flex"
         playerName.style = "display: flex"
         enemyName.style = "display: flex"
-
+        debugger
         
             
         const restartWon = document.querySelector(".restart_won")
@@ -57,10 +57,11 @@ class Game {
             selector.style = "display: block"
 
             this.turnsCounter += 1
-
+            debugger
             this.animation = 1
 
             this.battle.resetBattle();
+            
         })
 
         restartLost.addEventListener("click", () => {
