@@ -158,16 +158,27 @@ enemy {
   display: flex;
 }
 
+.leveler {
+  display: flex;
+}
+
 .time-gauge {
   color: #0fa;
+  margin-right: 10px;
 }
 
 .hp {
   color: #0fa;
+  margin-right: 10px;
 }
 
 .mp {
   color: #0fa;
+  margin-right: 10px;
+}
+
+.time-gauge-bar {
+  color: gold;
 }
 
 .hp-gauge-bar {
@@ -190,7 +201,8 @@ enemy {
   justify-content: center;
   color: gold;
   font-size: large;
-  margin-bottom: 70px;
+  margin-bottom: 50px;
+  margin-top: 30px;
 }
 
 .command {
@@ -199,7 +211,7 @@ enemy {
   color: whitesmoke;
   justify-content: space-around;
   cursor: pointer;
-  margin-right: 70px;
+  margin-right: 92px;
   height: 100px;
 }
 
