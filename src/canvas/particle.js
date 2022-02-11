@@ -63,7 +63,7 @@ class Particle {
         // this.ctx.fillRect(0, 0, window.innerWidth, window.innerHeight);
         // this.ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
 
-        if (this.x <= window.innerWidth * .40) {
+        if (this.x <= window.innerWidth * .30) {
             console.log(`stop requests ${this.x}`)
             this.ctx = null;
             return;
@@ -83,7 +83,8 @@ class Particle {
         this.ctx.fill()
         this.ctx.closePath()
         this.radius += 2
-        if (this.radius >= 100) {
+        if (this.radius >= 200) {
+            this.ctx = null;
             return;
         } else {
             requestAnimationFrame(this.healAnimation);
