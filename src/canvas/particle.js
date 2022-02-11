@@ -34,17 +34,19 @@ class Particle {
         this.ctx.shadowBlur = 10
         this.ctx.fillStyle = this.color
         this.ctx.fill()
-        this.x += 5;
         this.ctx.closePath()
+        this.x += 5;
         // console.log(this.x)
         // this.ctx.fillStyle = "rgba(34,45,23,0.4)";
         // this.ctx.fillRect(0, 0, window.innerWidth, window.innerHeight);
-        if (this.x >= window.innerWidth * .70) {
-            console.log(`stop requests ${this.x}`)
+        // this.ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+        if (this.x >= window.innerWidth * .60) {
+            // console.log(`stop requests ${this.x}`)
             this.ctx = null;
+            // this.ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
             return;
         } else {
-            console.log(`still requesting ${this.x}`)
+            // console.log(`still requesting ${this.x}`)
             requestAnimationFrame(this.attackDraw);
         }
     }
@@ -64,11 +66,11 @@ class Particle {
         // this.ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
 
         if (this.x <= window.innerWidth * .30) {
-            console.log(`stop requests ${this.x}`)
+            // console.log(`stop requests ${this.x}`)
             this.ctx = null;
             return;
         } else {
-            console.log(`still requesting retaliate ${this.x}`)
+            // console.log(`still requesting retaliate ${this.x}`)
             requestAnimationFrame(this.attackAIDraw);
         }
         

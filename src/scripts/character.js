@@ -39,9 +39,9 @@ class Character {
         // const zodiacHP = zodiac.HP
         this.hp = 100
         this.mp = 100
-        this.MagicDamage = Math.floor(Math.random() * (50 - 35) + 35)
-        this.attackDamage = Math.floor(Math.random() * (20 - 5) + 5)
-        this.healAmount = Math.floor(Math.random() * (20 - 10) + 10)
+        // this.MagicDamage = Math.floor(Math.random() * (50 - 35) + 35)
+        // this.attackDamage = Math.floor(Math.random() * (20 - 5) + 5)
+        // this.healAmount = Math.floor(Math.random() * (20 - 10) + 10)
         // this.randomizer = Math.floor(Math.random() * (max - min) + min)
         
 
@@ -50,13 +50,17 @@ class Character {
     }
 
     attacked = () => {
+        const attackDamage = Math.floor(Math.random() * (20 - 5) + 5)
         
-        if (this.hp - this.attackDamage <= 0) {
+        if (this.hp - attackDamage <= 0) {
             this.hp = 0
             // this.hptag.innerHTML = `HP: ${this.hp}`
             // alert (`${this.zodiacName} is dead`)
         } else {
-            this.hp -= this.attackDamage
+            debugger
+            // let randomizer = Math.random()
+            debugger
+            this.hp -= attackDamage
             // console.log(this.hp)
             // console.log(this)
             // this.hptag.innerHTML = `HP: ${this.hp}`
@@ -65,13 +69,14 @@ class Character {
 
 
     magicked = () => {
+        const MagicDamage = Math.floor(Math.random() * (50 - 35) + 35)
         
-        if (this.hp - this.MagicDamage <= 0) {
+        if (this.hp - MagicDamage <= 0) {
             this.hp = 0
             // this.hptag.innerHTML = `HP: ${this.hp}`
             // alert (`${this.zodiacName} is dead`)
         } else {
-            this.hp -= this.MagicDamage
+            this.hp -= MagicDamage
             // console.log(this.hp)
             // console.log(this)
             // this.hptag.innerHTML = `HP: ${this.hp}`
@@ -80,11 +85,12 @@ class Character {
 
 
     healed = () => {
-        
-        if (this.hp + this.healAmount > 100) {
+        const healAmount = Math.floor(Math.random() * (20 - 10) + 10)
+
+        if (this.hp + healAmount > 100) {
             this.hp = 100
         } else {
-            this.hp += this.healAmount
+            this.hp += healAmount
         }
         // console.log(this.hp)
         // console.log(this)

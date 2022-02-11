@@ -44,3 +44,12 @@
 .enemy_command > div {
     margin-left: 70px;
 }
+
+.enemy-damage {
+    display: none;
+    color: white;
+    // color: rgb(0, 0, 0);
+    position: fixed;
+    font-size: 100px;
+    left: 60%;
+}

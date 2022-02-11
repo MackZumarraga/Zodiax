@@ -106,7 +106,7 @@ class GameView {
             return;
         }
         
-        if (this.game.battle.battleState === 0) {
+        if (!this.game.battle.anim) {
             return;
         }
 

@@ -207,6 +207,14 @@ table {
   margin-left: 70px;
 }
 
+.player-damage {
+  display: none;
+  color: white;
+  position: fixed;
+  font-size: 100px;
+  left: 30%;
+}
+
 .enemy {
   display: none;
   position: fixed;
@@ -246,6 +254,14 @@ table {
 
 .enemy_command > div {
   margin-left: 70px;
+}
+
+.enemy-damage {
+  display: none;
+  color: white;
+  position: fixed;
+  font-size: 100px;
+  left: 60%;
 }
 
 .game-title {
