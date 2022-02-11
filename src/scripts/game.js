@@ -2,19 +2,20 @@ import Battle from "./battle"
 
 
 class Game {
-    constructor() {
+    constructor(ctx) {
         this.battle = null;
         this.init = this.init.bind(this)
         this.turnsCounter = 0;
         this.init();
         this.animation = 0
+        this.ctx = ctx;
         
 
     }
 
 
     startGame(character = 0) {
-        this.battle = new Battle(character);
+        this.battle = new Battle(character, this.ctx);
         this.animation += 1
 
         let container = document.querySelector(".command-panel")
@@ -94,7 +95,7 @@ class Game {
             let ariesId = 0;
             
             if (this.turnsCounter === 0) {
-                this.startGame(ariesId);
+                this.startGame(ariesId, this.ctx);
                 this.animation = 1
             } else {
                 console.log(`this is battle ${this.turnsCounter + 1}`)
