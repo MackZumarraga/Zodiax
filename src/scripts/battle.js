@@ -373,7 +373,15 @@ class Battle {
                     // return;
                 } else if (this.opponent.hp < 30 && this.opponent.hp > 0) {
                     this.player.magicked();
-                    this.battleState = 4;
+
+                    if ((this.playerOldHP - this.player.hp) === 0) {
+                        this.battleState = 0;
+                        return;
+                    } else {
+                        this.battleState = 4;
+                    }
+
+                    // this.battleState = 4;
                 } else {
                     this.player.attacked();
                     this.battleState = 2;
@@ -400,7 +408,13 @@ class Battle {
                     } else {
                         let playerDamage = this.playerOldHP - this.player.hp
                         this.playerDamage.innerHTML = (playerDamage * -1)
-                        playerDamage === 0 ? this.playerDamage.style = "display: none" : this.playerDamage.style = "display: block"
+                        // playerDamage === 0 ? this.playerDamage.style = "display: none" : this.playerDamage.style = "display: block"
+                        if (playerDamage === 0) {
+                            this.playerDamage.style = "display: none"
+                            return;
+                        } else {
+                            this.playerDamage.style = "display: block"
+                        }
                         // this.playerDamage.style = "display: block"
                         this.playerOldHP = this.player.hp
                     }
@@ -533,8 +547,14 @@ class Battle {
     gameOver() {
         this.gameState += 1;
         const lost = document.querySelector(".lost")
+        const restart = document.querySelector(".restart_lost")
         
         lost.style = "display: block"
+
+        this.delay(2000).then(() => {
+            restart.style = "display: flex"
+        });
+        
 
         this.anim = false;
 
@@ -544,7 +564,13 @@ class Battle {
     gameWon() {
         this.gameState += 1;
         const won = document.querySelector(".won")
+        const next = document.querySelector(".restart_won")
+
         won.style = "display: block"
+       
+        this.delay(2000).then(() => {
+            next.style = "display: flex"
+        });
 
         this.anim = false;
 

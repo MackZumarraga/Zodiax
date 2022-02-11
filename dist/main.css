@@ -325,7 +325,7 @@ canvas {
 }
 
 .lost > .restart_lost {
-  display: flex;
+  display: none;
   margin-top: 10px;
   justify-content: center;
   align-items: center;
@@ -359,7 +359,7 @@ canvas {
 }
 
 .won > .restart_won {
-  display: flex;
+  display: none;
   margin-top: 10px;
   justify-content: center;
   align-items: center;
