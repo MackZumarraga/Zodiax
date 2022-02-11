@@ -95,6 +95,9 @@ class Battle {
 
 
     resetBattle = (zodiacId = this.character) => {
+        const next = document.querySelector(".restart_won")
+        next.style = "display: none"
+
         this.anim = true;
         this.character = zodiacId
         this.player = new Character(zodiacs[this.character])
@@ -212,6 +215,7 @@ class Battle {
         commands.style = "display: none"
         
         this.delay(3000).then(() => {
+            this.battleState = 0;
             this.OpponentHPTag.innerHTML = this.opponent.hp
 
             let opponentDamage = this.opponentOldHP - this.opponent.hp
@@ -219,7 +223,7 @@ class Battle {
             this.enemyDamage.style = "display: block"
             this.opponentOldHP = this.opponent.hp
 
-            this.battleState = 0
+            // this.battleState = 0
             
         //animation of player attacking enemy lasting about 3 seconds
         //enemy hp go down after this animation
@@ -229,18 +233,32 @@ class Battle {
             this.delay(3000).then(() => {
                 this.enemyDamage.style = "display: none"
 
-                if (this.opponent.hp === 0) {
+                if (this.opponent.hp === 0 || this.battleState === 'new match') {
                     
                     this.playerOldHP = 100
                     this.opponentOldHP = 100
 
                     this.gameWon();
-                    // this.battleState = 0;
+                    this.battleState = 'new match';
                     // this.anim = false;
                     return;
                 } else if (this.opponent.hp < 30 && this.opponent.hp > 0) {
                     this.player.magicked();
-                    this.battleState = 4;
+                    // this.battleState = 4;
+
+                    // if ((this.playerOldHP - this.player.hp) === 0) {
+                    //     this.battleState = 0;
+                    //     return;
+                    // } else {
+                    //     this.battleState = 4;
+                    // }
+                    if (this.battleState === 'new match') {
+                        this.battleState = 0;
+                        return;
+                    } else {
+                        this.battleState = 4;
+                    }
+
                 } else {
                     this.player.attacked();
                     this.battleState = 2;
@@ -256,12 +274,20 @@ class Battle {
                         this.playerOldHP = 100
                         this.opponentOldHP = 100
 
+                        this.battleState = 'new match'
+
                         this.gameOver();
                         return;
                     } else {
                         let playerDamage = this.playerOldHP - this.player.hp
                         this.playerDamage.innerHTML = (playerDamage * -1)
-                        playerDamage === 0 ? this.playerDamage.style = "display: none" : this.playerDamage.style = "display: block"
+                        // playerDamage === 0 ? this.playerDamage.style = "display: none" : this.playerDamage.style = "display: block"
+                        if (playerDamage === 0 || this.battleState === 'new match') {
+                            this.playerDamage.style = "display: none"
+                            return;
+                        } else {
+                            this.playerDamage.style = "display: block"
+                        }
                         // this.playerDamage.style = "display: block"
                         this.playerOldHP = this.player.hp
                     }
@@ -339,6 +365,7 @@ class Battle {
         commands.style = "display: none"
         
         this.delay(3000).then(() => {
+            this.battleState = 0;
             this.OpponentHPTag.innerHTML = this.opponent.hp
 
             let opponentDamage = this.opponentOldHP - this.opponent.hp
@@ -346,7 +373,7 @@ class Battle {
             this.enemyDamage.style = "display: block"
             this.opponentOldHP = this.opponent.hp
 
-            this.battleState = 0
+            // this.battleState = 0
         //animation of player attacking enemy lasting about 3 seconds
         //enemy hp go down after this animation
         //about 3 seconds of pause (maybe showing what the enemy will do)
@@ -355,13 +382,13 @@ class Battle {
             this.delay(3000).then(() => {
                 this.enemyDamage.style = "display: none"
 
-                if (this.opponent.hp === 0) {
+                if (this.opponent.hp === 0 || this.battleState === 'new match') {
 
                     this.playerOldHP = 100
                     this.opponentOldHP = 100
 
                     this.gameWon();
-                    this.battleState = 0;
+                    this.battleState = 'new match';
                     // break;
                     return;
                 // if (this.gameWon() === true) {
@@ -395,6 +422,8 @@ class Battle {
                         this.playerOldHP = 100
                         this.opponentOldHP = 100
 
+                        this.battleState = 'new match'
+
                         this.gameOver();
                         // break;
                         return;
@@ -409,7 +438,7 @@ class Battle {
                         let playerDamage = this.playerOldHP - this.player.hp
                         this.playerDamage.innerHTML = (playerDamage * -1)
                         // playerDamage === 0 ? this.playerDamage.style = "display: none" : this.playerDamage.style = "display: block"
-                        if (playerDamage === 0) {
+                        if (playerDamage === 0 || this.battleState === 'new match') {
                             this.playerDamage.style = "display: none"
                             return;
                         } else {
@@ -476,6 +505,8 @@ class Battle {
         commands.style = "display: none"
         
         this.delay(1000).then(() => {
+            this.battleState = 0
+
             this.ZodiacHPTag.innerHTML = this.player.hp
 
             let playerHeal = this.player.hp - this.playerOldHP
@@ -483,7 +514,6 @@ class Battle {
             this.playerDamage.style = "display: block"
             this.playerOldHP = this.player.hp
 
-            this.battleState = 0
         //animation of player attacking enemy lasting about 3 seconds
         //enemy hp go down after this animation
         //about 3 seconds of pause (maybe showing what the enemy will do)
@@ -502,7 +532,15 @@ class Battle {
                     return;
                 } else if (this.opponent.hp < 20 && this.opponent.hp > 0) {
                     this.player.magicked();
-                    this.battleState = 4;
+                    // this.battleState = 4;
+
+                    if (this.battleState === 'new match') {
+                        this.battleState = 0;
+                        return;
+                    } else {
+                        this.battleState = 4;
+                    }
+
                 } else {
                     this.player.attacked();
                     this.battleState = 2;
@@ -516,18 +554,29 @@ class Battle {
                         this.playerOldHP = 100
                         this.opponentOldHP = 100
 
+                        this.battleState = 'new match'
+
                         this.gameOver();
-                        this.battleState = 0;
+                        // this.battleState = 0;
                         return;
                     } else {
                         let playerDamage = this.playerOldHP - this.player.hp
                         this.playerDamage.innerHTML = (playerDamage * -1)
-                        playerDamage === 0 ? this.playerDamage.style = "display: none" : this.playerDamage.style = "display: block"
+                        // playerDamage === 0 ? this.playerDamage.style = "display: none" : this.playerDamage.style = "display: block"
                         // this.playerDamage.style = "display: block"
+
+                        if (playerDamage === 0 || this.battleState === 'new match') {
+                            this.playerDamage.style = "display: none"
+                            return;
+                        } else {
+                            this.playerDamage.style = "display: block"
+                        }
+
                         this.playerOldHP = this.player.hp
     
-                        this.battleState = 0;
                     }
+
+                    this.battleState = 0;
 
                 }).then(() => {
                     this.delay(3000).then(() => {

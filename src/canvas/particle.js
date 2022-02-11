@@ -35,7 +35,7 @@ class Particle {
         this.ctx.fillStyle = this.color
         this.ctx.fill()
         this.ctx.closePath()
-        this.x += 5;
+        this.x += 50;
         // console.log(this.x)
         // this.ctx.fillStyle = "rgba(34,45,23,0.4)";
         // this.ctx.fillRect(0, 0, window.innerWidth, window.innerHeight);
@@ -58,7 +58,7 @@ class Particle {
         this.ctx.shadowBlur = 10
         this.ctx.fillStyle = this.color
         this.ctx.fill()
-        this.x -= 5;
+        this.x -= 50;
         this.ctx.closePath()
         // console.log(`the attackAIDraw copy this x is ${this.x}`)
         this.ctx.fillStyle = "rgba(34,45,23,0.4)";
@@ -85,7 +85,7 @@ class Particle {
         this.ctx.fill()
         this.ctx.closePath()
         this.radius += 2
-        if (this.radius >= 200) {
+        if (this.radius >= 100) {
             this.ctx = null;
             return;
         } else {
