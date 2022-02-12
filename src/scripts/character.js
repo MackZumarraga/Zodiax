@@ -85,7 +85,7 @@ class Character {
 
 
     healed = () => {
-        const healAmount = Math.floor(Math.random() * (20 - 10) + 10)
+        const healAmount = Math.floor(Math.random() * (30 - 10) + 10)
 
         if (this.hp + healAmount > 100) {
             this.hp = 100

@@ -397,7 +397,7 @@ class Battle {
 
         //mp decrease
         // console.log(this.player.mp)
-        this.player.mp = this.player.mp - 30
+        this.player.mp = this.player.mp - Math.floor((50 - 35) + 35 * Math.random())
         // console.log(this.player.mp)
         this.ZodiacMPTag.innerHTML = this.player.mp
         this.ZodiacMPBar.style = `width: ${130 * (this.player.mp/100)}px`
