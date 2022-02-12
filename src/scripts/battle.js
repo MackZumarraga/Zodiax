@@ -119,10 +119,13 @@ class Battle {
         
         //hp mp reinitializer
                 
-        console.log(this.player.mp)
+        // console.log(this.player.mp)
         this.ZodiacMPBar.style = `width: ${130 * (this.player.mp/100)}px`
+
         const magickMPCheck = document.querySelector(".magic")
+        const healMPCheck = document.querySelector(".heal")
         magickMPCheck.style = "color: whitesmoke !important; pointer-events: auto;"
+        healMPCheck.style = "color: whitesmoke !important; pointer-events: auto;"
 
 
         this.ZodiacHPBar.style = `width: ${130 * (this.player.mp/100)}px`
@@ -391,19 +394,21 @@ class Battle {
         this.battleState = 3;
 
         //mp decrease
-        console.log(this.player.mp)
+        // console.log(this.player.mp)
         this.player.mp = this.player.mp - 30
-        console.log(this.player.mp)
+        // console.log(this.player.mp)
         this.ZodiacMPTag.innerHTML = this.player.mp
         this.ZodiacMPBar.style = `width: ${130 * (this.player.mp/100)}px`
 
         //commands disappear
         const magickMPCheck = document.querySelector(".magic")
+        const healMPCheck = document.querySelector(".heal")
         
         if (this.player.mp < 30) {
-            magickMPCheck.style = 
-            "color: grey !important; pointer-events: none;"
-            // magickMPCheck.style = "pointer-events: none"
+            magickMPCheck.style = "color: grey !important; pointer-events: none;"
+        }
+        if (this.player.mp < 10) {
+            healMPCheck.style = "color: grey !important; pointer-events: none;"
         }
 
         commands.style = "display: none"
@@ -547,6 +552,23 @@ class Battle {
 
         this.player.healed();
         this.battleState = 5;
+
+        this.player.mp = this.player.mp - 10
+        // console.log(this.player.mp)
+        this.ZodiacMPTag.innerHTML = this.player.mp
+        this.ZodiacMPBar.style = `width: ${130 * (this.player.mp/100)}px`
+
+        //commands disappear
+        const healMPCheck = document.querySelector(".heal")
+        const magickMPCheck = document.querySelector(".magic")
+        
+        if (this.player.mp < 30) {
+            magickMPCheck.style = "color: grey !important; pointer-events: none;"
+        }
+        if (this.player.mp < 10) {
+            healMPCheck.style = "color: grey !important; pointer-events: none;"
+        }
+
         commands.style = "display: none"
         
         this.delay(1000).then(() => {
