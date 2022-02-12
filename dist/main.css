@@ -252,6 +252,10 @@ table {
   font-size: 16px;
 }
 
+.enemy-hp-container {
+  margin-left: 100px;
+}
+
 .enemy_hp {
   display: none;
   display: flex;

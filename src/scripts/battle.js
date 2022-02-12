@@ -119,8 +119,6 @@ class Battle {
         this.opponent = new Character(zodiacs[Math.floor(Math.random() * 12)])
         
         //hp mp reinitializer
-                
-        // console.log(this.player.mp)
         this.ZodiacMPBar.style = `width: ${130 * (this.player.mp/100)}px`
 
         const magickMPCheck = document.querySelector(".magic")
@@ -129,7 +127,9 @@ class Battle {
         healMPCheck.style = "color: whitesmoke !important; pointer-events: auto;"
 
 
-        this.ZodiacHPBar.style = `width: ${130 * (this.player.mp/100)}px`
+        this.ZodiacHPBar.style = `width: ${130 * (this.player.hp/100)}px`
+
+        this.EnemyHPBar.style = `width: ${300 * (this.opponent.hp/100)}px`
 
         /*start battle rendering*/
         let container = document.querySelector(".command-panel")
@@ -245,6 +245,7 @@ class Battle {
         this.delay(3000).then(() => {
             this.battleState = 0;
             this.OpponentHPTag.innerHTML = this.opponent.hp
+            this.EnemyHPBar.style = `width: ${300 * (this.opponent.hp/100)}px`
 
             let opponentDamage = this.opponentOldHP - this.opponent.hp
             this.enemyDamage.innerHTML = (opponentDamage * -1)
@@ -417,6 +418,7 @@ class Battle {
         this.delay(3000).then(() => {
             this.battleState = 0;
             this.OpponentHPTag.innerHTML = this.opponent.hp
+            this.EnemyHPBar.style = `width: ${300 * (this.opponent.hp/100)}px`
 
             let opponentDamage = this.opponentOldHP - this.opponent.hp
             this.enemyDamage.innerHTML = (opponentDamage * -1)
