@@ -28,7 +28,7 @@ class Battle {
 
         this.player = new Character(player)
         this.opponent = new Character(generated)
-
+        debugger
         // this.player.hp = 100
         this.opponentOldHP = 100;
         this.playerOldHP = 100;
@@ -41,6 +41,7 @@ class Battle {
 
 
         this.ZodiacHPBar = null;
+        this.ZodiacMPBar = null;
 
         // console.log(this.player)
         // console.log(this.opponent)
@@ -79,6 +80,7 @@ class Battle {
         this.ZodiacHPTag.innerHTML = this.player.hp
         this.ZodiacMPTag = document.querySelector(".mp-gauge-bar")
         this.ZodiacMPTag.innerHTML = this.player.mp
+        
 
 
         this.ZodiacHPBar = document.querySelector(".full-hp-bar")
@@ -108,12 +110,22 @@ class Battle {
         const next = document.querySelector(".restart_won")
         next.style = "display: none"
 
+        
         this.anim = true;
         this.character = zodiacId
         this.player = new Character(zodiacs[this.character])
         // this.player = new Character(zodiacs[this.character])
         this.opponent = new Character(zodiacs[Math.floor(Math.random() * 12)])
         
+        //hp mp reinitializer
+                
+        console.log(this.player.mp)
+        this.ZodiacMPBar.style = `width: ${130 * (this.player.mp/100)}px`
+        const magickMPCheck = document.querySelector(".magic")
+        magickMPCheck.style = "color: whitesmoke !important; pointer-events: auto;"
+
+
+        this.ZodiacHPBar.style = `width: ${130 * (this.player.mp/100)}px`
 
         /*start battle rendering*/
         let container = document.querySelector(".command-panel")
@@ -138,6 +150,8 @@ class Battle {
         playerName.style = "display: flex"
         enemyName.style = "display: flex"
 
+        let playerMP = document.querySelector(".mp-gauge-bar")
+        playerMP.style = "display: flex"
 
         /*start battle rendering - ending */
 
@@ -372,8 +386,26 @@ class Battle {
         ///promise version
         const commands = document.querySelector(".command")
 
+        
         this.opponent.magicked();
         this.battleState = 3;
+
+        //mp decrease
+        console.log(this.player.mp)
+        this.player.mp = this.player.mp - 30
+        console.log(this.player.mp)
+        this.ZodiacMPTag.innerHTML = this.player.mp
+        this.ZodiacMPBar.style = `width: ${130 * (this.player.mp/100)}px`
+
+        //commands disappear
+        const magickMPCheck = document.querySelector(".magic")
+        
+        if (this.player.mp < 30) {
+            magickMPCheck.style = 
+            "color: grey !important; pointer-events: none;"
+            // magickMPCheck.style = "pointer-events: none"
+        }
+
         commands.style = "display: none"
         
         this.delay(3000).then(() => {

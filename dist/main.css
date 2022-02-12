@@ -203,8 +203,8 @@ table {
   height: 100px;
 }
 
-.command > div {
-  margin-left: 70px;
+.magic {
+  color: whitesmoke;
 }
 
 .player-damage {
