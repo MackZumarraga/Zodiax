@@ -86,6 +86,7 @@ class Battle {
         this.ZodiacHPBar = document.querySelector(".full-hp-bar")
         this.ZodiacMPBar = document.querySelector(".full-mp-bar")
 
+        this.EnemyHPBar = document.querySelector(".enemy-full-hp-bar")
         
 
         const opponentName = document.querySelector(".enemy_zodiac")
