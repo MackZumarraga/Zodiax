@@ -32,11 +32,15 @@ class Battle {
         // this.player.hp = 100
         this.opponentOldHP = 100;
         this.playerOldHP = 100;
-        
+
+             
         
         this.ZodiacHPTag = null;
         this.ZodiacMPTag = null;
         this.OpponentHPTag = null;
+
+
+        this.ZodiacHPBar = null;
 
         // console.log(this.player)
         // console.log(this.opponent)
@@ -75,6 +79,12 @@ class Battle {
         this.ZodiacHPTag.innerHTML = this.player.hp
         this.ZodiacMPTag = document.querySelector(".mp-gauge-bar")
         this.ZodiacMPTag.innerHTML = this.player.mp
+
+
+        this.ZodiacHPBar = document.querySelector(".full-hp-bar")
+        this.ZodiacMPBar = document.querySelector(".full-mp-bar")
+
+        
 
         const opponentName = document.querySelector(".enemy_zodiac")
         opponentName.innerHTML = this.opponent.name
@@ -267,7 +277,9 @@ class Battle {
                 this.delay(3000).then(() => {
                     // if (this.gameWon() || this.gameOver()) return;
                     
+                    
                     this.ZodiacHPTag.innerHTML = this.player.hp
+                    this.ZodiacHPBar.style = `width: ${130 * (this.player.hp/100)}px`
                     
                     if (this.player.hp === 0) {
                     
@@ -416,6 +428,7 @@ class Battle {
             }).then(() => {
                 this.delay(3000).then(() => {
                     this.ZodiacHPTag.innerHTML = this.player.hp
+                    this.ZodiacHPBar.style = `width: ${130 * (this.player.hp/100)}px`
 
                     if (this.player.hp === 0) {
 
@@ -508,6 +521,7 @@ class Battle {
             this.battleState = 0
 
             this.ZodiacHPTag.innerHTML = this.player.hp
+            this.ZodiacHPBar.style = `width: ${130 * (this.player.hp/100)}px`
 
             let playerHeal = this.player.hp - this.playerOldHP
             this.playerDamage.innerHTML = playerHeal
@@ -549,6 +563,7 @@ class Battle {
                 this.delay(3000).then(() => {
                     this.ZodiacHPTag.innerHTML = this.player.hp
                     
+
                     if (this.player.hp === 0) {
 
                         this.playerOldHP = 100

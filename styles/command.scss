@@ -17,7 +17,7 @@
     display: flex;
 }
 
-//Gauges
+//Time gauge
 .gauges {
     height: 100px;
     justify-content: space-around;
@@ -98,4 +98,20 @@
     position: fixed;
     font-size: 100px;
     left: 30%;
+}
+
+
+//bars
+.full-hp-bar {
+    width: 130px;
+    height: 10px;
+    background: greenyellow;
+    border: 1px solid;
+}
+
+.full-mp-bar {
+    width: 130px;
+    height: 10px;
+    background: rgb(238, 47, 255);
+    border: 1px solid;
 }

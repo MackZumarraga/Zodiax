@@ -215,6 +215,20 @@ table {
   left: 30%;
 }
 
+.full-hp-bar {
+  width: 130px;
+  height: 10px;
+  background: greenyellow;
+  border: 1px solid;
+}
+
+.full-mp-bar {
+  width: 130px;
+  height: 10px;
+  background: #ee2fff;
+  border: 1px solid;
+}
+
 .enemy {
   display: none;
   position: fixed;
