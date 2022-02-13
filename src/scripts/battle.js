@@ -60,6 +60,9 @@ class Battle {
         this.delay = this.delay.bind(this);
         this.gameWon = this.gameWon.bind(this);
         this.gameOver = this.gameOver.bind(this);
+
+        this.slayed = [];
+        this.newOpponent = this.newOpponent.bind(this);
         
         this.init()
     }
@@ -116,7 +119,12 @@ class Battle {
         this.character = zodiacId
         this.player = new Character(zodiacs[this.character])
         // this.player = new Character(zodiacs[this.character])
-        this.opponent = new Character(zodiacs[Math.floor(Math.random() * 12)])
+        // this.opponent = new Character(zodiacs[Math.floor(Math.random() * 12)])
+        const randomOpponent = zodiacs[Math.floor(Math.random() * 12)]
+        // const confirmedOpponent = !this.slayed.includes(randomOpponent.name) ? randomOpponent :
+
+
+        this.opponent = new Character(this.newOpponent(randomOpponent))
         
         //hp mp reinitializer
         this.ZodiacMPBar.style = `width: ${130 * (this.player.mp/100)}px`
@@ -160,6 +168,17 @@ class Battle {
         /*start battle rendering - ending */
 
         this.init();
+    }
+
+    newOpponent(randomOpponent) {
+        debugger
+        while (this.slayed.includes(randomOpponent.Zodiac)) {
+            debugger
+            randomOpponent = zodiacs[Math.floor(Math.random() * 12)]
+        }
+
+        debugger
+        return randomOpponent;
     }
 
     aiResponseAttack = () => {
@@ -666,6 +685,9 @@ class Battle {
 
 
     gameOver() {
+        this.slayed = [];
+        console.log(this.slayed);
+
         this.gameState += 1;
         const lost = document.querySelector(".lost")
         const restart = document.querySelector(".restart_lost")
@@ -683,6 +705,9 @@ class Battle {
     }
 
     gameWon() {
+        this.slayed.push(this.opponent.name)
+        console.log(this.slayed);
+
         this.gameState += 1;
         const won = document.querySelector(".won")
         const next = document.querySelector(".restart_won")
