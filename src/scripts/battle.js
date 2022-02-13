@@ -22,12 +22,16 @@ class Battle {
         this.character = character
 
         let player = zodiacs[character]
-        let generated = zodiacs[Math.floor(Math.random() * 12)]
-        // console.log("hello this is battle")
-
-
         this.player = new Character(player)
+        // debugger
+        // let generated = zodiacs[Math.floor(Math.random() * 12)]
+        // console.log("hello this is battle")
+        let generated = zodiacs[this.uniqueOpponent(12, character)]
         this.opponent = new Character(generated)
+        // debugger
+
+        
+        // this.opponent = new Character(generated)
         debugger
         // this.player.hp = 100
         this.opponentOldHP = 100;
@@ -61,7 +65,8 @@ class Battle {
         this.gameWon = this.gameWon.bind(this);
         this.gameOver = this.gameOver.bind(this);
 
-        this.slayed = [];
+        this.slayed = [this.player.Zodiac];
+        this.uniqueOpponent = this.uniqueOpponent.bind(this);
         this.newOpponent = this.newOpponent.bind(this);
         
         this.init()
@@ -168,6 +173,16 @@ class Battle {
         /*start battle rendering - ending */
 
         this.init();
+    }
+
+    uniqueOpponent(lengthOfArray, indexToExclude) {
+        let rand = null;  
+
+        while (rand === null || rand === indexToExclude) {
+            rand = Math.round(Math.random() * (lengthOfArray - 1));
+        }
+
+        return rand;
     }
 
     newOpponent(randomOpponent) {
@@ -416,7 +431,7 @@ class Battle {
 
         //mp decrease
         // console.log(this.player.mp)
-        this.player.mp = this.player.mp - Math.floor((50 - 35) + 35 * Math.random())
+        this.player.mp = this.player.mp - 30
         // console.log(this.player.mp)
         this.ZodiacMPTag.innerHTML = this.player.mp
         this.ZodiacMPBar.style = `width: ${130 * (this.player.mp/100)}px`

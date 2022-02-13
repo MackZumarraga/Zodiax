@@ -32,8 +32,8 @@ document.addEventListener("DOMContentLoaded", () => {
     //INITIALIZE GAME//
     const game = new Game(ctx);
     const view = new GameView(game, canvas, ctx);
-    // view.initParticles();
-    // view.animate();
+    view.initParticles();
+    view.animate();
 
     /*DESIRED LAYOUT
     const Battle = require("./scripts/battle");
