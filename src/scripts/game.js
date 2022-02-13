@@ -9,7 +9,8 @@ class Game {
         this.init();
         this.animation = 0
         this.ctx = ctx;
-        
+        this.round = 1;
+        this.roundContainer = document.querySelector(".round-number")
 
     }
 
@@ -17,6 +18,10 @@ class Game {
     startGame(character = 0) {
         this.battle = new Battle(character, this.ctx);
         this.animation += 1
+
+        //round
+        this.roundContainer.innerHTML = this.round
+
 
         let container = document.querySelector(".command-panel")
         let enemyContainer = document.querySelector(".enemy")
@@ -57,6 +62,10 @@ class Game {
             won.style = "display: none"
             selector.style = "display: block"
 
+            //round
+            this.round += 1
+            this.roundContainer.innerHTML = this.round
+
             this.turnsCounter += 1
             debugger
             this.animation = 1
@@ -75,6 +84,10 @@ class Game {
             command.style = "display: none"
             lost.style = "display: none"
             selector.style = "display: block"
+
+            //round
+            this.round = 1
+            this.roundContainer.innerHTML = this.round
             
             this.turnsCounter = 1
             
