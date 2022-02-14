@@ -12,6 +12,7 @@ class Battle {
         this.anim = true;
         this.round = round;
 
+        
         if (this.gameState === 0) {
             const modal = document.querySelector(".modal")
             modal.addEventListener("click", () =>{
@@ -80,6 +81,7 @@ class Battle {
         this.gameOver = this.gameOver.bind(this);
 
         this.slayed = [this.player.zodiac.Zodiac];
+        console.log(`the first slayed is ${this.slayed}`)
         this.uniqueOpponent = this.uniqueOpponent.bind(this);
         this.newOpponent = this.newOpponent.bind(this);
         
@@ -137,6 +139,7 @@ class Battle {
         this.anim = true;
         this.character = zodiacId
         this.player = new Character(zodiacs[this.character], this.round)
+        this.slayed.includes(this.player.zodiac.Zodiac) ? null : this.slayed.push(this.player.zodiac.Zodiac)
         // this.player = new Character(zodiacs[this.character])
         // this.opponent = new Character(zodiacs[Math.floor(Math.random() * 12)])
         // const confirmedOpponent = !this.slayed.includes(randomOpponent.name) ? randomOpponent :
@@ -145,6 +148,17 @@ class Battle {
         const zodius = zodiacs[12]
         debugger
         this.opponent = new Character((this.round === 12 ? zodius : this.newOpponent(randomOpponent)), this.round)
+
+        //opponent hp increase
+        if (this.round > 1) {
+            this.multiplier = (this.round/100) + 1
+            const increaseOpponentHP = Math.ceil(((this.opponent.hp) ** this.multiplier) / 10) * 10;
+            console.log(this.opponent.hp)
+            console.log(increaseOpponentHP)
+            this.opponent.hp = increaseOpponentHP
+            console.log(this.opponent.hp)
+        }
+
 
         //hp mp bar stabilizer
         this.playerMaxHp = this.player.hp
@@ -479,7 +493,7 @@ class Battle {
 
         //mp decrease
         // console.log(this.player.mp)
-        this.player.mp = this.player.mp - 30
+        this.player.mp -= 30;
         // console.log(this.player.mp)
         this.ZodiacMPTag.innerHTML = this.player.mp
         this.ZodiacMPBar.style = `width: ${130 * (this.player.mp/this.playerMaxMp)}px`
@@ -660,7 +674,7 @@ class Battle {
         this.player.healed();
         this.battleState = 5;
 
-        this.player.mp = this.player.mp - 10
+        this.player.mp -= 10;
         // console.log(this.player.mp)
         this.ZodiacMPTag.innerHTML = this.player.mp
         this.ZodiacMPBar.style = `width: ${130 * (this.player.mp/this.playerMaxMp)}px`
@@ -816,7 +830,7 @@ class Battle {
 
     gameWon() {
         this.slayed.push(this.opponent.name)
-        console.log(this.slayed);
+        console.log(`after a battle ${this.slayed}`);
 
         this.round += 1;
         this.gameState += 1;

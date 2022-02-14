@@ -42,7 +42,7 @@ class Character {
         // this.hp = 100
         // this.mp = 100
         debugger
-        this.multiplier = this.round === 1 ? 1 : (this.round/10) + 1
+        this.multiplier = this.round === 1 ? 1 : (this.round/100) + 1.1
 
         this.hp = Math.ceil(((this.zodiac.HP) ** this.multiplier) / 10) * 10;
         this.mp = Math.ceil(((this.zodiac.MP) ** this.multiplier) / 10) * 10;
@@ -61,7 +61,7 @@ class Character {
     }
 
     attacked = () => {
-        const normAttack = Math.floor(Math.random() * (20 - 5) + 5)
+        const normAttack = Math.floor(Math.random() * (35 - 20) + 20)
         const attackDamage = this.round === 1 ? normAttack : Math.ceil((normAttack ** this.multiplier) / 10) * 10
         
         if (this.hp - attackDamage <= 0) {
@@ -98,7 +98,7 @@ class Character {
 
 
     healed = () => {
-        const normHeal = Math.floor(Math.random() * (30 - 10) + 10)
+        const normHeal = Math.floor(Math.random() * (200 - 70) + 70)
         const healAmount = this.round === 1 ? normHeal : Math.ceil((normHeal ** this.multiplier) / 10) * 10
         debugger
         if (this.hp + healAmount > this.maxHp) {
