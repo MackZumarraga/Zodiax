@@ -93,10 +93,24 @@ class Battle {
         const attack = document.querySelector(".attack")
         const magick = document.querySelector(".magic")  
         const heal = document.querySelector(".heal")
+        const special = document.querySelector(".special")
+        const specialCommands = document.querySelector(".special-container")
+        const charge = document.querySelector(".charge")
+        const curse = document.querySelector(".curse")
 
         attack.addEventListener("click", this.aiResponseAttack)
         magick.addEventListener("click", this.aiResponseMagick)
         heal.addEventListener("click", this.aiResponseHeal)
+        
+        special.addEventListener("click", () => {
+            debugger
+            let command = document.querySelector(".command")
+            command.style = "display: none"
+            specialCommands.style = "display: flex"
+        })
+        charge.addEventListener("click", this.aiResponseCharge)
+        curse.addEventListener("click", this.aiResponseCurse)
+        
 
         const zodiacName = document.querySelector(".zodiac")
         zodiacName.innerHTML = this.player.name
@@ -125,6 +139,7 @@ class Battle {
         this.OpponentMaxHPTag = document.querySelector(".enemy-max-hp")
         debugger
         this.OpponentMaxHPTag.innerHTML = this.opponentMaxHp  
+
     }
 
     
@@ -710,6 +725,148 @@ class Battle {
             this.playerDamage.innerHTML = playerHeal
             this.playerDamage.style = "display: block"
             this.playerOldHP = this.player.hp
+
+        //animation of player attacking enemy lasting about 3 seconds
+        //enemy hp go down after this animation
+        //about 3 seconds of pause (maybe showing what the enemy will do)
+        //evaluates it's response and retaliates (along with battlestate change)
+        }).then(() => {
+            this.delay(1000).then(() => {
+                const painThreshold = (Math.random() * 100)/100
+
+                this.playerDamage.style = "display: none"
+
+                if (this.opponent.hp === 0) {
+
+                    // this.playerOldHP = 100
+                    // this.opponentOldHP = 100
+
+                    this.gameWon();
+                    this.battleState = 0;
+                    return;
+                } else if (this.opponent.hp < (painThreshold * this.opponentMaxHp) && this.opponent.hp > 0) {
+                    this.player.magicked();
+                    // this.battleState = 4;
+
+                    if (this.battleState === 'new match') {
+                        this.battleState = 0;
+                        return;
+                    } else {
+                        this.battleState = 4;
+                    }
+
+                } else {
+                    this.player.attacked();
+                    this.battleState = 2;
+                }
+            }).then(() => {
+                this.delay(1000).then(() => {
+                    this.ZodiacHPTag.innerHTML = this.player.hp
+                    this.ZodiacHPBar.style = `width: ${130 * (this.player.hp/this.playerMaxHp)}px`
+
+                    let playerDisplayDamage = this.playerOldHP - this.player.hp
+                    this.playerDamage.innerHTML = (playerDisplayDamage * -1)
+                    this.playerDamage.style = "display: block"
+                    this.playerOldHP = this.player.hp
+                    
+
+                    if (this.player.hp === 0) {
+
+                        // this.playerOldHP = 100
+                        // this.opponentOldHP = 100
+
+                        this.battleState = 'new match'
+                        this.playerDamage.style = "display: none"
+                        this.gameOver();
+                        // this.battleState = 0;
+                        return;
+                    } 
+
+                    // else {
+                    //     let playerDamage = this.playerOldHP - this.player.hp
+                    //     this.playerDamage.innerHTML = (playerDamage * -1)
+                    //     // playerDamage === 0 ? this.playerDamage.style = "display: none" : this.playerDamage.style = "display: block"
+                    //     // this.playerDamage.style = "display: block"
+
+                    //     if (playerDamage === 0 || this.battleState === 'new match') {
+                    //         this.playerDamage.style = "display: none"
+                    //         return;
+                    //     } else {
+                    //         this.playerDamage.style = "display: block"
+                    //     }
+
+                    //     this.playerOldHP = this.player.hp
+    
+                    // }
+
+                    this.battleState = 0;
+
+                }).then(() => {
+                    this.delay(1000).then(() => {
+                        //ideally another .then waiting for gauge to be full before showing commands
+
+                        if (this.player.hp === 0) {
+
+                            // this.playerOldHP = 100
+                            // this.opponentOldHP = 100
+    
+                            this.battleState = 'new match'
+                            this.playerDamage.style = "display: none"
+                            this.gameOver();
+                            // this.battleState = 0;
+                            return;
+                        } 
+
+                        commands.style = "display: block"
+                        this.playerDamage.style = "display: none"
+                        if (this.player.hp === 0 || this.opponent.hp === 0) return;
+                    })
+                })
+            //this enemy retaliation will have about 3 seconds of animation before player's hp takes a hit
+            })
+        })
+
+    }
+
+
+    aiResponseCharge = () => {
+        
+        const commands = document.querySelector(".command")
+        const specialCommands = document.querySelector(".special-container")
+
+        this.player.charged();
+        this.battleState = 5;
+
+        
+        // special bar zeroes out and empties -- use below as guide
+        // this.ZodiacMPTag.innerHTML = this.player.mp
+        // this.ZodiacMPBar.style = `width: ${130 * (this.player.mp/this.playerMaxMp)}px`
+
+        //commands disappear
+        const magickMPCheck = document.querySelector(".magic")
+        const healMPCheck = document.querySelector(".heal")
+        
+        if (this.player.mp >= 30) {
+            magickMPCheck.style = "color: whitesmoke !important; pointer-events: auto;"
+        }
+        if (this.player.mp >= 10) {
+            healMPCheck.style = "color: whitesmoke !important; pointer-events: auto;"
+        }
+
+        commands.style = "display: none"
+        specialCommands.style = "display: none"
+
+        this.delay(1000).then(() => {
+            this.battleState = 0
+            debugger
+            this.ZodiacMPTag.innerHTML = this.player.mp
+            this.ZodiacMPBar.style = `width: ${130 * (this.player.mp/this.playerMaxMp)}px`
+
+            // increase of MP box logic below
+            // let playerHeal = this.player.hp - this.playerOldHP
+            // this.playerDamage.innerHTML = playerHeal
+            // this.playerDamage.style = "display: block"
+            // this.playerOldHP = this.player.hp
 
         //animation of player attacking enemy lasting about 3 seconds
         //enemy hp go down after this animation
