@@ -111,6 +111,29 @@ class Character {
         // this.hptag.innerHTML = `HP: ${this.hp}`
     }
 
+
+    charged = () => {
+        this.mp = this.maxMp
+    }
+
+
+    cursed = () => {
+        const hpHalved = this.maxHp / 2
+        const normCurse = Math.floor(Math.random() * (this.maxHp - hpHalved) + hpHalved)
+        const curseDamage = this.round === 1 ? normCurse : Math.ceil((normCurse ** this.multiplier) / 10) * 10
+        
+        if (this.hp - curseDamage <= 0) {
+            this.hp = 0
+            // this.hptag.innerHTML = `HP: ${this.hp}`
+            // alert (`${this.zodiacName} is dead`)
+        } else {
+            this.hp -= curseDamage
+            // console.log(this.hp)
+            // console.log(this)
+            // this.hptag.innerHTML = `HP: ${this.hp}`
+        }
+    }
+
 }
 
 export default Character;

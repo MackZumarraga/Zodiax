@@ -23,6 +23,9 @@
     justify-content: space-around;
     flex-direction: column;
     display: flex;
+
+    position: fixed;
+    margin-left: 18%;
 }
 
 .leveler {
@@ -137,4 +140,17 @@
     height: 10px;
     background: rgb(238, 47, 255);
     border: 1px solid;
+}
+
+//special
+.special-container {
+    display: none;
+    // display: flex;
+    flex-direction: column;
+    color: whitesmoke;
+    justify-content: space-around;
+    cursor: pointer;
+    margin-right: 92px;
+    margin-left: 70px;
+    height: 100px;
 }

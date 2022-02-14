@@ -145,6 +145,8 @@ table {
   justify-content: space-around;
   flex-direction: column;
   display: flex;
+  position: fixed;
+  margin-left: 18%;
 }
 
 .leveler {
@@ -251,6 +253,17 @@ table {
   height: 10px;
   background: #ee2fff;
   border: 1px solid;
+}
+
+.special-container {
+  display: none;
+  flex-direction: column;
+  color: whitesmoke;
+  justify-content: space-around;
+  cursor: pointer;
+  margin-right: 92px;
+  margin-left: 70px;
+  height: 100px;
 }
 
 .enemy {
