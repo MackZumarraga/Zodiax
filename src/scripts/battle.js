@@ -104,6 +104,11 @@ class Battle {
         this.ZodiacHPTag.innerHTML = this.player.hp
         this.ZodiacMPTag = document.querySelector(".mp-gauge-bar")
         this.ZodiacMPTag.innerHTML = this.player.mp
+
+        this.ZodiacMaxHPTag = document.querySelector(".max-hp")
+        this.ZodiacMaxHPTag.innerHTML = this.playerMaxHp
+        this.ZodiacMaxMPTag = document.querySelector(".max-mp")
+        this.ZodiacMaxMPTag.innerHTML = this.playerMaxMp
         
 
 
@@ -117,6 +122,9 @@ class Battle {
         opponentName.innerHTML = this.opponent.name
         this.OpponentHPTag = document.querySelector(".enemy_hp")
         this.OpponentHPTag.innerHTML = this.opponent.hp
+        this.OpponentMaxHPTag = document.querySelector(".enemy-max-hp")
+        debugger
+        this.OpponentMaxHPTag.innerHTML = this.opponentMaxHp  
     }
 
     

@@ -177,7 +177,21 @@ table {
   color: gold;
 }
 
+.max-hp-gauge-bar {
+  display: none;
+  display: flex;
+  justify-content: center;
+  color: gold;
+}
+
 .mp-gauge-bar {
+  display: none;
+  display: flex;
+  justify-content: center;
+  color: gold;
+}
+
+.max-mp-gauge-bar {
   display: none;
   display: flex;
   justify-content: center;
@@ -259,6 +273,13 @@ table {
 }
 
 .enemy_hp {
+  display: none;
+  display: flex;
+  justify-content: center;
+  color: gold;
+}
+
+.enemy-max-hp-gauge-bar {
   display: none;
   display: flex;
   justify-content: center;
