@@ -98,7 +98,8 @@ class Character {
 
 
     healed = () => {
-        const normHeal = Math.floor(Math.random() * (200 - 70) + 70)
+        const sevenths = this.maxHp * 0.70
+        const normHeal = Math.floor(Math.random() * (this.maxHp - sevenths) + sevenths)
         const healAmount = this.round === 1 ? normHeal : Math.ceil((normHeal ** this.multiplier) / 10) * 10
         // debugger
         if (this.hp + healAmount > this.maxHp) {
@@ -120,14 +121,14 @@ class Character {
     cursed = () => {
         const hpHalved = this.maxHp / 2
         const normCurse = Math.floor(Math.random() * (this.maxHp - hpHalved) + hpHalved)
-        const curseDamage = this.round === 1 ? normCurse : Math.ceil((normCurse ** this.multiplier) / 10) * 10
-        
-        if (this.hp - curseDamage <= 0) {
+        // const curseDamage = this.round === 1 ? normCurse : Math.ceil((normCurse ** this.multiplier) / 10) * 10
+        debugger
+        if (this.hp - normCurse <= 0) {
             this.hp = 0
             // this.hptag.innerHTML = `HP: ${this.hp}`
             // alert (`${this.zodiacName} is dead`)
         } else {
-            this.hp -= curseDamage
+            this.hp -= normCurse
             // console.log(this.hp)
             // console.log(this)
             // this.hptag.innerHTML = `HP: ${this.hp}`
