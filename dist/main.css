@@ -98,9 +98,10 @@ table {
 }
 
 .scroll {
+  height: 148px;
   text-align: center;
   width: 100%;
-  min-height: 50%;
+  min-height: 148px;
   overflow-y: scroll;
   display: block;
 }

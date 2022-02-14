@@ -23,13 +23,13 @@ class Battle {
         this.character = character
 
         let player = zodiacs[character]
-        this.player = new Character(player)
+        this.player = new Character(player, this.round)
         // debugger
         // let generated = zodiacs[Math.floor(Math.random() * 12)]
         // console.log("hello this is battle")
 
         let generated = zodiacs[this.uniqueOpponent(11, character)]
-        this.opponent = new Character(generated)
+        this.opponent = new Character(generated, this.round)
         // this.opponent = new Character(zodius)
 
         // debugger
@@ -38,8 +38,17 @@ class Battle {
         // this.opponent = new Character(generated)
         debugger
         // this.player.hp = 100
-        this.opponentOldHP = 100;
-        this.playerOldHP = 100;
+        // this.playerOldHP = 100;
+        // this.opponentOldHP = 100;
+
+        this.playerMaxHp = this.player.hp
+        this.opponentMaxHp = this.opponent.hp
+
+        this.playerMaxMp = this.player.mp
+        this.opponentMaxMp = this.opponent.mp
+
+        this.playerOldHP = this.player.hp;
+        this.opponentOldHP = this.opponent.hp;
 
              
         
@@ -126,7 +135,7 @@ class Battle {
         
         this.anim = true;
         this.character = zodiacId
-        this.player = new Character(zodiacs[this.character])
+        this.player = new Character(zodiacs[this.character], this.round)
         // this.player = new Character(zodiacs[this.character])
         // this.opponent = new Character(zodiacs[Math.floor(Math.random() * 12)])
         // const confirmedOpponent = !this.slayed.includes(randomOpponent.name) ? randomOpponent :
@@ -134,10 +143,17 @@ class Battle {
         const randomOpponent = zodiacs[Math.floor(Math.random() * 12)]
         const zodius = zodiacs[12]
         debugger
-        this.opponent = new Character(this.round === 12 ? zodius : this.newOpponent(randomOpponent))
+        this.opponent = new Character(this.round === 12 ? zodius : this.newOpponent(randomOpponent), this.round)
+
+        //hp mp bar stabilizer
+        this.playerMaxHp = this.player.hp
+        this.opponentMaxHp = this.opponent.hp
+
+        this.playerMaxMp = this.player.mp
+        this.opponentMaxMp = this.opponent.mp
         
         //hp mp reinitializer
-        this.ZodiacMPBar.style = `width: ${130 * (this.player.mp/100)}px`
+        this.ZodiacMPBar.style = `width: ${130 * (this.player.mp/this.playerMaxMp)}px`
 
         const magickMPCheck = document.querySelector(".magic")
         const healMPCheck = document.querySelector(".heal")
@@ -145,9 +161,12 @@ class Battle {
         healMPCheck.style = "color: whitesmoke !important; pointer-events: auto;"
 
 
-        this.ZodiacHPBar.style = `width: ${130 * (this.player.hp/100)}px`
+        this.ZodiacHPBar.style = `width: ${130 * (this.player.hp/this.playerMaxHp)}px`
 
-        this.EnemyHPBar.style = `width: ${300 * (this.opponent.hp/100)}px`
+        this.EnemyHPBar.style = `width: ${300 * (this.opponent.hp/this.opponentMaxHp)}px`
+
+        
+
 
         /*start battle rendering*/
         let container = document.querySelector(".command-panel")
@@ -284,7 +303,7 @@ class Battle {
         this.delay(1000).then(() => {
             this.battleState = 0;
             this.OpponentHPTag.innerHTML = this.opponent.hp
-            this.EnemyHPBar.style = `width: ${300 * (this.opponent.hp/100)}px`
+            this.EnemyHPBar.style = `width: ${300 * (this.opponent.hp/this.opponentMaxHp)}px`
 
             let opponentDamage = this.opponentOldHP - this.opponent.hp
             this.enemyDamage.innerHTML = (opponentDamage * -1)
@@ -337,7 +356,7 @@ class Battle {
                     
                     
                     this.ZodiacHPTag.innerHTML = this.player.hp
-                    this.ZodiacHPBar.style = `width: ${130 * (this.player.hp/100)}px`
+                    this.ZodiacHPBar.style = `width: ${130 * (this.player.hp/this.playerMaxHp)}px`
                     
                     if (this.player.hp === 0) {
                     
@@ -439,7 +458,7 @@ class Battle {
         this.player.mp = this.player.mp - 30
         // console.log(this.player.mp)
         this.ZodiacMPTag.innerHTML = this.player.mp
-        this.ZodiacMPBar.style = `width: ${130 * (this.player.mp/100)}px`
+        this.ZodiacMPBar.style = `width: ${130 * (this.player.mp/this.playerMaxMp)}px`
 
         //commands disappear
         const magickMPCheck = document.querySelector(".magic")
@@ -457,7 +476,7 @@ class Battle {
         this.delay(1000).then(() => {
             this.battleState = 0;
             this.OpponentHPTag.innerHTML = this.opponent.hp
-            this.EnemyHPBar.style = `width: ${300 * (this.opponent.hp/100)}px`
+            this.EnemyHPBar.style = `width: ${300 * (this.opponent.hp/this.opponentMaxHp)}px`
 
             let opponentDamage = this.opponentOldHP - this.opponent.hp
             this.enemyDamage.innerHTML = (opponentDamage * -1)
@@ -507,7 +526,7 @@ class Battle {
             }).then(() => {
                 this.delay(1000).then(() => {
                     this.ZodiacHPTag.innerHTML = this.player.hp
-                    this.ZodiacHPBar.style = `width: ${130 * (this.player.hp/100)}px`
+                    this.ZodiacHPBar.style = `width: ${130 * (this.player.hp/this.playerMaxHp)}px`
 
                     if (this.player.hp === 0) {
 
@@ -598,7 +617,7 @@ class Battle {
         this.player.mp = this.player.mp - 10
         // console.log(this.player.mp)
         this.ZodiacMPTag.innerHTML = this.player.mp
-        this.ZodiacMPBar.style = `width: ${130 * (this.player.mp/100)}px`
+        this.ZodiacMPBar.style = `width: ${130 * (this.player.mp/this.playerMaxMp)}px`
 
         //commands disappear
         const healMPCheck = document.querySelector(".heal")
@@ -617,7 +636,7 @@ class Battle {
             this.battleState = 0
 
             this.ZodiacHPTag.innerHTML = this.player.hp
-            this.ZodiacHPBar.style = `width: ${130 * (this.player.hp/100)}px`
+            this.ZodiacHPBar.style = `width: ${130 * (this.player.hp/this.playerMaxHp)}px`
 
             let playerHeal = this.player.hp - this.playerOldHP
             this.playerDamage.innerHTML = playerHeal
