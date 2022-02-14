@@ -143,7 +143,7 @@ class Battle {
         const randomOpponent = zodiacs[Math.floor(Math.random() * 12)]
         const zodius = zodiacs[12]
         debugger
-        this.opponent = new Character(this.round === 12 ? zodius : this.newOpponent(randomOpponent), this.round)
+        this.opponent = new Character((this.round === 12 ? zodius : this.newOpponent(randomOpponent)), this.round)
 
         //hp mp bar stabilizer
         this.playerMaxHp = this.player.hp
@@ -201,7 +201,7 @@ class Battle {
 
     uniqueOpponent(lengthOfArray, indexToExclude) {
         let rand = null;  
-
+        debugger
         while (rand === null || rand === indexToExclude) {
             rand = Math.round(Math.random() * (lengthOfArray - 1));
         }
