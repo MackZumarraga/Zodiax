@@ -293,7 +293,7 @@ table {
 
 .enemy-damage {
   display: none;
-  color: white;
+  color: black;
   position: fixed;
   font-size: 100px;
   left: 60%;

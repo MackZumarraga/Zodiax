@@ -121,7 +121,7 @@ let zodiacs = [
   },
   {
     "Zodiac": "Zodius",
-    "HP": 500,
+    "HP": 200,
     "MP": 50,
     "Magic": "Mercury Retrograde",
     "MagicDamage": 2000,

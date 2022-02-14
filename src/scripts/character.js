@@ -60,7 +60,7 @@ class Character {
 
     attacked = () => {
         const normAttack = Math.floor(Math.random() * (20 - 5) + 5)
-        const attackDamage = this.round === 1 ? normAttack : Math.ceil((normAttack  ** this.multiplier) / 10) * 10
+        const attackDamage = this.round === 1 ? normAttack : Math.ceil((normAttack ** this.multiplier) / 10) * 10
         
         if (this.hp - attackDamage <= 0) {
             this.hp = 0
@@ -80,7 +80,7 @@ class Character {
 
     magicked = () => {
         const normMagick = Math.floor(Math.random() * (50 - 35) + 35)
-        const MagicDamage = this.round === 1 ? normMagick : Math.ceil((normMagick  ** this.multiplier) / 10) * 10
+        const MagicDamage = this.round === 1 ? normMagick : Math.ceil((normMagick ** this.multiplier) / 10) * 10
         
         if (this.hp - MagicDamage <= 0) {
             this.hp = 0
@@ -97,7 +97,7 @@ class Character {
 
     healed = () => {
         const normHeal = Math.floor(Math.random() * (30 - 10) + 10)
-        const healAmount = this.round === 1 ? normHeal : Math.ceil((normHeal  ** this.multiplier) / 10) * 10
+        const healAmount = this.round === 1 ? normHeal : Math.ceil((normHeal ** this.multiplier) / 10) * 10
 
         if (this.hp + healAmount > 100) {
             this.hp = 100

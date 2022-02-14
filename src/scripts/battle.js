@@ -165,7 +165,9 @@ class Battle {
 
         this.EnemyHPBar.style = `width: ${300 * (this.opponent.hp/this.opponentMaxHp)}px`
 
-        
+        //Old hp
+        this.playerOldHP = this.player.hp;
+        this.opponentOldHP = this.opponent.hp;
 
 
         /*start battle rendering*/
@@ -322,8 +324,8 @@ class Battle {
 
                 if (this.opponent.hp === 0 || this.battleState === 'new match') {
                     
-                    this.playerOldHP = 100
-                    this.opponentOldHP = 100
+                    // this.playerOldHP = 100
+                    // this.opponentOldHP = 100
 
                     this.gameWon();
                     this.battleState = 'new match';
@@ -360,8 +362,8 @@ class Battle {
                     
                     if (this.player.hp === 0) {
                     
-                        this.playerOldHP = 100
-                        this.opponentOldHP = 100
+                        // this.playerOldHP = 100
+                        // this.opponentOldHP = 100
 
                         this.battleState = 'new match'
 
@@ -494,8 +496,8 @@ class Battle {
 
                 if (this.opponent.hp === 0 || this.battleState === 'new match') {
 
-                    this.playerOldHP = 100
-                    this.opponentOldHP = 100
+                    // this.playerOldHP = 100
+                    // this.opponentOldHP = 100
 
                     this.gameWon();
                     this.battleState = 'new match';
@@ -530,8 +532,8 @@ class Battle {
 
                     if (this.player.hp === 0) {
 
-                        this.playerOldHP = 100
-                        this.opponentOldHP = 100
+                        // this.playerOldHP = 100
+                        // this.opponentOldHP = 100
 
                         this.battleState = 'new match'
 
@@ -653,8 +655,8 @@ class Battle {
 
                 if (this.opponent.hp === 0) {
 
-                    this.playerOldHP = 100
-                    this.opponentOldHP = 100
+                    // this.playerOldHP = 100
+                    // this.opponentOldHP = 100
 
                     this.gameWon();
                     this.battleState = 0;
@@ -681,8 +683,8 @@ class Battle {
 
                     if (this.player.hp === 0) {
 
-                        this.playerOldHP = 100
-                        this.opponentOldHP = 100
+                        // this.playerOldHP = 100
+                        // this.opponentOldHP = 100
 
                         this.battleState = 'new match'
 
