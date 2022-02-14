@@ -65,7 +65,7 @@ class Particle {
         // this.ctx.fillRect(0, 0, window.innerWidth, window.innerHeight);
         // this.ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
 
-        if (this.x <= window.innerWidth * .30) {
+        if (this.x <= window.innerWidth * .35) {
             // console.log(`stop requests ${this.x}`)
             this.ctx = null;
             return;

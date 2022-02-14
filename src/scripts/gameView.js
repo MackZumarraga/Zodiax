@@ -112,42 +112,42 @@ class GameView {
 
 
         if (this.game.battle.battleState === 1) {
-            const attackAnimation = new Particle(window.innerWidth * 0.30, window.innerHeight * 0.55, 2, '#98FB98', this.ctx)
+            const attackAnimation = new Particle(window.innerWidth * 0.35, window.innerHeight * 0.30, 2, '#98FB98', this.ctx)
             // attackAnimation.draw();
             // attackAnimation.update();
             attackAnimation.attackDraw();
         };
 
         if (this.game.battle.battleState === 2) {
-            const attackAIAnimation = new Particle(window.innerWidth * 0.60, window.innerHeight * 0.55, 2, '#48D1CC', this.ctx)
+            const attackAIAnimation = new Particle(window.innerWidth * 0.60, window.innerHeight * 0.30, 2, '#48D1CC', this.ctx)
             // attackAnimation.draw();
             // attackAnimation.update();
             attackAIAnimation.attackAIDraw();
         }
 
         if (this.game.battle.battleState === 3) {
-            const magicAnimation = new Particle(window.innerWidth * 0.30, window.innerHeight * 0.55, 20, '#98FB98', this.ctx)
+            const magicAnimation = new Particle(window.innerWidth * 0.35, window.innerHeight * 0.30, 20, '#98FB98', this.ctx)
             // attackAnimation.draw();
             // attackAnimation.update();
             magicAnimation.attackDraw();
         }
 
         if (this.game.battle.battleState === 4) {
-            const magicAIAnimation = new Particle(window.innerWidth * 0.60, window.innerHeight * 0.55, 20, '#48D1CC', this.ctx)
+            const magicAIAnimation = new Particle(window.innerWidth * 0.60, window.innerHeight * 0.30, 20, '#48D1CC', this.ctx)
             // attackAnimation.draw();
             // attackAnimation.update();
             magicAIAnimation.attackAIDraw();
         }
 
         if (this.game.battle.battleState === 5) {
-            const healAnimation = new Particle(window.innerWidth * 0.20, window.innerHeight * 0.55, 20, '#00FF00', this.ctx)
+            const healAnimation = new Particle(window.innerWidth * 0.20, window.innerHeight * 0.30, 20, '#00FF00', this.ctx)
             // attackAnimation.draw();
             // attackAnimation.update();
             healAnimation.healAnimation();
         }
 
         if (this.game.battle.battleState === 6) {
-            const healAnimation = new Particle(window.innerWidth * 0.70, window.innerHeight * 0.55, 20, '#00FF00', this.ctx)
+            const healAnimation = new Particle(window.innerWidth * 0.70, window.innerHeight * 0.30, 20, '#00FF00', this.ctx)
             // attackAnimation.draw();
             // attackAnimation.update();
             healAnimation.healAnimation();
