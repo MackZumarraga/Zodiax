@@ -16,7 +16,7 @@ class Game {
 
 
     startGame(character = 0) {
-        this.battle = new Battle(character, this.ctx);
+        this.battle = new Battle(character, this.ctx, this.round);
         this.animation += 1
 
         //round
@@ -35,6 +35,7 @@ class Game {
         selector.style = "display: none"
         let won = document.querySelector(".won")
         let lost = document.querySelector(".lost")
+        let fin = document.querySelector(".finished-container")
 
         let playerHP = document.querySelector(".hp-gauge-bar")
         let enemyHP = document.querySelector(".enemy_hp")
@@ -49,6 +50,7 @@ class Game {
             
         const restartWon = document.querySelector(".restart_won")
         const restartLost = document.querySelector(".restart_lost")
+        const restartFinished = document.querySelector(".restart-game")
         const round = document.querySelector(".round")
 
         restartWon.addEventListener("click", () => {
@@ -64,6 +66,7 @@ class Game {
 
             //round
             this.round += 1
+            
             this.roundContainer.innerHTML = this.round
 
             this.turnsCounter += 1
@@ -83,6 +86,32 @@ class Game {
             enemyName.style = "display: none"
             command.style = "display: none"
             lost.style = "display: none"
+            selector.style = "display: block"
+
+            //round
+            this.round = 1
+            this.roundContainer.innerHTML = this.round
+            
+            this.turnsCounter = 1
+            
+            this.animation = 0
+
+            this.init();
+
+  
+
+        })
+
+
+        restartFinished.addEventListener("click", () => {
+            container.style = "display: none"
+            enemyContainer.style = "display: none"
+            playerHP.style = "display: none"
+            enemyHP.style = "display: none"
+            playerName.style = "display: none"
+            enemyName.style = "display: none"
+            command.style = "display: none"
+            fin.style = "display: none"
             selector.style = "display: block"
 
             //round

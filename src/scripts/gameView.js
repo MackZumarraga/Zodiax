@@ -24,7 +24,7 @@ class GameView {
 
         this.xsize = 500
         this.ysize = 500
-
+       
         this.playerPath = null;
         this.enemyPath = null;
         

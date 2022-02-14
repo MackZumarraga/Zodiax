@@ -118,6 +118,16 @@ let zodiacs = [
     "Vulnerability": "Libra",
     "Element": "Water",
     "Image": "src/canvas/zodiac/zodiac-signs-3231760_640.png"
+  },
+  {
+    "Zodiac": "Zodius",
+    "HP": 10000,
+    "MP": 5000,
+    "Magic": "Mercury Retrograde",
+    "MagicDamage": 2000,
+    "Vulnerability": "null",
+    "Element": "Dark",
+    "Image": "src/canvas/zodiac/zodius.png"
   }
  ];
 

@@ -5,11 +5,12 @@ let zodiacs = require('./zodiacs').zodiacs
 
 
 class Battle {
-    constructor(character, ctx) {
+    constructor(character, ctx, round) {
         this.ctx = ctx
         this.battleState = 0;
         this.gameState = 0;
         this.anim = true;
+        this.round = round;
 
         if (this.gameState === 0) {
             const modal = document.querySelector(".modal")
@@ -26,8 +27,11 @@ class Battle {
         // debugger
         // let generated = zodiacs[Math.floor(Math.random() * 12)]
         // console.log("hello this is battle")
-        let generated = zodiacs[this.uniqueOpponent(12, character)]
+
+        let generated = zodiacs[this.uniqueOpponent(11, character)]
         this.opponent = new Character(generated)
+        // this.opponent = new Character(zodius)
+
         // debugger
 
         
@@ -65,7 +69,7 @@ class Battle {
         this.gameWon = this.gameWon.bind(this);
         this.gameOver = this.gameOver.bind(this);
 
-        this.slayed = [this.player.Zodiac];
+        this.slayed = [this.player.zodiac.Zodiac];
         this.uniqueOpponent = this.uniqueOpponent.bind(this);
         this.newOpponent = this.newOpponent.bind(this);
         
@@ -125,11 +129,12 @@ class Battle {
         this.player = new Character(zodiacs[this.character])
         // this.player = new Character(zodiacs[this.character])
         // this.opponent = new Character(zodiacs[Math.floor(Math.random() * 12)])
-        const randomOpponent = zodiacs[Math.floor(Math.random() * 12)]
         // const confirmedOpponent = !this.slayed.includes(randomOpponent.name) ? randomOpponent :
-
-
-        this.opponent = new Character(this.newOpponent(randomOpponent))
+        
+        const randomOpponent = zodiacs[Math.floor(Math.random() * 12)]
+        const zodius = zodiacs[12]
+        debugger
+        this.opponent = new Character(this.round === 12 ? zodius : this.newOpponent(randomOpponent))
         
         //hp mp reinitializer
         this.ZodiacMPBar.style = `width: ${130 * (this.player.mp/100)}px`
@@ -276,7 +281,7 @@ class Battle {
         this.battleState = 1;
         commands.style = "display: none"
         
-        this.delay(3000).then(() => {
+        this.delay(1000).then(() => {
             this.battleState = 0;
             this.OpponentHPTag.innerHTML = this.opponent.hp
             this.EnemyHPBar.style = `width: ${300 * (this.opponent.hp/100)}px`
@@ -293,7 +298,7 @@ class Battle {
         //about 3 seconds of pause (maybe showing what the enemy will do)
         //evaluates it's response and retaliates (along with battlestate change)
         }).then(() => {
-            this.delay(3000).then(() => {
+            this.delay(1000).then(() => {
                 this.enemyDamage.style = "display: none"
 
                 if (this.opponent.hp === 0 || this.battleState === 'new match') {
@@ -327,7 +332,7 @@ class Battle {
                     this.battleState = 2;
                 }
             }).then(() => {
-                this.delay(3000).then(() => {
+                this.delay(1000).then(() => {
                     // if (this.gameWon() || this.gameOver()) return;
                     
                     
@@ -372,7 +377,7 @@ class Battle {
                     // }
     
                 }).then(() => {
-                    this.delay(3000).then(() => {
+                    this.delay(1000).then(() => {
                         // if (this.player.hp === 0 || this.opponent.hp === 0) return;
                         // if (this.gameWon() || this.gameOver()) return;
                         //ideally another .then waiting for gauge to be full before showing commands
@@ -449,7 +454,7 @@ class Battle {
 
         commands.style = "display: none"
         
-        this.delay(3000).then(() => {
+        this.delay(1000).then(() => {
             this.battleState = 0;
             this.OpponentHPTag.innerHTML = this.opponent.hp
             this.EnemyHPBar.style = `width: ${300 * (this.opponent.hp/100)}px`
@@ -465,7 +470,7 @@ class Battle {
         //about 3 seconds of pause (maybe showing what the enemy will do)
         //evaluates it's response and retaliates (along with battlestate change)
         }).then(() => {
-            this.delay(3000).then(() => {
+            this.delay(1000).then(() => {
                 this.enemyDamage.style = "display: none"
 
                 if (this.opponent.hp === 0 || this.battleState === 'new match') {
@@ -500,7 +505,7 @@ class Battle {
                     this.battleState = 2;
                 }
             }).then(() => {
-                this.delay(3000).then(() => {
+                this.delay(1000).then(() => {
                     this.ZodiacHPTag.innerHTML = this.player.hp
                     this.ZodiacHPBar.style = `width: ${130 * (this.player.hp/100)}px`
 
@@ -538,7 +543,7 @@ class Battle {
 
                     this.battleState = 0;
                 }).then(() => {
-                    this.delay(3000).then(() => {
+                    this.delay(1000).then(() => {
                         //ideally another .then waiting for gauge to be full before showing commands
                         commands.style = "display: block"
                         this.playerDamage.style = "display: none"
@@ -624,7 +629,7 @@ class Battle {
         //about 3 seconds of pause (maybe showing what the enemy will do)
         //evaluates it's response and retaliates (along with battlestate change)
         }).then(() => {
-            this.delay(3000).then(() => {
+            this.delay(1000).then(() => {
                 this.playerDamage.style = "display: none"
 
                 if (this.opponent.hp === 0) {
@@ -651,7 +656,7 @@ class Battle {
                     this.battleState = 2;
                 }
             }).then(() => {
-                this.delay(3000).then(() => {
+                this.delay(1000).then(() => {
                     this.ZodiacHPTag.innerHTML = this.player.hp
                     
 
@@ -685,7 +690,7 @@ class Battle {
                     this.battleState = 0;
 
                 }).then(() => {
-                    this.delay(3000).then(() => {
+                    this.delay(1000).then(() => {
                         //ideally another .then waiting for gauge to be full before showing commands
                         commands.style = "display: block"
                         this.playerDamage.style = "display: none"
@@ -704,6 +709,8 @@ class Battle {
         console.log(this.slayed);
 
         this.gameState += 1;
+        this.round = 1;
+
         const lost = document.querySelector(".lost")
         const restart = document.querySelector(".restart_lost")
         
@@ -723,15 +730,30 @@ class Battle {
         this.slayed.push(this.opponent.name)
         console.log(this.slayed);
 
+        this.round += 1;
         this.gameState += 1;
-        const won = document.querySelector(".won")
-        const next = document.querySelector(".restart_won")
 
-        won.style = "display: block"
-       
-        this.delay(2000).then(() => {
-            next.style = "display: flex"
-        });
+        if (this.round < 13) {
+            //pre zodius
+            const won = document.querySelector(".won")
+            const next = document.querySelector(".restart_won")
+    
+            won.style = "display: block"
+           
+            this.delay(2000).then(() => {
+                next.style = "display: flex"
+            });
+        } else {
+            //pre zodius
+            const wonFinished = document.querySelector(".finished-container")
+            const restart = document.querySelector(".restart-game")
+    
+            wonFinished.style = "display: block"
+           
+            this.delay(2000).then(() => {
+                restart.style = "display: flex"
+            });
+        }
 
         this.anim = false;
 
