@@ -30,6 +30,7 @@ class Battle {
 
         let generated = zodiacs[this.uniqueOpponent(11, character)]
         this.opponent = new Character(generated, this.round)
+        // let zodius = zodiacs[12]
         // this.opponent = new Character(zodius)
 
         // debugger
@@ -320,6 +321,8 @@ class Battle {
         //evaluates it's response and retaliates (along with battlestate change)
         }).then(() => {
             this.delay(1000).then(() => {
+                const painThreshold = (Math.random() * 100)/100
+
                 this.enemyDamage.style = "display: none"
 
                 if (this.opponent.hp === 0 || this.battleState === 'new match') {
@@ -331,7 +334,7 @@ class Battle {
                     this.battleState = 'new match';
                     // this.anim = false;
                     return;
-                } else if (this.opponent.hp < 30 && this.opponent.hp > 0) {
+                } else if (this.opponent.hp < (painThreshold * this.opponentMaxHp) && this.opponent.hp > 0) {
                     this.player.magicked();
                     // this.battleState = 4;
 
@@ -359,29 +362,36 @@ class Battle {
                     
                     this.ZodiacHPTag.innerHTML = this.player.hp
                     this.ZodiacHPBar.style = `width: ${130 * (this.player.hp/this.playerMaxHp)}px`
-                    
-                    if (this.player.hp === 0) {
-                    
-                        // this.playerOldHP = 100
-                        // this.opponentOldHP = 100
 
-                        this.battleState = 'new match'
+                    let playerDisplayDamage = this.playerOldHP - this.player.hp
+                    this.playerDamage.innerHTML = (playerDisplayDamage * -1)
+                    this.playerDamage.style = "display: block"
+                    this.playerOldHP = this.player.hp
+                    
+                    // if (this.player.hp === 0) {
+                    
+                    //     // this.playerOldHP = 100
+                    //     // this.opponentOldHP = 100
 
-                        this.gameOver();
-                        return;
-                    } else {
-                        let playerDamage = this.playerOldHP - this.player.hp
-                        this.playerDamage.innerHTML = (playerDamage * -1)
-                        // playerDamage === 0 ? this.playerDamage.style = "display: none" : this.playerDamage.style = "display: block"
-                        if (playerDamage === 0 || this.battleState === 'new match') {
-                            this.playerDamage.style = "display: none"
-                            return;
-                        } else {
-                            this.playerDamage.style = "display: block"
-                        }
-                        // this.playerDamage.style = "display: block"
-                        this.playerOldHP = this.player.hp
-                    }
+                    //     this.battleState = 'new match'
+
+                    //     this.gameOver();
+                    //     return;
+                    // } 
+
+                    // else {
+                    //     let playerDamage = this.playerOldHP - this.player.hp
+                    //     this.playerDamage.innerHTML = (playerDamage * -1)
+                    //     // playerDamage === 0 ? this.playerDamage.style = "display: none" : this.playerDamage.style = "display: block"
+                    //     if (playerDamage === 0 || this.battleState === 'new match') {
+                    //         this.playerDamage.style = "display: none"
+                    //         return;
+                    //     } else {
+                    //         this.playerDamage.style = "display: block"
+                    //     }
+                    //     // this.playerDamage.style = "display: block"
+                    //     this.playerOldHP = this.player.hp
+                    // }
 
                     // let playerDamage = this.playerOldHP - this.player.hp
                     // this.playerDamage.innerHTML = (playerDamage * -1)
@@ -402,6 +412,18 @@ class Battle {
                         // if (this.player.hp === 0 || this.opponent.hp === 0) return;
                         // if (this.gameWon() || this.gameOver()) return;
                         //ideally another .then waiting for gauge to be full before showing commands
+
+                        if (this.player.hp === 0) {
+                    
+                            // this.playerOldHP = 100
+                            // this.opponentOldHP = 100
+    
+                            this.battleState = 'new match'
+                            this.playerDamage.style = "display: none"
+                            this.gameOver();
+                            return;
+                        }
+
                         commands.style = "display: block"
                         this.playerDamage.style = "display: none"
                         if (this.player.hp === 0 || this.opponent.hp === 0) return;
@@ -492,6 +514,8 @@ class Battle {
         //evaluates it's response and retaliates (along with battlestate change)
         }).then(() => {
             this.delay(1000).then(() => {
+                const painThreshold = (Math.random() * 100)/100
+
                 this.enemyDamage.style = "display: none"
 
                 if (this.opponent.hp === 0 || this.battleState === 'new match') {
@@ -510,7 +534,7 @@ class Battle {
 
                 //     this.gameWon();
                     // return;
-                } else if (this.opponent.hp < 30 && this.opponent.hp > 0) {
+                } else if (this.opponent.hp < (painThreshold * this.opponentMaxHp) && this.opponent.hp > 0) {
                     this.player.magicked();
 
                     if ((this.playerOldHP - this.player.hp) === 0) {
@@ -530,16 +554,23 @@ class Battle {
                     this.ZodiacHPTag.innerHTML = this.player.hp
                     this.ZodiacHPBar.style = `width: ${130 * (this.player.hp/this.playerMaxHp)}px`
 
-                    if (this.player.hp === 0) {
+                    let playerDisplayDamage = this.playerOldHP - this.player.hp
+                    this.playerDamage.innerHTML = (playerDisplayDamage * -1)
+                    this.playerDamage.style = "display: block"
+                    this.playerOldHP = this.player.hp
 
-                        // this.playerOldHP = 100
-                        // this.opponentOldHP = 100
+                    // if (this.player.hp === 0) {
 
-                        this.battleState = 'new match'
+                    //     // this.playerOldHP = 100
+                    //     // this.opponentOldHP = 100
 
-                        this.gameOver();
-                        // break;
-                        return;
+                    //     this.battleState = 'new match'
+
+                    //     this.gameOver();
+                    //     // break;
+                    //     return;
+                    // } 
+
                     // if (this.gameOver() === true) {
 
                     //     this.playerOldHP = 100
@@ -547,25 +578,38 @@ class Battle {
 
                     //     this.gameOver();
                     //     return;
-                    } else {
-                        let playerDamage = this.playerOldHP - this.player.hp
-                        this.playerDamage.innerHTML = (playerDamage * -1)
-                        // playerDamage === 0 ? this.playerDamage.style = "display: none" : this.playerDamage.style = "display: block"
-                        if (playerDamage === 0 || this.battleState === 'new match') {
-                            this.playerDamage.style = "display: none"
-                            return;
-                        } else {
-                            this.playerDamage.style = "display: block"
-                        }
-                        // this.playerDamage.style = "display: block"
-                        this.playerOldHP = this.player.hp
-                    }
+                    // else {
+                    //     let playerDamage = this.playerOldHP - this.player.hp
+                    //     this.playerDamage.innerHTML = (playerDamage * -1)
+                    //     // playerDamage === 0 ? this.playerDamage.style = "display: none" : this.playerDamage.style = "display: block"
+                    //     if (playerDamage === 0 || this.battleState === 'new match') {
+                    //         this.playerDamage.style = "display: none"
+                    //         return;
+                    //     } else {
+                    //         this.playerDamage.style = "display: block"
+                    //     }
+                    //     // this.playerDamage.style = "display: block"
+                    //     this.playerOldHP = this.player.hp
+                    // }
 
 
                     this.battleState = 0;
                 }).then(() => {
                     this.delay(1000).then(() => {
                         //ideally another .then waiting for gauge to be full before showing commands
+
+                        if (this.player.hp === 0) {
+
+                            // this.playerOldHP = 100
+                            // this.opponentOldHP = 100
+    
+                            this.battleState = 'new match'
+                            this.playerDamage.style = "display: none"
+                            this.gameOver();
+                            // break;
+                            return;
+                        } 
+
                         commands.style = "display: block"
                         this.playerDamage.style = "display: none"
                         if (this.player.hp === 0 || this.opponent.hp === 0) return;
@@ -651,6 +695,8 @@ class Battle {
         //evaluates it's response and retaliates (along with battlestate change)
         }).then(() => {
             this.delay(1000).then(() => {
+                const painThreshold = (Math.random() * 100)/100
+
                 this.playerDamage.style = "display: none"
 
                 if (this.opponent.hp === 0) {
@@ -661,7 +707,7 @@ class Battle {
                     this.gameWon();
                     this.battleState = 0;
                     return;
-                } else if (this.opponent.hp < 20 && this.opponent.hp > 0) {
+                } else if (this.opponent.hp < (painThreshold * this.opponentMaxHp) && this.opponent.hp > 0) {
                     this.player.magicked();
                     // this.battleState = 4;
 
@@ -679,6 +725,12 @@ class Battle {
             }).then(() => {
                 this.delay(1000).then(() => {
                     this.ZodiacHPTag.innerHTML = this.player.hp
+                    this.ZodiacHPBar.style = `width: ${130 * (this.player.hp/this.playerMaxHp)}px`
+
+                    let playerDisplayDamage = this.playerOldHP - this.player.hp
+                    this.playerDamage.innerHTML = (playerDisplayDamage * -1)
+                    this.playerDamage.style = "display: block"
+                    this.playerOldHP = this.player.hp
                     
 
                     if (this.player.hp === 0) {
@@ -687,32 +739,47 @@ class Battle {
                         // this.opponentOldHP = 100
 
                         this.battleState = 'new match'
-
+                        this.playerDamage.style = "display: none"
                         this.gameOver();
                         // this.battleState = 0;
                         return;
-                    } else {
-                        let playerDamage = this.playerOldHP - this.player.hp
-                        this.playerDamage.innerHTML = (playerDamage * -1)
-                        // playerDamage === 0 ? this.playerDamage.style = "display: none" : this.playerDamage.style = "display: block"
-                        // this.playerDamage.style = "display: block"
+                    } 
 
-                        if (playerDamage === 0 || this.battleState === 'new match') {
-                            this.playerDamage.style = "display: none"
-                            return;
-                        } else {
-                            this.playerDamage.style = "display: block"
-                        }
+                    // else {
+                    //     let playerDamage = this.playerOldHP - this.player.hp
+                    //     this.playerDamage.innerHTML = (playerDamage * -1)
+                    //     // playerDamage === 0 ? this.playerDamage.style = "display: none" : this.playerDamage.style = "display: block"
+                    //     // this.playerDamage.style = "display: block"
 
-                        this.playerOldHP = this.player.hp
+                    //     if (playerDamage === 0 || this.battleState === 'new match') {
+                    //         this.playerDamage.style = "display: none"
+                    //         return;
+                    //     } else {
+                    //         this.playerDamage.style = "display: block"
+                    //     }
+
+                    //     this.playerOldHP = this.player.hp
     
-                    }
+                    // }
 
                     this.battleState = 0;
 
                 }).then(() => {
                     this.delay(1000).then(() => {
                         //ideally another .then waiting for gauge to be full before showing commands
+
+                        if (this.player.hp === 0) {
+
+                            // this.playerOldHP = 100
+                            // this.opponentOldHP = 100
+    
+                            this.battleState = 'new match'
+                            this.playerDamage.style = "display: none"
+                            this.gameOver();
+                            // this.battleState = 0;
+                            return;
+                        } 
+
                         commands.style = "display: block"
                         this.playerDamage.style = "display: none"
                         if (this.player.hp === 0 || this.opponent.hp === 0) return;

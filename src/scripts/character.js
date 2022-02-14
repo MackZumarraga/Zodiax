@@ -47,6 +47,8 @@ class Character {
         this.hp = Math.ceil(((this.zodiac.HP) ** this.multiplier) / 10) * 10;
         this.mp = Math.ceil(((this.zodiac.MP) ** this.multiplier) / 10) * 10;
         // this.mp = (this.zodiac.MP) ** this.multiplier
+        this.maxHp = this.hp
+        this.maxMp = this.mp
 
         // this.MagicDamage = Math.floor(Math.random() * (50 - 35) + 35)
         // this.attackDamage = Math.floor(Math.random() * (20 - 5) + 5)
@@ -67,9 +69,9 @@ class Character {
             // this.hptag.innerHTML = `HP: ${this.hp}`
             // alert (`${this.zodiacName} is dead`)
         } else {
-            debugger
+            // debugger
             // let randomizer = Math.random()
-            debugger
+            // debugger
             this.hp -= attackDamage
             // console.log(this.hp)
             // console.log(this)
@@ -98,9 +100,9 @@ class Character {
     healed = () => {
         const normHeal = Math.floor(Math.random() * (30 - 10) + 10)
         const healAmount = this.round === 1 ? normHeal : Math.ceil((normHeal ** this.multiplier) / 10) * 10
-
-        if (this.hp + healAmount > 100) {
-            this.hp = 100
+        debugger
+        if (this.hp + healAmount > this.maxHp) {
+            this.hp = this.maxHp
         } else {
             this.hp += healAmount
         }

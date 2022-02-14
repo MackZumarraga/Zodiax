@@ -2,7 +2,7 @@ let zodiacs = [
   {
     "Zodiac": "Aries",
     "HP": 100,
-    "MP": 100,
+    "MP": 50,
     "Magic": "Fiery Whip",
     "MagicDamage": 50,
     "Vulnerability": "Virgo",

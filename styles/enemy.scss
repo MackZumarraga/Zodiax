@@ -59,9 +59,10 @@
 
 .enemy-damage {
     display: none;
-    // color: white;
-    color: rgb(0, 0, 0);
+    color: white;
+    // color: rgb(0, 0, 0);
     position: fixed;
-    font-size: 100px;
+    font-size: 30px;
     left: 60%;
+    top: 20%;
 }
