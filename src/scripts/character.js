@@ -62,6 +62,9 @@ class Character {
         this.messageContainer = document.querySelector(".message-container")
         this.actionMessage = document.querySelector(".action-message")
 
+        //magic and curse
+        this.magic = this.zodiac.Magic
+
         //Image
         this.zodiacPath = zodiac.Image
     }
@@ -99,7 +102,7 @@ class Character {
 
     magicked = () => {
         this.messageContainer.style = "display: flex"
-        this.actionMessage.innerHTML = "Magic"
+        // this.actionMessage.innerHTML = "Magic"
 
         const normMagick = Math.floor(Math.random() * (50 - 35) + 35)
         const magicDamage = this.round === 1 ? normMagick : Math.ceil((normMagick ** this.multiplier) / 10) * 10

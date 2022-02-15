@@ -95,6 +95,12 @@ class Battle {
         //action message
         this.messageContainer = document.querySelector(".message-container")
         this.actionMessage = document.querySelector(".action-message")
+
+
+        //magic and curse
+        debugger
+        this.currentPlayerMagic = this.player.magic
+        // this.currentOpponentMagic = this.opponent.magic
         
         this.init()
     }
@@ -109,6 +115,9 @@ class Battle {
         const charge = document.querySelector(".charge")
         const curse = document.querySelector(".curse")
         const back = document.querySelector(".back")
+
+        //magic and curse naming
+        magick.innerHTML = this.currentPlayerMagic === null ? this.player.magic : this.currentPlayerMagic
 
         attack.addEventListener("click", this.aiResponseAttack)
         magick.addEventListener("click", this.aiResponseMagick)
@@ -269,6 +278,10 @@ class Battle {
         this.player.ap = this.currentPlayerAP //ap from the previous battle assigned to new player.ap
         debugger
 
+        //magic and curse
+        this.player.magic = this.currentPlayerMagic === null ? this.player.magic : this.currentPlayerMagic;
+        // this.opponent.magic = this.currentOpponentMagic
+
         this.init();
     }
 
@@ -407,7 +420,15 @@ class Battle {
                     return;
                 } else if (this.opponent.hp < (painThreshold * this.opponentMaxHp) && this.opponent.hp > 0) {
 
-                    Math.random() < 0.1 ? this.player.magickedPlus() : this.player.magicked();
+                    // Math.random() < 0.1 ? this.player.magickedPlus() : this.player.magicked();
+
+                    if (Math.random() < 0.1) {
+                        this.player.magickedPlus()
+                    } else {
+                        this.player.magicked()
+                        this.actionMessage.innerHTML = this.opponent.magic
+                    };
+
                     // this.battleState = 4;
 
                     // if ((this.playerOldHP - this.player.hp) === 0) {
@@ -565,6 +586,8 @@ class Battle {
         this.opponent.magicked();
         this.battleState = 3;
 
+        this.actionMessage.innerHTML = this.player.magic
+
         //mp decrease
         // console.log(this.player.mp)
         this.player.mp -= 30;
@@ -623,7 +646,14 @@ class Battle {
                 //     this.gameWon();
                     // return;
                 } else if (this.opponent.hp < (painThreshold * this.opponentMaxHp) && this.opponent.hp > 0) {
-                    Math.random() < 0.2 ? this.player.magickedPlus() : this.player.magicked();
+                    // Math.random() < 0.2 ? this.player.magickedPlus() : this.player.magicked();
+
+                    if (Math.random() < 0.2) {
+                        this.player.magickedPlus()
+                    } else {
+                        this.player.magicked()
+                        this.actionMessage.innerHTML = this.opponent.magic
+                    };
 
                     if ((this.playerOldHP - this.player.hp) === 0) {
                         this.battleState = 0;
@@ -816,7 +846,14 @@ class Battle {
                     this.battleState = 0;
                     return;
                 } else if (this.opponent.hp < (painThreshold * this.opponentMaxHp) && this.opponent.hp > 0) {
-                    Math.random() < 0.1 ? this.player.magickedPlus() : this.player.magicked();
+                    // Math.random() < 0.1 ? this.player.magickedPlus() : this.player.magicked();
+                    if (Math.random() < 0.3) {
+                        this.player.magickedPlus()
+                    } else {
+                        this.player.magicked()
+                        this.actionMessage.innerHTML = this.opponent.magic
+                    };
+
                     // this.battleState = 4;
 
                     if (this.battleState === 'new match') {
@@ -986,7 +1023,14 @@ class Battle {
                     this.battleState = 0;
                     return;
                 } else if (this.opponent.hp < (painThreshold * this.opponentMaxHp) && this.opponent.hp > 0) {
-                    Math.random() < 0.1 ? this.player.magickedPlus() : this.player.magicked();
+                    // Math.random() < 0.1 ? this.player.magickedPlus() : this.player.magicked();
+                    if (Math.random() < 0.1) {
+                        this.player.magickedPlus()
+                    } else {
+                        this.player.magicked()
+                        this.actionMessage.innerHTML = this.opponent.magic
+                    };
+
                     // this.battleState = 4;
 
                     if (this.battleState === 'new match') {
@@ -1153,7 +1197,14 @@ class Battle {
                 //     this.gameWon();
                     // return;
                 } else if (this.opponent.hp < (painThreshold * this.opponentMaxHp) && this.opponent.hp > 0) {
-                    Math.random() < 0.2 ? this.player.magickedPlus() : this.player.magicked();
+                    // Math.random() < 0.2 ? this.player.magickedPlus() : this.player.magicked();
+                    if (Math.random() < 0.5) {
+                        this.player.magickedPlus()
+                    } else {
+                        this.player.magicked()
+                        this.actionMessage.innerHTML = this.opponent.magic
+                    };
+
 
                     if ((this.playerOldHP - this.player.hp) === 0) {
                         this.battleState = 0;
@@ -1266,6 +1317,9 @@ class Battle {
         this.player.ap = 0;
         this.currentPlayerAP = 0;
 
+        //magic and curse
+        this.currentPlayerMagic = null;
+
         const lost = document.querySelector(".lost")
         const restart = document.querySelector(".restart_lost")
         
@@ -1306,6 +1360,9 @@ class Battle {
             //ascension
             this.player.ap = 0;
             this.currentPlayerAP = 0;
+
+            //magic and curse
+            this.currentPlayerMagic = null;
 
             const wonFinished = document.querySelector(".finished-container")
             const restart = document.querySelector(".restart-game")
