@@ -168,6 +168,11 @@ table {
   margin-right: 10px;
 }
 
+.ap {
+  color: #0fa;
+  margin-right: 10px;
+}
+
 .time-gauge-bar {
   color: gold;
 }
@@ -200,13 +205,20 @@ table {
   color: gold;
 }
 
+.ap-gauge-bar {
+  display: none;
+  display: flex;
+  justify-content: center;
+  color: gold;
+}
+
 .zodiac {
   display: none;
   display: flex;
   justify-content: center;
   color: gold;
   font-size: large;
-  margin-bottom: 50px;
+  margin-bottom: 40px;
   margin-top: 30px;
 }
 
@@ -217,7 +229,7 @@ table {
   justify-content: space-around;
   cursor: pointer;
   margin-right: 92px;
-  height: 100px;
+  height: 106px;
 }
 
 .command > div {
@@ -252,6 +264,13 @@ table {
   width: 130px;
   height: 10px;
   background: #ee2fff;
+  border: 1px solid;
+}
+
+.full-ap-bar {
+  width: 130px;
+  height: 10px;
+  background: #6f00ff;
   border: 1px solid;
 }
 
