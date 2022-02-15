@@ -401,7 +401,8 @@ class Battle {
                     // this.anim = false;
                     return;
                 } else if (this.opponent.hp < (painThreshold * this.opponentMaxHp) && this.opponent.hp > 0) {
-                    this.player.magicked();
+
+                    Math.random() < 0.1 ? this.player.magickedPlus() : this.player.magicked();
                     // this.battleState = 4;
 
                     // if ((this.playerOldHP - this.player.hp) === 0) {
@@ -614,7 +615,7 @@ class Battle {
                 //     this.gameWon();
                     // return;
                 } else if (this.opponent.hp < (painThreshold * this.opponentMaxHp) && this.opponent.hp > 0) {
-                    this.player.magicked();
+                    Math.random() < 0.2 ? this.player.magickedPlus() : this.player.magicked();
 
                     if ((this.playerOldHP - this.player.hp) === 0) {
                         this.battleState = 0;
@@ -803,7 +804,7 @@ class Battle {
                     this.battleState = 0;
                     return;
                 } else if (this.opponent.hp < (painThreshold * this.opponentMaxHp) && this.opponent.hp > 0) {
-                    this.player.magicked();
+                    Math.random() < 0.1 ? this.player.magickedPlus() : this.player.magicked();
                     // this.battleState = 4;
 
                     if (this.battleState === 'new match') {
@@ -969,7 +970,7 @@ class Battle {
                     this.battleState = 0;
                     return;
                 } else if (this.opponent.hp < (painThreshold * this.opponentMaxHp) && this.opponent.hp > 0) {
-                    this.player.magicked();
+                    Math.random() < 0.1 ? this.player.magickedPlus() : this.player.magicked();
                     // this.battleState = 4;
 
                     if (this.battleState === 'new match') {
@@ -1132,7 +1133,7 @@ class Battle {
                 //     this.gameWon();
                     // return;
                 } else if (this.opponent.hp < (painThreshold * this.opponentMaxHp) && this.opponent.hp > 0) {
-                    this.player.magicked();
+                    Math.random() < 0.2 ? this.player.magickedPlus() : this.player.magicked();
 
                     if ((this.playerOldHP - this.player.hp) === 0) {
                         this.battleState = 0;

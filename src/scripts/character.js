@@ -161,6 +161,18 @@ class Character {
         }
     }
 
+    //AI Response
+    magickedPlus = () => {
+        const sevenths = this.maxHp * 0.70
+        const damages = Math.floor(Math.random() * (this.maxHp - sevenths) + sevenths)
+        
+        if (this.hp - damages <= 0) {
+            this.hp = 0
+        } else {
+            this.hp -= damages
+        }
+    }
+
 }
 
 export default Character;
