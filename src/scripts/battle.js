@@ -103,6 +103,7 @@ class Battle {
         const specialCommands = document.querySelector(".special-container")
         const charge = document.querySelector(".charge")
         const curse = document.querySelector(".curse")
+        const back = document.querySelector(".back")
 
         attack.addEventListener("click", this.aiResponseAttack)
         magick.addEventListener("click", this.aiResponseMagick)
@@ -114,8 +115,16 @@ class Battle {
             command.style = "display: none"
             specialCommands.style = "display: flex"
         })
+        
         charge.addEventListener("click", this.aiResponseCharge)
         curse.addEventListener("click", this.aiResponseCurse)
+
+        back.addEventListener("click", () => {
+            debugger
+            let command = document.querySelector(".command")
+            specialCommands.style = "display: none"
+            command.style = "display: flex"
+        })
         
 
         const zodiacName = document.querySelector(".zodiac")
