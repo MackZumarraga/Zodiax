@@ -1202,6 +1202,7 @@ class Battle {
 
         //ascension
         this.player.ap = 0;
+        this.currentPlayerAP = 0;
 
         const lost = document.querySelector(".lost")
         const restart = document.querySelector(".restart_lost")
@@ -1242,6 +1243,7 @@ class Battle {
 
             //ascension
             this.player.ap = 0;
+            this.currentPlayerAP = 0;
 
             const wonFinished = document.querySelector(".finished-container")
             const restart = document.querySelector(".restart-game")
