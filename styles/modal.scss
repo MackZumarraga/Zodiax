@@ -1,9 +1,9 @@
 .modal {
     position: fixed;
-    top: 33%;
+    top: 29%;
     left: 50%;
     // width: 25%;
-    width: 400px;
+    width: 441px;
     height: 55.7%;
     margin-top: -100px;
     margin-left: -12.5%;
@@ -25,19 +25,39 @@
 //About
 .modal-about {
     font-size: 14px;
-    text-indent: 40px;
+    // text-indent: 40px;
 }
 
 .description {
     color: palegoldenrod;
     // text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+    text-indent: 40px;
+    font-style: italic;
 }
 
 .instructions {
     color: palegoldenrod;
     // text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 10px;
+    text-indent: 40px;
+}
+
+.instructions-title {
+    color: palegoldenrod;
+    margin-bottom: 10px;
+    font-size: 21px;
+    margin-top: 50px;
+}
+
+.instructions-list {
+    color: palegoldenrod;
+    margin-bottom: 30px;
+    border-bottom: 1px solid;
+    border-top: 1px solid;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
 }
 
 
