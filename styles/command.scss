@@ -113,7 +113,7 @@
     cursor: pointer;
     margin-right: 92px;
     // height: 100px;
-    height: 106px;
+    height: 107px;
 }
 
 .command > div {
@@ -170,6 +170,10 @@
     margin-top: -15px;
 }
 
+.ap-percent {
+    color: gold;
+}
+
 //special
 .special-container {
     display: none;
@@ -181,4 +185,9 @@
     margin-right: 92px;
     margin-left: 70px;
     height: 100px;
+}
+
+.special {
+    color: grey !important; 
+    pointer-events: none;
 }

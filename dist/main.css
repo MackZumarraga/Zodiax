@@ -229,7 +229,7 @@ table {
   justify-content: space-around;
   cursor: pointer;
   margin-right: 92px;
-  height: 106px;
+  height: 107px;
 }
 
 .command > div {
@@ -282,6 +282,10 @@ table {
   margin-top: -15px;
 }
 
+.ap-percent {
+  color: gold;
+}
+
 .special-container {
   display: none;
   flex-direction: column;
@@ -291,6 +295,11 @@ table {
   margin-right: 92px;
   margin-left: 70px;
   height: 100px;
+}
+
+.special {
+  color: grey !important;
+  pointer-events: none;
 }
 
 .enemy {

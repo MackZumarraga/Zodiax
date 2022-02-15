@@ -56,6 +56,7 @@ class Character {
         // this.randomizer = Math.floor(Math.random() * (max - min) + min)
         
         //ascension --- ascension percentage
+        // this.damages = 0
         this.ap = 0
 
         //Image
@@ -65,6 +66,10 @@ class Character {
     attacked = () => {
         const normAttack = Math.floor(Math.random() * (35 - 20) + 20)
         const attackDamage = this.round === 1 ? normAttack : Math.ceil((normAttack ** this.multiplier) / 10) * 10
+
+        // if (this.ap === 100) {
+        //     this.damages = 0
+        // }
         
         if (this.hp - attackDamage <= 0) {
             this.hp = 0
@@ -75,7 +80,10 @@ class Character {
             // let randomizer = Math.random()
             // debugger
             this.hp -= attackDamage
-            this.ap += attackDamage
+            const damages = Math.round((normAttack/this.maxHp) * 100) 
+            this.ap = (this.ap + damages >= 100) ? 100 : this.ap + damages
+            
+            
             // console.log(this.hp)
             // console.log(this)
             // this.hptag.innerHTML = `HP: ${this.hp}`
@@ -85,15 +93,22 @@ class Character {
 
     magicked = () => {
         const normMagick = Math.floor(Math.random() * (50 - 35) + 35)
-        const MagicDamage = this.round === 1 ? normMagick : Math.ceil((normMagick ** this.multiplier) / 10) * 10
+        const magicDamage = this.round === 1 ? normMagick : Math.ceil((normMagick ** this.multiplier) / 10) * 10
+
+        // if (this.ap === 100) {
+        //     this.damages = 0
+        // }
         
-        if (this.hp - MagicDamage <= 0) {
+        if (this.hp - magicDamage <= 0) {
             this.hp = 0
             // this.hptag.innerHTML = `HP: ${this.hp}`
             // alert (`${this.zodiacName} is dead`)
         } else {
-            this.hp -= MagicDamage
-            this.ap += MagicDamage
+            this.hp -= magicDamage
+            const damages = Math.round((normMagick/this.maxHp) * 100) 
+            this.ap = (this.ap + damages >= 100) ? 100 : this.ap + damages
+            
+            
             // console.log(this.ap)
             // console.log(this.hp)
             // console.log(this)
@@ -127,14 +142,19 @@ class Character {
         const hpHalved = this.maxHp / 2
         const normCurse = Math.floor(Math.random() * (this.maxHp - hpHalved) + hpHalved)
         // const curseDamage = this.round === 1 ? normCurse : Math.ceil((normCurse ** this.multiplier) / 10) * 10
-        debugger
+        
+
+
         if (this.hp - normCurse <= 0) {
             this.hp = 0
             // this.hptag.innerHTML = `HP: ${this.hp}`
             // alert (`${this.zodiacName} is dead`)
         } else {
             this.hp -= normCurse
-            this.ap += normCurse
+            const damages = Math.round((normCurse/this.maxHp) * 100) 
+            this.ap = (this.ap + damages >= 100) ? 100 : this.ap + damages
+            
+            
             // console.log(this.hp)
             // console.log(this)
             // this.hptag.innerHTML = `HP: ${this.hp}`

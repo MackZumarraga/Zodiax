@@ -84,6 +84,12 @@ class Battle {
         console.log(`the first slayed is ${this.slayed}`)
         this.uniqueOpponent = this.uniqueOpponent.bind(this);
         this.newOpponent = this.newOpponent.bind(this);
+
+        //ascension
+        this.currentPlayerAP = this.player.ap
+        // debugger
+        // this.player.ap
+        this.playerAscended = false; 
         
         this.init()
     }
@@ -141,9 +147,10 @@ class Battle {
 
         //ascension
         this.PlayerAPTag = document.querySelector(".ap-gauge-bar")
-        this.PlayerAPTag.innerHTML = Math.ceil((this.player.ap/this.playerMaxHp)/10 * 10)  
+        // this.PlayerAPTag.innerHTML = this.currentPlayerAP  
+        this.PlayerAPTag.innerHTML = this.player.ap
         this.PlayerAPBar = document.querySelector(".full-ap-bar")
-        this.PlayerAPBar.style = `width: ${130 * (this.player.ap/this.playerMaxHp)}px`
+        this.PlayerAPBar.style = `width: ${130 * (this.player.ap/100)}px`
 
     }
 
@@ -240,6 +247,13 @@ class Battle {
         playerMP.style = "display: flex"
 
         /*start battle rendering - ending */
+
+        //ascension
+        debugger
+        console.log(`this player ap is ${this.player.ap}`)
+        console.log(`this current player ap is ${this.currentPlayerAP}`)
+        this.player.ap = this.currentPlayerAP //ap from the previous battle assigned to new player.ap
+        debugger
 
         this.init();
     }
@@ -340,6 +354,7 @@ class Battle {
 
         ///promise version
         const commands = document.querySelector(".command")
+        const specialButton = document.querySelector(".special")
 
         this.opponent.attacked();
         this.battleState = 1;
@@ -409,7 +424,20 @@ class Battle {
                     this.playerDamage.innerHTML = (playerDisplayDamage * -1)
                     this.playerDamage.style = "display: block"
                     this.playerOldHP = this.player.hp
-                    
+
+                    //ascension
+                    this.currentPlayerAP = this.player.ap;
+                    this.PlayerAPTag.innerHTML = this.currentPlayerAP
+                    // this.player.ap = this.player.ap 
+                    // this.PlayerAPTag.innerHTML = this.player.ap
+                    // this.PlayerAPBar.style = `width: ${130 * (this.player.ap/100)}px`
+                    this.PlayerAPBar.style = `width: ${130 * (this.currentPlayerAP/100)}px`
+
+                    // if (this.player.ap === 100) {
+                    if (this.currentPlayerAP === 100) {
+                        this.playerAscended = true;
+                        specialButton.style = "color: whitesmoke !important; pointer-events: auto;"
+                    }
                     // if (this.player.hp === 0) {
                     
                     //     // this.playerOldHP = 100
@@ -466,7 +494,7 @@ class Battle {
                             return;
                         }
 
-                        commands.style = "display: block"
+                        commands.style = "display: flex"
                         this.playerDamage.style = "display: none"
                         if (this.player.hp === 0 || this.opponent.hp === 0) return;
                     })
@@ -514,7 +542,7 @@ class Battle {
 
         ///promise version
         const commands = document.querySelector(".command")
-
+        const specialButton = document.querySelector(".special")
         
         this.opponent.magicked();
         this.battleState = 3;
@@ -601,6 +629,21 @@ class Battle {
                     this.playerDamage.style = "display: block"
                     this.playerOldHP = this.player.hp
 
+
+                    //ascension
+                    this.currentPlayerAP = this.player.ap;
+                    this.PlayerAPTag.innerHTML = this.currentPlayerAP
+                    // this.player.ap = this.player.ap 
+                    // this.PlayerAPTag.innerHTML = this.player.ap
+                    // this.PlayerAPBar.style = `width: ${130 * (this.player.ap/100)}px`
+                    this.PlayerAPBar.style = `width: ${130 * (this.currentPlayerAP/100)}px`
+
+                    // if (this.player.ap === 100) {
+                    if (this.currentPlayerAP === 100) {
+                        this.playerAscended = true;
+                        specialButton.style = "color: whitesmoke !important; pointer-events: auto;"
+                    }
+
                     // if (this.player.hp === 0) {
 
                     //     // this.playerOldHP = 100
@@ -652,7 +695,7 @@ class Battle {
                             return;
                         } 
 
-                        commands.style = "display: block"
+                        commands.style = "display: flex"
                         this.playerDamage.style = "display: none"
                         if (this.player.hp === 0 || this.opponent.hp === 0) return;
                     })
@@ -698,6 +741,7 @@ class Battle {
 
         ///promise version
         const commands = document.querySelector(".command")
+        const specialButton = document.querySelector(".special")
 
         this.player.healed();
         this.battleState = 5;
@@ -775,17 +819,32 @@ class Battle {
                     this.playerOldHP = this.player.hp
                     
 
-                    if (this.player.hp === 0) {
+                    //ascension
+                    this.currentPlayerAP = this.player.ap;
+                    this.PlayerAPTag.innerHTML = this.currentPlayerAP
+                    // this.player.ap = this.player.ap 
+                    // this.PlayerAPTag.innerHTML = this.player.ap
+                    // this.PlayerAPBar.style = `width: ${130 * (this.player.ap/100)}px`
+                    this.PlayerAPBar.style = `width: ${130 * (this.currentPlayerAP/100)}px`
 
-                        // this.playerOldHP = 100
-                        // this.opponentOldHP = 100
+                    // if (this.player.ap === 100) {
+                    if (this.currentPlayerAP === 100) {
+                        this.playerAscended = true;
+                        specialButton.style = "color: whitesmoke !important; pointer-events: auto;"
+                    }
 
-                        this.battleState = 'new match'
-                        this.playerDamage.style = "display: none"
-                        this.gameOver();
-                        // this.battleState = 0;
-                        return;
-                    } 
+
+                    // if (this.player.hp === 0) {
+
+                    //     // this.playerOldHP = 100
+                    //     // this.opponentOldHP = 100
+
+                    //     this.battleState = 'new match'
+                    //     this.playerDamage.style = "display: none"
+                    //     this.gameOver();
+                    //     // this.battleState = 0;
+                    //     return;
+                    // } 
 
                     // else {
                     //     let playerDamage = this.playerOldHP - this.player.hp
@@ -822,7 +881,7 @@ class Battle {
                             return;
                         } 
 
-                        commands.style = "display: block"
+                        commands.style = "display: flex"
                         this.playerDamage.style = "display: none"
                         if (this.player.hp === 0 || this.opponent.hp === 0) return;
                     })
@@ -838,9 +897,18 @@ class Battle {
         
         const commands = document.querySelector(".command")
         const specialCommands = document.querySelector(".special-container")
+        const specialButton = document.querySelector(".special")
 
         this.player.charged();
         this.battleState = 5;
+
+        //ascension
+        this.player.ap = 0
+        this.currentPlayerAP = 0
+        this.PlayerAPTag.innerHTML = this.player.ap
+        this.playerAscended = false;
+        specialButton.style = "color: grey !important; pointer-events: none;"
+        this.PlayerAPBar.style = `width: ${130 * (this.player.ap/100)}px`
 
         
         // special bar zeroes out and empties -- use below as guide
@@ -964,7 +1032,7 @@ class Battle {
                             return;
                         } 
 
-                        commands.style = "display: block"
+                        commands.style = "display: flex"
                         this.playerDamage.style = "display: none"
                         if (this.player.hp === 0 || this.opponent.hp === 0) return;
                     })
@@ -980,9 +1048,19 @@ class Battle {
         
         const commands = document.querySelector(".command")
         const specialCommands = document.querySelector(".special-container")
+        const specialButton = document.querySelector(".special")
 
         this.opponent.cursed();
         this.battleState = 3;
+
+
+        //ascension
+        this.player.ap = 0
+        this.currentPlayerAP = 0
+        this.PlayerAPTag.innerHTML = this.player.ap
+        this.playerAscended = false;
+        specialButton.style = "color: grey !important; pointer-events: none;"
+        this.PlayerAPBar.style = `width: ${130 * (this.player.ap/100)}px`
 
         
         // special bar zeroes out and empties -- use below as guide
@@ -1103,7 +1181,7 @@ class Battle {
                             return;
                         } 
 
-                        commands.style = "display: block"
+                        commands.style = "display: flex"
                         this.playerDamage.style = "display: none"
                         if (this.player.hp === 0 || this.opponent.hp === 0) return;
                     })
@@ -1121,6 +1199,9 @@ class Battle {
 
         this.gameState += 1;
         this.round = 1;
+
+        //ascension
+        this.player.ap = 0;
 
         const lost = document.querySelector(".lost")
         const restart = document.querySelector(".restart_lost")
@@ -1156,8 +1237,12 @@ class Battle {
                 next.style = "display: flex"
             });
         } else {
+            //post zodius
             this.round = 1;
-            //pre zodius
+
+            //ascension
+            this.player.ap = 0;
+
             const wonFinished = document.querySelector(".finished-container")
             const restart = document.querySelector(".restart-game")
     
