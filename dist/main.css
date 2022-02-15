@@ -121,11 +121,22 @@ table {
   width: 100%;
   min-height: 148px;
   overflow-y: scroll;
-  display: block;
 }
 
 .scroll::-webkit-scrollbar {
-  display: none;
+  background-color: rgba(255, 255, 0, 0);
+}
+
+.scroll::-webkit-scrollbar:hover {
+  background-color: rgba(255, 255, 0, 0.219);
+}
+
+.scroll::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px #f0ec03;
+}
+
+.scroll::-webkit-scrollbar-thumb {
+  background: rgba(238, 232, 170, 0.411);
 }
 
 .scroll a {
