@@ -51,7 +51,7 @@ class Game {
         const restartWon = document.querySelector(".restart_won")
         const restartLost = document.querySelector(".restart_lost")
         const restartFinished = document.querySelector(".restart-game")
-        const round = document.querySelector(".round")
+        const restartGame = document.querySelector(".restart")
 
         restartWon.addEventListener("click", () => {
             container.style = "display: none"
@@ -121,6 +121,40 @@ class Game {
             this.turnsCounter = 1
             
             this.animation = 0
+
+            this.init();
+
+  
+
+        })
+
+
+        restartGame.addEventListener("click", () => {
+            container.style = "display: none"
+            enemyContainer.style = "display: none"
+            playerHP.style = "display: none"
+            enemyHP.style = "display: none"
+            playerName.style = "display: none"
+            enemyName.style = "display: none"
+            command.style = "display: none"
+            lost.style = "display: none"
+            selector.style = "display: block"
+
+            //round
+            this.round = 1
+            this.roundContainer.innerHTML = this.round
+            
+            this.turnsCounter = 1
+            
+            this.animation = 0
+
+            //battle implementations
+            this.battle.player.ap = 0;
+            this.battle.currentPlayerAP = 0;
+            this.battle.currentPlayerMagic = null;
+            this.battle.gameState += 1;
+            this.battle.round = 1;
+            this.battle.slayed = [];
 
             this.init();
 
