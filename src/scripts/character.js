@@ -55,6 +55,8 @@ class Character {
         // this.healAmount = Math.floor(Math.random() * (20 - 10) + 10)
         // this.randomizer = Math.floor(Math.random() * (max - min) + min)
         
+        //ascension --- ascension percentage
+        this.ap = 0
 
         //Image
         this.zodiacPath = zodiac.Image
@@ -73,6 +75,7 @@ class Character {
             // let randomizer = Math.random()
             // debugger
             this.hp -= attackDamage
+            this.ap += attackDamage
             // console.log(this.hp)
             // console.log(this)
             // this.hptag.innerHTML = `HP: ${this.hp}`
@@ -90,6 +93,8 @@ class Character {
             // alert (`${this.zodiacName} is dead`)
         } else {
             this.hp -= MagicDamage
+            this.ap += MagicDamage
+            // console.log(this.ap)
             // console.log(this.hp)
             // console.log(this)
             // this.hptag.innerHTML = `HP: ${this.hp}`
@@ -129,6 +134,7 @@ class Character {
             // alert (`${this.zodiacName} is dead`)
         } else {
             this.hp -= normCurse
+            this.ap += normCurse
             // console.log(this.hp)
             // console.log(this)
             // this.hptag.innerHTML = `HP: ${this.hp}`
