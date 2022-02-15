@@ -120,6 +120,16 @@
     margin-left: 70px;
 }
 
+.command > div:hover {
+    margin-left: 70px;
+    background-color: rgba(255, 217, 0, 0.555);
+    border-radius: 16px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    width: 90%;
+}
+
 .magic {
     color: whitesmoke;
 }
@@ -183,8 +193,23 @@
     justify-content: space-around;
     cursor: pointer;
     margin-right: 92px;
+    // margin-left: 70px;
+    height: 107px;
+}
+
+.special-container > div {
     margin-left: 70px;
-    height: 100px;
+}
+
+.special-container > div:hover {
+    margin-left: 70px;
+    // margin-right: 92px;
+    background-color: rgba(255, 217, 0, 0.555);
+    border-radius: 16px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    width: 90%;
 }
 
 .special {
