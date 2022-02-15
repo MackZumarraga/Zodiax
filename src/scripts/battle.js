@@ -137,8 +137,13 @@ class Battle {
         this.OpponentHPTag = document.querySelector(".enemy_hp")
         this.OpponentHPTag.innerHTML = this.opponent.hp
         this.OpponentMaxHPTag = document.querySelector(".enemy-max-hp")
-        debugger
         this.OpponentMaxHPTag.innerHTML = this.opponentMaxHp  
+
+        //ascension
+        this.PlayerAPTag = document.querySelector(".ap-gauge-bar")
+        this.PlayerAPTag.innerHTML = Math.ceil((this.player.ap/this.playerMaxHp)/10 * 10)  
+        this.PlayerAPBar = document.querySelector(".full-ap-bar")
+        this.PlayerAPBar.style = `width: ${130 * (this.player.ap/this.playerMaxHp)}px`
 
     }
 
