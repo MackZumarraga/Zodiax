@@ -985,17 +985,31 @@ class Battle {
                     this.playerOldHP = this.player.hp
                     
 
-                    if (this.player.hp === 0) {
+                    //ascension
+                    this.currentPlayerAP = this.player.ap;
+                    this.PlayerAPTag.innerHTML = this.currentPlayerAP
+                    // this.player.ap = this.player.ap 
+                    // this.PlayerAPTag.innerHTML = this.player.ap
+                    // this.PlayerAPBar.style = `width: ${130 * (this.player.ap/100)}px`
+                    this.PlayerAPBar.style = `width: ${130 * (this.currentPlayerAP/100)}px`
 
-                        // this.playerOldHP = 100
-                        // this.opponentOldHP = 100
+                    // if (this.player.ap === 100) {
+                    if (this.currentPlayerAP === 100) {
+                        this.playerAscended = true;
+                        specialButton.style = "color: whitesmoke !important; pointer-events: auto;"
+                    }
 
-                        this.battleState = 'new match'
-                        this.playerDamage.style = "display: none"
-                        this.gameOver();
-                        // this.battleState = 0;
-                        return;
-                    } 
+                    // if (this.player.hp === 0) {
+
+                    //     // this.playerOldHP = 100
+                    //     // this.opponentOldHP = 100
+
+                    //     this.battleState = 'new match'
+                    //     this.playerDamage.style = "display: none"
+                    //     this.gameOver();
+                    //     // this.battleState = 0;
+                    //     return;
+                    // } 
 
                     // else {
                     //     let playerDamage = this.playerOldHP - this.player.hp
@@ -1132,6 +1146,21 @@ class Battle {
                     this.playerDamage.innerHTML = (playerDisplayDamage * -1)
                     this.playerDamage.style = "display: block"
                     this.playerOldHP = this.player.hp
+
+
+                    //ascension
+                    this.currentPlayerAP = this.player.ap;
+                    this.PlayerAPTag.innerHTML = this.currentPlayerAP
+                    // this.player.ap = this.player.ap 
+                    // this.PlayerAPTag.innerHTML = this.player.ap
+                    // this.PlayerAPBar.style = `width: ${130 * (this.player.ap/100)}px`
+                    this.PlayerAPBar.style = `width: ${130 * (this.currentPlayerAP/100)}px`
+
+                    // if (this.player.ap === 100) {
+                    if (this.currentPlayerAP === 100) {
+                        this.playerAscended = true;
+                        specialButton.style = "color: whitesmoke !important; pointer-events: auto;"
+                    }
                     
 
                     // if (this.player.hp === 0) {
