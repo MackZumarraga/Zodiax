@@ -90,6 +90,11 @@ class Battle {
         // debugger
         // this.player.ap
         this.playerAscended = false; 
+
+
+        //action message
+        this.messageContainer = document.querySelector(".message-container")
+        this.actionMessage = document.querySelector(".action-message")
         
         this.init()
     }
@@ -492,6 +497,9 @@ class Battle {
                         // if (this.player.hp === 0 || this.opponent.hp === 0) return;
                         // if (this.gameWon() || this.gameOver()) return;
                         //ideally another .then waiting for gauge to be full before showing commands
+                        
+                        //action message
+                        this.messageContainer.style = "display: none"
 
                         if (this.player.hp === 0) {
                     
@@ -693,6 +701,10 @@ class Battle {
                     this.delay(1000).then(() => {
                         //ideally another .then waiting for gauge to be full before showing commands
 
+                        //action message
+                        this.messageContainer.style = "display: none"
+
+
                         if (this.player.hp === 0) {
 
                             // this.playerOldHP = 100
@@ -879,6 +891,10 @@ class Battle {
                     this.delay(1000).then(() => {
                         //ideally another .then waiting for gauge to be full before showing commands
 
+                        //action message
+                        this.messageContainer.style = "display: none"
+
+
                         if (this.player.hp === 0) {
 
                             // this.playerOldHP = 100
@@ -1044,6 +1060,10 @@ class Battle {
                     this.delay(1000).then(() => {
                         //ideally another .then waiting for gauge to be full before showing commands
 
+                        //action message
+                        this.messageContainer.style = "display: none"
+
+
                         if (this.player.hp === 0) {
 
                             // this.playerOldHP = 100
@@ -1207,6 +1227,9 @@ class Battle {
                 }).then(() => {
                     this.delay(1000).then(() => {
                         //ideally another .then waiting for gauge to be full before showing commands
+
+                        //action message
+                        this.messageContainer.style = "display: none"
 
                         if (this.player.hp === 0) {
 

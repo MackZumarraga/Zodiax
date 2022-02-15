@@ -19,7 +19,7 @@ class GameView {
         this.xplayer = this.canvas.width * 0.10
         this.yplayer = this.canvas.height * 0.15
 
-        this.xenemy = this.canvas.width * 0.60
+        this.xenemy = this.canvas.width * 0.64
         this.yenemy = this.canvas.height * 0.15
 
         this.xsize = 500
@@ -119,7 +119,7 @@ class GameView {
         };
 
         if (this.game.battle.battleState === 2) {
-            const attackAIAnimation = new Particle(window.innerWidth * 0.60, window.innerHeight * 0.30, 2, '#48D1CC', this.ctx)
+            const attackAIAnimation = new Particle(window.innerWidth * 0.64, window.innerHeight * 0.30, 2, '#48D1CC', this.ctx)
             // attackAnimation.draw();
             // attackAnimation.update();
             attackAIAnimation.attackAIDraw();
@@ -133,21 +133,21 @@ class GameView {
         }
 
         if (this.game.battle.battleState === 4) {
-            const magicAIAnimation = new Particle(window.innerWidth * 0.60, window.innerHeight * 0.30, 20, '#48D1CC', this.ctx)
+            const magicAIAnimation = new Particle(window.innerWidth * 0.64, window.innerHeight * 0.30, 20, '#48D1CC', this.ctx)
             // attackAnimation.draw();
             // attackAnimation.update();
             magicAIAnimation.attackAIDraw();
         }
 
         if (this.game.battle.battleState === 5) {
-            const healAnimation = new Particle(window.innerWidth * 0.20, window.innerHeight * 0.30, 20, '#00FF00', this.ctx)
+            const healAnimation = new Particle(window.innerWidth * 0.25, window.innerHeight * 0.37, 20, '#00FF00', this.ctx)
             // attackAnimation.draw();
             // attackAnimation.update();
             healAnimation.healAnimation();
         }
 
         if (this.game.battle.battleState === 6) {
-            const healAnimation = new Particle(window.innerWidth * 0.70, window.innerHeight * 0.30, 20, '#00FF00', this.ctx)
+            const healAnimation = new Particle(window.innerWidth * 0.64, window.innerHeight * 0.30, 20, '#00FF00', this.ctx)
             // attackAnimation.draw();
             // attackAnimation.update();
             healAnimation.healAnimation();

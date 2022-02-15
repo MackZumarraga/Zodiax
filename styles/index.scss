@@ -180,19 +180,20 @@ canvas {
 
 .message-width-maker {
     width: 100vw;
-    // display: flex;
+    display: flex;
     justify-content: center;
 }
 
 .message-container {
     display: none;
-    border: 1px solid #ffffff42;
+    // border: 1px solid #ffffff42;
     position: fixed;
     // left: 39%;
     width: 16%;
-    height: 40px;
+    height: 100px;
     background: rgba(60, 60, 60, 0.4);
-    top: 10%;
+    // top: 10%;
+    bottom: 84px;
     border-radius: 15px;
     // display: flex;
     justify-content: center;

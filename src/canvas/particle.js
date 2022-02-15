@@ -40,7 +40,7 @@ class Particle {
         // this.ctx.fillStyle = "rgba(34,45,23,0.4)";
         // this.ctx.fillRect(0, 0, window.innerWidth, window.innerHeight);
         // this.ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
-        if (this.x >= window.innerWidth * .60) {
+        if (this.x >= window.innerWidth * .64) {
             // console.log(`stop requests ${this.x}`)
             this.ctx = null;
             // this.ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);

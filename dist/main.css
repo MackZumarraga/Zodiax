@@ -309,7 +309,7 @@ table {
   height: 250px;
   bottom: 20px;
   right: 0;
-  left: 60%;
+  left: 64%;
   background: #3c3c3c;
   background: rgba(60, 60, 60, 0.4);
   border-radius: 60px;
@@ -513,17 +513,17 @@ canvas {
 
 .message-width-maker {
   width: 100vw;
+  display: flex;
   justify-content: center;
 }
 
 .message-container {
   display: none;
-  border: 1px solid #ffffff42;
   position: fixed;
   width: 16%;
-  height: 40px;
+  height: 100px;
   background: rgba(60, 60, 60, 0.4);
-  top: 10%;
+  bottom: 84px;
   border-radius: 15px;
   justify-content: center;
 }

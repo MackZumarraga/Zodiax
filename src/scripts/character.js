@@ -59,14 +59,15 @@ class Character {
         this.ap = 0
 
         //action message
-        this.actionMessage = document.querySelector(".message-container")
+        this.messageContainer = document.querySelector(".message-container")
+        this.actionMessage = document.querySelector(".action-message")
 
         //Image
         this.zodiacPath = zodiac.Image
     }
 
     attacked = () => {
-        this.actionMessage.style = "display: flex"
+        this.messageContainer.style = "display: flex"
         this.actionMessage.innerHTML = "Attack"
 
         const normAttack = Math.floor(Math.random() * (35 - 20) + 20)
@@ -97,6 +98,9 @@ class Character {
 
 
     magicked = () => {
+        this.messageContainer.style = "display: flex"
+        this.actionMessage.innerHTML = "Magic"
+
         const normMagick = Math.floor(Math.random() * (50 - 35) + 35)
         const magicDamage = this.round === 1 ? normMagick : Math.ceil((normMagick ** this.multiplier) / 10) * 10
 
@@ -123,6 +127,9 @@ class Character {
 
 
     healed = () => {
+        this.messageContainer.style = "display: flex"
+        this.actionMessage.innerHTML = "Heal"
+
         const sevenths = this.maxHp * 0.70
         const normHeal = Math.floor(Math.random() * (this.maxHp - sevenths) + sevenths)
         const healAmount = this.round === 1 ? normHeal : Math.ceil((normHeal ** this.multiplier) / 10) * 10
@@ -139,11 +146,17 @@ class Character {
 
 
     charged = () => {
+        this.messageContainer.style = "display: flex"
+        this.actionMessage.innerHTML = "Charge"
+
         this.mp = this.maxMp
     }
 
 
     cursed = () => {
+        this.messageContainer.style = "display: flex"
+        this.actionMessage.innerHTML = "Curse"
+        
         const hpHalved = this.maxHp / 2
         const normCurse = Math.floor(Math.random() * (this.maxHp - hpHalved) + hpHalved)
         // const curseDamage = this.round === 1 ? normCurse : Math.ceil((normCurse ** this.multiplier) / 10) * 10
@@ -168,6 +181,9 @@ class Character {
 
     //AI Response
     magickedPlus = () => {
+        this.messageContainer.style = "display: flex"
+        this.actionMessage.innerHTML = "Curse"
+
         const sevenths = this.maxHp * 0.70
         const damages = Math.floor(Math.random() * (this.maxHp - sevenths) + sevenths)
         
