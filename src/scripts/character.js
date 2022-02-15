@@ -56,14 +56,19 @@ class Character {
         // this.randomizer = Math.floor(Math.random() * (max - min) + min)
         
         //ascension --- ascension percentage
-        // this.damages = 0
         this.ap = 0
+
+        //action message
+        this.actionMessage = document.querySelector(".message-container")
 
         //Image
         this.zodiacPath = zodiac.Image
     }
 
     attacked = () => {
+        this.actionMessage.style = "display: flex"
+        this.actionMessage.innerHTML = "Attack"
+
         const normAttack = Math.floor(Math.random() * (35 - 20) + 20)
         const attackDamage = this.round === 1 ? normAttack : Math.ceil((normAttack ** this.multiplier) / 10) * 10
 

@@ -511,6 +511,31 @@ canvas {
   font-size: 50px;
 }
 
+.message-width-maker {
+  width: 100vw;
+  justify-content: center;
+}
+
+.message-container {
+  display: none;
+  border: 1px solid #ffffff42;
+  position: fixed;
+  width: 16%;
+  height: 40px;
+  background: rgba(60, 60, 60, 0.4);
+  top: 10%;
+  border-radius: 15px;
+  justify-content: center;
+}
+
+.action-message {
+  position: relative;
+  color: white;
+  font-family: monospace;
+  top: 37%;
+  font-size: 16px;
+}
+
 .player {
   color: red;
   font-size: xx-large;
