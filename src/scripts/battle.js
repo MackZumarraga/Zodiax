@@ -1136,10 +1136,11 @@ class Battle {
         this.slayed.push(this.opponent.name)
         console.log(`after a battle ${this.slayed}`);
 
-        this.round += 1;
+        // this.round += 1;
         this.gameState += 1;
 
-        if (this.round < 13) {
+        if (this.round < 12) {
+            this.round += 1;
             //pre zodius
             const won = document.querySelector(".won")
             const next = document.querySelector(".restart_won")
@@ -1150,6 +1151,7 @@ class Battle {
                 next.style = "display: flex"
             });
         } else {
+            this.round = 1;
             //pre zodius
             const wonFinished = document.querySelector(".finished-container")
             const restart = document.querySelector(".restart-game")
