@@ -17,14 +17,14 @@ Zodiax is a turn-based strategy game centered on the 12 zodiac signs. The player
 ## Main Features  
 
 ### Select Player and Introduction Modal  
-- instructions on the basic mechanics of the game is laid out in a concise manner  
+- instructions on the mechanics of the game  
 - users are able to select a zodiac from an introduction modal as their character before a match begins  
 
 ![image](https://user-images.githubusercontent.com/86270564/154357804-c80a55c5-a8c5-4354-af1e-38fd59fa2e5c.png)
 
 
 ### Command Panel and Animation  
-- interact with a command panel that displays character status the player's available actions	
+- interact with a command panel that displays character status and available actions	
 - battle against other AI controlled zodiac characters (implemented randomized opponent generator)
 - selected action capabilities (attack, magic, heal) display changes in player's HP and MP
 - Canvas API renders characters and action animations  
