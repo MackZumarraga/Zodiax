@@ -66,7 +66,9 @@ class Character {
         this.magic = this.zodiac.Magic
 
         //Image
-        this.zodiacPath = zodiac.Image
+        // this.zodiacPath = zodiac.Image
+        this.playerPath = zodiac.Right
+        this.enemyPath = zodiac.Left
     }
 
     attacked = () => {

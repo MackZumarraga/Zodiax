@@ -77,8 +77,10 @@ class GameView {
             this.player = new Player(this.game.battle.player, this.xplayer, this.yplayer, this.xsize, this.ysize, this.ctx)
             this.enemy = new Player(this.game.battle.opponent, this.xenemy, this.yenemy, this.xsize, this.ysize, this.ctx)
             
-            let playerPath = this.game.battle.player.zodiacPath
-            let enemyPath = this.game.battle.opponent.zodiacPath
+            // let playerPath = this.game.battle.player.zodiacPath
+            // let enemyPath = this.game.battle.opponent.zodiacPath
+            let playerPath = this.game.battle.player.playerPath
+            let enemyPath = this.game.battle.opponent.enemyPath
 
             let drawPlayer;
             let drawEnemy;
