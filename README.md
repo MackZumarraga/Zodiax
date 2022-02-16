@@ -32,7 +32,7 @@ Zodiax is a turn-based strategy game centered on the 12 zodiac signs. The player
 ![image](https://user-images.githubusercontent.com/86270564/154359447-95f2abc0-7161-4065-a530-58dee71b6ac2.png)
 ![image](https://user-images.githubusercontent.com/86270564/154359871-ed3748a5-c69c-4273-8cb7-1e7a9562c102.png)  
 
-### Code Snippet  
+### Code Snippets  
 #### AI Response to Magic and use of Vanilla JavaScript to modify DOM elements
 ```
 aiResponseMagick = () => {
@@ -62,10 +62,32 @@ aiResponseMagick = () => {
         }
 
         commands.style = "display: none"
+```  
+#### Canvas API used to generate particles
 ```
+animate = () => {
+        requestAnimationFrame(this.animate)
+        
+  
+        //STARRY BACKGROUND
+        this.ctx.fillStyle = 'rgba(10, 10, 10, 1)'
+        this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height)
+
+        this.ctx.save()
+        this.ctx.translate(this.canvas.width / 2, this.canvas.height / 2)
+        this.ctx.rotate(this.radians)
+
+        this.particles.forEach(particle => {
+            particle.update();
+        })
+
+        this.ctx.restore()
+
+        this.radians += 0.001
+```  
 	
 ### Additional Features
-- music added during game play, match won, and match lost (including mute/unmute music button)
+- original music added during game play, match won, and match lost (including mute/unmute music button)
 - restart game  
 
 ### Bonus Features
