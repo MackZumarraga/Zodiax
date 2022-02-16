@@ -1,9 +1,6 @@
 import Particle from "../canvas/particle";
 import Player from "../canvas/player";
 
-let zodiacs = require('./zodiacs').zodiacs
-let zodiacsArr = ["Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo", "Libra", "Scorpio", "Sagittarius", "Capricorn", "Aquarius", "Pisces"]
-
 class GameView {
     constructor(game, canvas, ctx) {
         this.ctx = ctx
@@ -30,13 +27,6 @@ class GameView {
         
         this.player = new Player(this.playerPath, this.xplayer, this.yplayer, this.xsize, this.ysize, this.ctx)
         this.enemy = new Player(this.enemyPath, this.xenemy, this.yenemy, this.xsize, this.ysize, this.ctx)
-        
-        // console.log(`player from gameView ${this.player}`)
-        // console.log(`enemy from gameView ${this.enemy}`)
-
-        
-
-        //FUNCTIONS
 
         this.animate = this.animate.bind(this)
     }
@@ -67,18 +57,9 @@ class GameView {
         
         if (this.game.animation === 1) {
 
-        // // const player = new Player(this.x, this.y, 60, 'green', this.ctx)
-        // // const enemy = new Player(this.x, (this.y / 2), 60, 'orange', this.ctx)
-        
-        // const player = new Player(this.x, this.y, this.xsize, this.ysize, this.ctx)
-        // const enemy = new Player(this.x, (this.y / 2), this.xsize, this.ysize, this.ctx)
-            // debugger
-
             this.player = new Player(this.game.battle.player, this.xplayer, this.yplayer, this.xsize, this.ysize, this.ctx)
             this.enemy = new Player(this.game.battle.opponent, this.xenemy, this.yenemy, this.xsize, this.ysize, this.ctx)
-            
-            // let playerPath = this.game.battle.player.zodiacPath
-            // let enemyPath = this.game.battle.opponent.zodiacPath
+
             let playerPath = this.game.battle.player.playerPath
             let enemyPath = this.game.battle.opponent.enemyPath
 
@@ -91,8 +72,6 @@ class GameView {
             this.player = drawPlayer
             this.enemy = drawEnemy
 
-            // console.log(drawPlayer)
-            // console.log(drawEnemy)
             this.player.update(playerPath);
             this.enemy.update(enemyPath);
             
@@ -103,7 +82,6 @@ class GameView {
        
         
         //ACTION EFFECTS
-        // debugger
         if (this.game.battle === null) {
             return;
         }
@@ -115,46 +93,33 @@ class GameView {
 
         if (this.game.battle.battleState === 1) {
             const attackAnimation = new Particle(window.innerWidth * 0.35, window.innerHeight * 0.30, 2, '#98FB98', this.ctx)
-            // attackAnimation.draw();
-            // attackAnimation.update();
             attackAnimation.attackDraw();
         };
 
         if (this.game.battle.battleState === 2) {
             const attackAIAnimation = new Particle(window.innerWidth * 0.64, window.innerHeight * 0.30, 2, '#48D1CC', this.ctx)
-            // attackAnimation.draw();
-            // attackAnimation.update();
             attackAIAnimation.attackAIDraw();
         }
 
         if (this.game.battle.battleState === 3) {
             const magicAnimation = new Particle(window.innerWidth * 0.35, window.innerHeight * 0.30, 20, '#98FB98', this.ctx)
-            // attackAnimation.draw();
-            // attackAnimation.update();
             magicAnimation.attackDraw();
         }
 
         if (this.game.battle.battleState === 4) {
             const magicAIAnimation = new Particle(window.innerWidth * 0.64, window.innerHeight * 0.30, 20, '#48D1CC', this.ctx)
-            // attackAnimation.draw();
-            // attackAnimation.update();
             magicAIAnimation.attackAIDraw();
         }
 
         if (this.game.battle.battleState === 5) {
             const healAnimation = new Particle(window.innerWidth * 0.25, window.innerHeight * 0.37, 20, '#00FF00', this.ctx)
-            // attackAnimation.draw();
-            // attackAnimation.update();
             healAnimation.healAnimation();
         }
 
         if (this.game.battle.battleState === 6) {
             const healAnimation = new Particle(window.innerWidth * 0.64, window.innerHeight * 0.30, 20, '#00FF00', this.ctx)
-            // attackAnimation.draw();
-            // attackAnimation.update();
             healAnimation.healAnimation();
         }
-        //COMMAND PANEL
 
     }
 
@@ -174,14 +139,7 @@ class GameView {
 
             this.particles.push(new Particle(x, y, radius, color, this.ctx))
         }
-
-        // console.log(this.particles)
     }
-
- 
-
-
-
 }
 
 
