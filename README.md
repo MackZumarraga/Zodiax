@@ -1,8 +1,9 @@
 # Zodiax
 
 ## BACKGROUND AND OVERVIEW
-Zodiax is a turn-based strategy game centered on the 12 zodiac signs. The player is able to take turns and fight an AI controlled zodiac opponent. Each zodiac character has its own unique set of attributes including skills, magic, and default actions. These actions will be displayed in a command panel which players can interact with. Their choices will determine whether their strategy benefits them in the upcoming turn. Once all characters of any party dies, the game ends and the winner is declared.
-      
+Zodiax is a turn-based strategy game centered on the 12 zodiac signs. The player is able to take turns and fight an AI controlled zodiac opponent. Each zodiac character has its own unique set of attributes including skills, magic, and default actions. These actions will be displayed in a command panel which players can interact with. Their choices will determine whether their strategy benefits them in the upcoming match (12 matches in total). Once any player's HP reaches 0, the match ends and the game either progresses or halts.
+
+**Check out the game by clicking this link!**   
 [Link to live version](https://mackzumarraga.github.io/Zodiax/)
       
 
@@ -13,59 +14,31 @@ Zodiax is a turn-based strategy game centered on the 12 zodiac signs. The player
 - npm
 
 
-## FUNCTIONALITY AND MVPS
-##### In Zodiac Wars, users will be able to (with images/gifs)
-- select a party of four characters where each zodiac will have varying characteristics
-- interact with a command panel that displays charater states and accepts player's actions	
-- battle against other AI controlled zodiac characters
+## Main Features  
+
+### Select Player and Introduction Modal  
+- instructions on the basic mechanics of the game is laid out in a concise manner  
+- users are able to select a zodiac from an introduction modal as their character before a match begins  
+
+![image](https://user-images.githubusercontent.com/86270564/154357804-c80a55c5-a8c5-4354-af1e-38fd59fa2e5c.png)
+
+
+### Command Panel and Animation  
+- interact with a command panel that displays character status the player's available actions	
+- battle against other AI controlled zodiac characters (implemented randomized opponent generator)
+- selected action capabilities (attack, magic, heal) display changes in player's HP and MP
+- Canvas API renders characters and action animations  
+
+![image](https://user-images.githubusercontent.com/86270564/154359447-95f2abc0-7161-4065-a530-58dee71b6ac2.png)
+![image](https://user-images.githubusercontent.com/86270564/154359871-ed3748a5-c69c-4273-8cb7-1e7a9562c102.png)  
 	
-#### Additional Features
-- Game rule
-- Production README
-  
-  
-## WIREFRAME
-![screenshot](https://user-images.githubusercontent.com/86270564/144552361-50f9aba1-faa7-43bd-ae0d-d39bf7389266.PNG)
-
-	-nav links to github repo, linkedin, angellist
-	-game controls picking party members, 
-	-command panel actions
-	-restart, pause, quit game
-	-mute/unmute music button
-
-
-## IMPLEMENTATION TIMELINE
-- Friday Afternoon and Weekend: **CHARACTER AND BATTLE SYSTEM**
- 	- create skeleton character (for user and AI opponent) using Canvas
-		- define characters/opponents and their specific attributes and capabilities
-	- create command panel sections using Canvas
-		- display character state
-		- display timer gauge
-		- display action options
-	- create arena as background using Canvas
-	- create menu for selecting party members
-		- implement randomized opponent generator
-		
-- Monday: **COMMAND PANEL FEATURES**
-	- implement action capabilities (attack, magic, heal)
-		- display changes in hp and mp (increase or decrease based on action/s)
-
-- Tuesday: **GAME SETUP**
-	- create the turn base timer forcing player's queued actions to execute and switch from user to AI
-		- implement AI response
-	- add landing page
-		- create introduction, game over, about me links section
-
-- Wednesday: **DESIGN**
-	- enhance character, command panel, and arena design
-	- add music
-	- edit readme with code snippets and images/gifs 
-	- if there's time -> bonus features
-
+### Additional Features
+- music added during game play, match won, and match lost (including mute/unmute music button)
+- restart game  
 
 ### Bonus Features
-- select difficulty and access secret boss
+- select multiple players
 - navigate character in an open world containing access points to specific locations
 - gain experience points and money after each battle that will allow them to modify character's attributes inside a customizations menu (pops up after each battle)
-- create customization menu where a user can buy items/weapons/armor to enhance attributes or simply equip a different weapon/armor (items slots will be limited during actual battle so a user must choose wisely)
-- engage in a dialogue with non-playable characters
+- implement player abilities/status customization menu 
+- add non-playable characters
