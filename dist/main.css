@@ -157,7 +157,7 @@ table {
   height: 250px;
   bottom: 20px;
   right: 0;
-  left: 10%;
+  left: 12%;
   background: #3c3c3c;
   background: rgba(60, 60, 60, 0.4);
   border-radius: 60px;
@@ -289,7 +289,7 @@ table {
   color: white;
   position: fixed;
   font-size: 30px;
-  left: 30%;
+  left: 37%;
   top: 20%;
 }
 
@@ -361,8 +361,7 @@ table {
   width: 500px;
   height: 250px;
   bottom: 20px;
-  right: 0;
-  left: 64%;
+  right: 12%;
   background: #3c3c3c;
   background: rgba(60, 60, 60, 0.4);
   border-radius: 60px;
@@ -500,10 +499,10 @@ table {
   font-family: monospace;
   font-size: 50px;
   color: palegoldenrod;
-  margin-left: 10%;
+  margin-left: 5%;
   margin-top: 50px;
   border-bottom: 1px solid;
-  width: 81%;
+  width: 90%;
 }
 
 .navbar {
@@ -676,12 +675,13 @@ canvas {
 .message-container {
   display: none;
   position: fixed;
-  width: 16%;
-  height: 100px;
+  width: 91%;
+  height: 45px;
   background: rgba(60, 60, 60, 0.4);
-  bottom: 84px;
   border-radius: 15px;
   justify-content: center;
+  box-shadow: 0 0 10px #9ecaed;
+  top: 109px;
 }
 
 .action-message {

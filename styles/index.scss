@@ -92,12 +92,10 @@
     font-family: monospace;
     font-size: 50px;
     color: palegoldenrod;
-    // margin-left: 100px;
-    margin-left: 10%;
+    margin-left: 5%;
     margin-top: 50px;
-
     border-bottom: 1px solid;
-    width: 81%;
+    width: 90%;
 }
 
 .navbar {
@@ -306,17 +304,14 @@ canvas {
 
 .message-container {
     display: none;
-    // border: 1px solid #ffffff42;
     position: fixed;
-    // left: 39%;
-    width: 16%;
-    height: 100px;
+    width: 91%;
+    height: 45px;
     background: rgba(60, 60, 60, 0.4);
-    // top: 10%;
-    bottom: 84px;
     border-radius: 15px;
-    // display: flex;
     justify-content: center;
+    box-shadow: 0 0 10px #9ecaed;
+    top: 109px;
 }
 
 .action-message {

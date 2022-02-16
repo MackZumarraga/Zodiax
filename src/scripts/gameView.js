@@ -16,10 +16,10 @@ class GameView {
         this.particles = []
 
         // PLAYERS
-        this.xplayer = this.canvas.width * 0.10
+        this.xplayer = this.canvas.width * 0.12
         this.yplayer = this.canvas.height * 0.15
 
-        this.xenemy = this.canvas.width * 0.64
+        this.xenemy = this.canvas.width * 0.60
         this.yenemy = this.canvas.height * 0.15
 
         this.xsize = 500
