@@ -35,6 +35,13 @@ document.addEventListener("DOMContentLoaded", () => {
     view.initParticles();
     view.animate();
 
+    
+    //start music
+    const musicTag = document.getElementById("music");
+    document.querySelector(".modal").addEventListener("click", () => {
+        musicTag.play();
+    })
+
     /*DESIRED LAYOUT
     const Battle = require("./scripts/battle");
     const Animation = require("./scripts/animation");
