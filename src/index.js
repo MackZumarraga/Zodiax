@@ -36,10 +36,14 @@ document.addEventListener("DOMContentLoaded", () => {
     view.animate();
 
     
-    //start music
+    //start music and modal
     const musicTag = document.getElementById("music");
-    document.querySelector(".modal").addEventListener("click", () => {
+    const startModal = document.querySelector(".start-game");
+    const modalPage = document.querySelector(".start-modal");
+
+    startModal.addEventListener("click", () => {
         musicTag.play();
+        modalPage.style = "visibility: hidden; opacity: 0; transition: visibility 0s 2s, opacity 2s linear;"
     })
 
     /*DESIRED LAYOUT
