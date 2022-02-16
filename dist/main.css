@@ -531,18 +531,31 @@ table {
 .restart {
   cursor: pointer;
   width: 40%;
-  height: 50%;
+  height: 100%;
 }
 
 .restart:hover {
   cursor: pointer;
   background-color: rgba(255, 217, 0, 0.555);
   border-radius: 16px;
-  padding-top: 5px;
-  padding-bottom: 5px;
   text-align: center;
   width: 40%;
-  height: 50%;
+  height: 100%;
+}
+
+.music {
+  cursor: pointer;
+  width: 40%;
+  height: 100%;
+}
+
+.music:hover {
+  cursor: pointer;
+  background-color: rgba(255, 217, 0, 0.555);
+  border-radius: 16px;
+  text-align: center;
+  width: 40%;
+  height: 100%;
 }
 
 canvas {
