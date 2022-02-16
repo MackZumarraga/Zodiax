@@ -40,10 +40,21 @@ document.addEventListener("DOMContentLoaded", () => {
     const musicTag = document.getElementById("music");
     const startModal = document.querySelector(".start-game");
     const modalPage = document.querySelector(".start-modal");
+    const musicControl = document.querySelector(".music")
 
     startModal.addEventListener("click", () => {
         musicTag.play();
         modalPage.style = "visibility: hidden; opacity: 0; transition: visibility 0s 2s, opacity 2s linear;"
+    })
+
+    musicControl.addEventListener("click", () => {
+        if (musicControl.innerHTML === "music: ON") {
+            musicTag.pause();
+            musicControl.innerHTML = "music: OFF"
+        } else {
+            musicTag.play();
+            musicControl.innerHTML = "music: ON"
+        };
     })
 
     /*DESIRED LAYOUT
