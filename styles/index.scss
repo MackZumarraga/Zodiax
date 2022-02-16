@@ -328,6 +328,49 @@ canvas {
 }
 
 
+//links
+.mid-nav {
+    display: flex;
+    justify-content: space-evenly;
+    width: 200px;
+    position: fixed;
+    right: 9.8%;
+    border-radius: 16px;
+    margin-top: 6px;
+}
+
+.github-favicon {
+    width: 32px;
+    height: 32px;
+}
+
+.linked-in-favicon {
+    width: 32px;
+    height: 32px;
+}
+
+.angel-favicon {
+    width: 32px;
+    height: 32px;
+}
+
+.github-favicon:hover {
+    width: 32px;
+    height: 32px;
+    border-bottom: 1px solid palegoldenrod;
+}
+
+.linked-in-favicon:hover {
+    width: 32px;
+    height: 32px;
+    border-bottom: 1px solid palegoldenrod;
+}
+
+.angel-favicon:hover {
+    width: 32px;
+    height: 32px;
+    border-bottom: 1px solid palegoldenrod;
+}
 
 
 .player {
