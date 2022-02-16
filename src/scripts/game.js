@@ -73,6 +73,18 @@ class Game {
             debugger
             this.animation = 1
 
+            //music
+            const musicControl = document.querySelector(".music")
+            const musicTag = document.getElementById("music");
+            const musicTagWon = document.getElementById("music-won");
+
+            if (musicControl.innerHTML === "music: ON") {
+                musicTagWon.pause();
+                musicTagWon.currentTime = 0;
+                musicTag.play();
+            }
+            //music
+
             this.battle.resetBattle();
             
         })
@@ -95,6 +107,18 @@ class Game {
             this.turnsCounter = 1
             
             this.animation = 0
+
+            //music
+            const musicControl = document.querySelector(".music")
+            const musicTag = document.getElementById("music");
+            const musicTagLost = document.getElementById("music-lost");
+
+            if (musicControl.innerHTML === "music: ON") {
+                musicTagLost.pause();
+                musicTagLost.currentTime = 0;
+                musicTag.play();
+            }
+            //music
 
             this.init();
 
@@ -121,6 +145,18 @@ class Game {
             this.turnsCounter = 1
             
             this.animation = 0
+
+            //music
+            const musicControl = document.querySelector(".music")
+            const musicTag = document.getElementById("music");
+            const musicTagWon = document.getElementById("music-won");
+
+            if (musicControl.innerHTML === "music: ON") {
+                musicTagWon.pause();
+                musicTagWon.currentTime = 0;
+                musicTag.play();
+            }
+            //music
 
             this.init();
 
@@ -156,6 +192,7 @@ class Game {
             this.battle.round = 1;
             this.battle.slayed = [];
 
+            
             this.init();
 
   

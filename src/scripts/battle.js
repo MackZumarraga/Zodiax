@@ -1307,6 +1307,19 @@ class Battle {
 
 
     gameOver() {
+
+        //music
+        const musicControl = document.querySelector(".music")
+        const musicTag = document.getElementById("music");
+        const musicTagLost = document.getElementById("music-lost");
+
+        if (musicControl.innerHTML === "music: ON") {
+            musicTag.pause();
+            musicTag.currentTime = 0;
+            musicTagLost.play();
+        }
+        //music
+
         this.slayed = [];
         console.log(this.slayed);
 
@@ -1336,6 +1349,20 @@ class Battle {
     }
 
     gameWon() {
+
+        //music
+        const musicControl = document.querySelector(".music")
+        const musicTag = document.getElementById("music");
+        const musicTagWon = document.getElementById("music-won");
+
+        if (musicControl.innerHTML === "music: ON") {
+            musicTag.pause();
+            musicTag.currentTime = 0;
+            musicTagWon.play();
+        }
+        //music
+
+
         this.slayed.push(this.opponent.name)
         console.log(`after a battle ${this.slayed}`);
 
