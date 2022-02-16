@@ -212,6 +212,25 @@ canvas {
     font-family: monospace;
     cursor: pointer;
     font-size: 50px;
+    // border: 1px solid palegoldenrod;
+}
+
+.restart_lost_button:hover {
+    // display: none;
+    // display: flex;
+    // margin-top: 10px;
+    justify-content: center;
+    align-items: center;
+    color: rgb(255, 115, 0);
+    text-shadow: none;
+    font-family: monospace;
+    cursor: pointer;
+    font-size: 50px;
+    border: 1px solid palegoldenrod;
+    border-radius: 16px;
+    box-shadow: 0 0 10px #9ecaed;
+    width: 15%;
+    text-align: center;
 }
 
 .won {
@@ -250,6 +269,21 @@ canvas {
     font-family: monospace;
     cursor: pointer;
     font-size: 50px;
+}
+
+.restart_won_button:hover {
+    justify-content: center;
+    align-items: center;
+    color: palegoldenrod;
+    text-shadow: none;
+    font-family: monospace;
+    cursor: pointer;
+    font-size: 50px;
+    border: 1px solid palegoldenrod;
+    border-radius: 16px;
+    box-shadow: 0 0 10px #9ecaed;
+    width: 15%;
+    text-align: center;
 }
 
 .finished-container {
@@ -291,6 +325,21 @@ canvas {
     font-family: monospace;
     cursor: pointer;
     font-size: 50px;
+}
+
+.restart-game-button:hover {
+    justify-content: center;
+    align-items: center;
+    color: rgb(255, 115, 0);
+    text-shadow: none;
+    font-family: monospace;
+    cursor: pointer;
+    font-size: 50px;
+    border: 1px solid palegoldenrod;
+    border-radius: 16px;
+    box-shadow: 0 0 10px #9ecaed;
+    width: 15%;
+    text-align: center;
 }
 
 

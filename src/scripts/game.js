@@ -9,7 +9,7 @@ class Game {
         this.init();
         this.animation = 0
         this.ctx = ctx;
-        this.round = 11;
+        this.round = 1;
         this.roundContainer = document.querySelector(".round-number")
 
     }
