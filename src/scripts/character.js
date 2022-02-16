@@ -194,6 +194,7 @@ class Character {
             this.hp = 0
         } else {
             this.hp -= damages
+            this.ap = (this.ap + damages >= 100) ? 100 : this.ap + damages
         }
     }
 
